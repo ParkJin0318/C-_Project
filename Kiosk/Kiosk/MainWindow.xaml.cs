@@ -23,6 +23,12 @@ namespace Kiosk
         public MainWindow()
         {
             InitializeComponent();
+            setTime();
+        }
+
+        private void setTime()
+        {
+            Time.Text = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
         }
     }
 }

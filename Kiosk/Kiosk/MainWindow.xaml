@@ -7,6 +7,50 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+
+        <MediaElement Name="myMediaElement">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <MediaTimeline 
+                                    Source="res/play.mp4"
+                                    Storyboard.TargetName="myMediaElement"
+                                    RepeatBehavior="Forever" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+
+        <TextBlock
+            x:Name="Time"
+            Text="2020-09-22 12:01"
+            HorizontalAlignment="Right"
+            FontSize="20"
+            FontStyle="Italic"
+            Foreground="White"
+            Margin="0 20 40 0"/>
+
+        <TextBlock
+            Text="안녕하세요. 주문을 원하시면 아래 버튼을 눌러주세요."
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Foreground="White"/>
+
+        <Button
+            x:Name="Order_Btn"
+            Content="주문하기"
+            VerticalAlignment="Bottom"
+            Foreground="White"
+            Background="Red"
+            Margin="30"
+            Width="100"
+            Height="50"/>
     </Grid>
 </Window>
