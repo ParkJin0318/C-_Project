@@ -51,6 +51,6 @@
             Background="Red"
             Margin="30"
             Width="100"
-            Height="50"/>
+            Height="50" Click="Order_Btn_Click"/>
     </Grid>
 </Window>

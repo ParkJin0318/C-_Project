@@ -30,5 +30,10 @@ namespace Kiosk
         {
             Time.Text = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
         }
+
+        private void Order_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
