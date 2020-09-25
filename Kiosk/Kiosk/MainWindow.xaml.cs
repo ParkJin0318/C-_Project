@@ -23,17 +23,18 @@ namespace Kiosk
         public MainWindow()
         {
             InitializeComponent();
-            setTime();
+            SetTime();
         }
 
-        private void setTime()
+        private void SetTime()
         {
             Time.Text = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
         }
 
         private void Order_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            OrderPage page = new OrderPage();
+            this.Content = page;
         }
     }
 }

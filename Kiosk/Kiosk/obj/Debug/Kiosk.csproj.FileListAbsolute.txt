@@ -12,8 +12,6 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csproj.G
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csproj.CoreCompileInputs.cache
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.exe
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.pdb
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderWindow.g.cs
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderWindow.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\res\play.mp4
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk_Content.g.cs
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\res\play.mp4
@@ -35,3 +33,6 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.exe
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.pdb
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderPage.g.cs
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csprojAssemblyReference.cache
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderPage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\OrderPage.baml
