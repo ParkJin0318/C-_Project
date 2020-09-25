@@ -17,7 +17,7 @@ using System.Windows.Threading;
 namespace Kiosk
 {
     /// <summary>
-    /// OrderWindow.xaml에 대한 상호 작용 논리
+    /// OrderPage.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class OrderPage : Page
     {

@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:Kiosk"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="OrderWindow">
+      Title="OrderPage">
 
     <Grid>
         <TextBlock x:Name="Clock"
@@ -17,8 +17,8 @@
             </InlineUIContainer></TextBlock>
 
         <StackPanel Orientation="Horizontal" Width="261" HorizontalAlignment="Left" Margin="401,187,0,81">
-            <Image Source="C:\Users\Domong\Documents\GitHub\C-_Project/burger/bigMacBacon.png" Width="40" Margin="0,71,0,83"/>
-            <Button Content="Button" Width="215" Margin="0,0,0,46"/>
+            <Image Source="res/bigMacBacon.png" Width="111" Margin="0,71,0,31"/>
+            <Button Content="Button" Width="155" Margin="0,44,0,46"/>
 
         </StackPanel>
     </Grid>

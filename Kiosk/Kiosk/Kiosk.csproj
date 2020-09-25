@@ -103,6 +103,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="res\BIgMac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\bigMacBacon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\McSpicyShanghai.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="res\play.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
