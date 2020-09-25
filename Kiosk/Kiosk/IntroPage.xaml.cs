@@ -16,19 +16,18 @@ using System.Windows.Shapes;
 namespace Kiosk
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// IntroPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IntroPage : Page
     {
-        public MainWindow()
+        public IntroPage()
         {
             InitializeComponent();
-            SetTime();
         }
 
-        private void SetTime()
+        private void Order_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Time.Text = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
+            NavigationService.Navigate(new OrderPage());
         }
     }
 }

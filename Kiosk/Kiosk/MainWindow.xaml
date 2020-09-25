@@ -8,49 +8,29 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <MediaElement Name="myMediaElement">
-            <MediaElement.Triggers>
-                <EventTrigger RoutedEvent="MediaElement.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-
-                                <MediaTimeline 
-                                    Source="res/play.mp4"
-                                    Storyboard.TargetName="myMediaElement"
-                                    RepeatBehavior="Forever" />
-
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </MediaElement.Triggers>
-        </MediaElement>
-
         <TextBlock
             x:Name="Time"
             Text="2020-09-22 12:01"
-            HorizontalAlignment="Right"
+            Margin="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="20"
-            FontStyle="Italic"
-            Foreground="White"
-            Margin="0 20 40 0"/>
-
-        <TextBlock
-            Text="안녕하세요. 주문을 원하시면 아래 버튼을 눌러주세요."
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            FontSize="20"
-            Foreground="White"/>
+            Foreground="Black"/>
 
         <Button
-            x:Name="Order_Btn"
-            Content="주문하기"
+            x:Name="HomeButton"
+            Content="홈 이동"
+             Width="80"
+            Height="30"
+            Margin="20"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"/>
+
+        <Frame
+            x:Name="FrameLayout"
+            Height="350"
+            NavigationUIVisibility="Hidden"
             VerticalAlignment="Bottom"
-            Foreground="White"
-            Background="Red"
-            Margin="30"
-            Width="100"
-            Height="50" Click="Order_Btn_Click"/>
+            Source="IntroPage.xaml"/>
     </Grid>
 </Window>
