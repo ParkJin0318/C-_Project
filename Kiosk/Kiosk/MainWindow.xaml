@@ -15,7 +15,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="20"
-            Foreground="Black"/>
+            Foreground="White"/>
 
         <Button
             x:Name="HomeButton"
@@ -23,14 +23,14 @@
              Width="80"
             Height="30"
             Margin="20"
+            Background="White"
             VerticalAlignment="Top"
             HorizontalAlignment="Right"/>
 
         <Frame
             x:Name="FrameLayout"
-            Height="350"
+            Margin="0 70 0 0"
             NavigationUIVisibility="Hidden"
-            VerticalAlignment="Bottom"
             Source="IntroPage.xaml"/>
     </Grid>
 </Window>

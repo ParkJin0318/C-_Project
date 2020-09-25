@@ -10,25 +10,37 @@
 
     <Grid>
         <Label
-         Content="식사 할 장소를 선택해주세요."
-         FontSize="24pt"
-         Foreground="Black"
-         Margin="20, 30, 340, 360"/>
+             Content="식사 할 장소를 선택해주세요."
+             FontSize="24"
+             VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="10"
+             Foreground="Black"/>
+        
         <Button
             x:Name="InMarket"
             Content="매장 식사"
-            FontSize="26pt"
+            FontSize="26"
             FontWeight="Bold"
+            Width="200"
+            Height="200"
             Foreground="White"
-            Margin="190,170,435,170"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="20"
             Background="Red"/>
+        
         <Button
             x:Name="OutMarket"
             Content="포장 주문"
-            FontSize="26pt"
+           FontSize="26"
             FontWeight="Bold"
+            Width="200"
+            Height="200"
             Foreground="White"
-            Margin="435,170,190,170"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            Margin="20"
             Background="Red"/>
         <Button
             x:Name="back"
@@ -36,7 +48,11 @@
             FontSize="18pt"
             FontWeight="Bold"
             Foreground="White"
-            Margin="330,360,330,50"
+            Width="100"
+            Height="100"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
             Background="Red"/>
     </Grid>
 </Page>
