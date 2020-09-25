@@ -24,5 +24,20 @@ namespace Kiosk
         {
             InitializeComponent();
         }
+
+        private void InMarket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OutMarket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrderPage());
+        }
     }
 }

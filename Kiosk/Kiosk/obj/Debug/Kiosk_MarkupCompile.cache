@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\
 Kiosk
 none
 false
 DEBUG;TRACE
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
 4-1331180921
 11174109075
-81629434006
+9787074639
 13-1505183044
 IntroPage.xaml;MainWindow.xaml;OrderPage.xaml;PlacePage.xaml;
 
-False
+True
 

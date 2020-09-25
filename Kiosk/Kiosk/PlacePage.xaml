@@ -13,8 +13,8 @@
              Content="식사 할 장소를 선택해주세요."
              FontSize="24"
              VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="10"
+             HorizontalAlignment="Left"
+             Margin="40"
              Foreground="Black"/>
         
         <Button
@@ -22,25 +22,25 @@
             Content="매장 식사"
             FontSize="26"
             FontWeight="Bold"
-            Width="200"
-            Height="200"
+            Width="160"
+            Height="160"
             Foreground="White"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            Margin="20"
+            Margin="150"
             Background="Red"/>
         
         <Button
             x:Name="OutMarket"
             Content="포장 주문"
-           FontSize="26"
+            FontSize="26"
             FontWeight="Bold"
-            Width="200"
-            Height="200"
+            Width="160"
+            Height="160"
             Foreground="White"
             VerticalAlignment="Center"
             HorizontalAlignment="Right"
-            Margin="20"
+            Margin="150"
             Background="Red"/>
         <Button
             x:Name="back"
@@ -48,9 +48,9 @@
             FontSize="18pt"
             FontWeight="Bold"
             Foreground="White"
-            Width="100"
-            Height="100"
-            Margin="10"
+            Width="150"
+            Height="50"
+            Margin="20"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             Background="Red"/>
