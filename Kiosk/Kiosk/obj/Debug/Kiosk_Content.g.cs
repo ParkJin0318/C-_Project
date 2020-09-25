@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/bigmac.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/bigmacbacon.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/mcspicyshanghai.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/play.mp4")]
 
 

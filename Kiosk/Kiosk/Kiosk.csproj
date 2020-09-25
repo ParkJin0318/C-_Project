@@ -110,15 +110,24 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="res\BIgMac.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\bigMacBacon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\McSpicyShanghai.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="res\burger\1955.png" />
+    <Resource Include="res\burger\baconTomatoDeluxe.png" />
+    <Resource Include="res\burger\BIgMac.png" />
+    <Resource Include="res\burger\bigMacBacon.png" />
+    <Resource Include="res\burger\bulgogi.png" />
+    <Resource Include="res\burger\cheese.png" />
+    <Resource Include="res\burger\double1955.png" />
+    <Resource Include="res\burger\doubleBulgogi.png" />
+    <Resource Include="res\burger\doubleCheese.png" />
+    <Resource Include="res\burger\doubleQuarterPounterCheese.png" />
+    <Resource Include="res\burger\eggBulgogi.png" />
+    <Resource Include="res\burger\ham.png" />
+    <Resource Include="res\burger\mcChicken.png" />
+    <Resource Include="res\burger\mcChickenMozzarella.png" />
+    <Resource Include="res\burger\mcSpicyShanghai.png" />
+    <Resource Include="res\burger\quarterPounderCheese.png" />
+    <Resource Include="res\burger\shrimpBeef.png" />
+    <Resource Include="res\burger\supremeShrimp.png" />
     <Content Include="res\play.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

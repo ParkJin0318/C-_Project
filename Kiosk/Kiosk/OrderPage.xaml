@@ -10,16 +10,16 @@
       Title="OrderPage">
 
     <Grid>
-        <TextBlock x:Name="Clock"
-               FontSize="24"
-               Foreground="White"
-               FontWeight="Bold"><InlineUIContainer>
-            </InlineUIContainer></TextBlock>
+        <StackPanel Orientation="Horizontal" 
+                    Width="115" 
+                    HorizontalAlignment="Left"
+                    Height="80">
+            <Button HorizontalAlignment="Left" 
+                    Name="button1" 
+                    VerticalAlignment="Top">
+                <Image Source="res/burger/bigMacBacon.png" Width="Auto" />
 
-        <StackPanel Orientation="Horizontal" Width="261" HorizontalAlignment="Left" Margin="401,187,0,81">
-            <Image Source="res/bigMacBacon.png" Width="111" Margin="0,71,0,31"/>
-            <Button Content="Button" Width="155" Margin="0,44,0,46"/>
-
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
