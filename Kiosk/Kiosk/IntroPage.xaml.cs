@@ -27,7 +27,7 @@ namespace Kiosk
 
         private void Order_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PlacePage());
+            NavigationService.Navigate(new OrderPage());
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kiosk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="WhiteSmoke">
 
         <TextBlock
             x:Name="Time"
@@ -15,7 +15,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="20"
-            Foreground="White"/>
+            Foreground="Black"/>
 
         <Button
             x:Name="HomeButton"
@@ -25,7 +25,7 @@
             Margin="20"
             Background="White"
             VerticalAlignment="Top"
-            HorizontalAlignment="Right"/>
+            HorizontalAlignment="Right" Click="HomeButton_Click"/>
 
         <Frame
             x:Name="FrameLayout"
