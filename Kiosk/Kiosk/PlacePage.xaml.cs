@@ -27,17 +27,20 @@ namespace Kiosk
 
         private void InMarket_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("in market clicked");
+            NavigationService.Navigate(new IntroPage());
         }
 
         private void OutMarket_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("out market clicked");
+            NavigationService.Navigate(new IntroPage());
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new OrderPage());
+            MessageBox.Show("back clicked");
+
         }
     }
 }
