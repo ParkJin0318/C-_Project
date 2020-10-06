@@ -67,3 +67,7 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.pdb
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.g.cs
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\PlacePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\PlacePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.baml

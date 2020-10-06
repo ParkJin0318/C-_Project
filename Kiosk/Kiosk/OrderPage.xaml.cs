@@ -25,5 +25,14 @@ namespace Kiosk
         {
             InitializeComponent();
         }
+        private void Order_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new IntroPage());
+        }
+
+        private void Order_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PlacePage());
+        }
     }
 }

@@ -10,16 +10,185 @@
       Title="OrderPage">
 
     <Grid>
-        <StackPanel Orientation="Horizontal" 
-                    Width="115" 
-                    HorizontalAlignment="Left"
-                    Height="80">
+        <ListBox x:Name="lbCategory"
+                 Width="auto"
+                 Height="35"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 FontSize="15"
+                 Margin="35,0,0,0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel 
+                        IsItemsHost="True"              
+                        Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter 
+                        Property="HorizontalAlignment"
+                        Value="Center"/>
+                    <Setter 
+                        Property="Background"
+                        Value="Transparent"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBoxItem
+                Margin="20,0,15,0">햄버거</ListBoxItem>
+            <ListBoxItem
+                Margin="0,0,15,0">음료수</ListBoxItem>
+            <ListBoxItem
+                Margin="0,0,20,0">사이드 메뉴</ListBoxItem>
+        </ListBox>
+        
+        <ListBox x:Name="lbCategory1"
+                 FontSize="16" FontWeight="SemiBold"
+                 VerticalAlignment="Top"
+                 BorderBrush="Transparent"
+                 Margin="0 50 0 0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel IsItemsHost="True"
+                                            Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Foreground"
+                            Value="Gray" />
+                    <Setter Property="Background"
+                            Value="Transparent" />
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                    <Setter Property="VerticalContentAlignment"
+                            Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                    <Setter Property="Padding"
+                            Value="18,10,18,10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <Grid>
+                                    <Border x:Name="Bd"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Background="{TemplateBinding Background}"
+                                            Padding="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="true">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
+                                    </Border>
+                                    <Border x:Name="UnderBd"
+                                            Margin="18,0,18,0" VerticalAlignment="Bottom" 
+                                            BorderBrush="Transparent" BorderThickness="2"></Border>
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected"
+                                             Value="true">
+                                        <Setter Property="Foreground"
+                                                Value="#E22219" />
+                                        <Setter TargetName="UnderBd" Property="BorderBrush"
+                                                Value="#E22219" />
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="true">
+                                        <Setter Property="Foreground"
+                                                Value="Black" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBoxItem>스페셜&amp;할인팩</ListBoxItem>
+            <ListBoxItem>프리미엄</ListBoxItem>
+            <ListBoxItem>와퍼</ListBoxItem>
+        </ListBox>
+        
+
+        <StackPanel 
+            Orientation="Horizontal" 
+            Width="115" 
+            HorizontalAlignment="Left"
+            Height="80">
+            
+            <Button 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" 
+                Name="button1">
+                <Image 
+                    Source="res/burger/bigMacBacon.png" 
+                    Width="Auto"/>
+
+            </Button>
+
             <Button HorizontalAlignment="Left" 
-                    Name="button1" 
+                    Name="button0" 
                     VerticalAlignment="Top">
-                <Image Source="res/burger/bigMacBacon.png" Width="Auto" />
+                <Image Source="res/burger/1955.png" Width="Auto" />
+
+            </Button>
+
+            <Button HorizontalAlignment="Left" 
+                    Name="button" 
+                    VerticalAlignment="Top">
+                <Image Source="res/burger/baconTomatoDeluxe.png" Width="Auto" />
 
             </Button>
         </StackPanel>
+
+        <StackPanel 
+            Orientation="Horizontal" 
+            Width="115" 
+            HorizontalAlignment="Left"
+            Height="80">
+            
+            <Button HorizontalAlignment="Left" 
+                    Name="button4" 
+                    VerticalAlignment="Top">
+                <Image Source="res/burger/1955.png" Width="Auto" />
+
+            </Button>
+        </StackPanel>
+
+        <Button
+            x:Name="before"
+            Content="이전"
+            VerticalAlignment="Bottom"
+            Foreground="White"
+            Background="Gray"
+            
+            />
+
+
+
+        <Button
+            x:Name="Order_Cancel"
+            Content="주문취소"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Foreground="White"
+            Background="#008299"
+            Margin="515,0,185,30"
+            Width="100"
+            Height="40"
+            Click="Order_Cancel_Click"/>
+        <Button
+            x:Name="Order_Button"
+            Content="주문하기"
+            VerticalAlignment="Bottom"
+            Foreground="White"
+            Background="#008299"
+            Margin="624,0,76,30"
+            Width="100"
+            Height="40"
+            Click="Order_Button_Click"/>
     </Grid>
 </Page>
