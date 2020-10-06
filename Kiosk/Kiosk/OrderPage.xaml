@@ -10,9 +10,10 @@
       Title="OrderPage">
 
     <Grid>
-        <ListBox x:Name="Category"
+        <ListBox x:Name="xCategory"
                  Width="auto"
                  Height="35"
+                 SelectionChanged="xCategory_SelectionChanged"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
                  FontSize="15"
@@ -39,42 +40,42 @@
             <ListBoxItem
                 Margin="20,0,15,0">햄버거</ListBoxItem>
             <ListBoxItem
-                Margin="0,0,15,0">음료수</ListBoxItem>
+                Margin="0,0,15,0">치킨</ListBoxItem>
             <ListBoxItem
                 Margin="0,0,20,0">사이드 메뉴</ListBoxItem>
         </ListBox>
 
-      
-
-        <StackPanel 
-            Orientation="Horizontal" 
-            Width="115" 
-            HorizontalAlignment="Left"
-            Height="80">
-
-            <Button 
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                Name="button1">
-                <Image 
-                    Source="res/burger/bigMacBacon.png" 
-                    Width="Auto"/>
-
-            </Button>
-        </StackPanel>
-
+        <Grid Grid.Row="1">
+            <ListBox x:Name="xMenus"
+                     Margin="150,0,0,0"
+                     FontSize="16"
+                     VerticalAlignment="Top"
+                     BorderBrush="Transparent"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="250" Height="250">
+                            <Image Source="{Binding imagePath}"/>
+                            <TextBlock Text="{Binding name}" Margin="0,24,0,0" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
 
         <Button
             x:Name="before"
             Content="이전"
             VerticalAlignment="Bottom"
             Foreground="White"
-            Background="Gray"
-            
-            />
-
-
-
+            Background="Gray" />
+        
         <Button
             x:Name="Order_Cancel"
             Content="주문취소"
@@ -86,6 +87,7 @@
             Width="100"
             Height="40"
             Click="Order_Cancel_Click"/>
+        
         <Button
             x:Name="Order_Button"
             Content="주문하기"
@@ -95,6 +97,6 @@
             Margin="624,0,76,30"
             Width="100"
             Height="40"
-            Click="Order_Button_Click"/>
+            Click="Order_Button_Click" />
     </Grid>
 </Page>
