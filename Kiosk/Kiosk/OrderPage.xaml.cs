@@ -25,6 +25,13 @@ namespace Kiosk
         {
             InitializeComponent();
         }
+
+        private List<Food> lstFood = new List<Food>()
+        {
+
+
+        };
+
         private void Order_Cancel_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new IntroPage());
