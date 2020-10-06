@@ -16,28 +16,24 @@ using System.Windows.Shapes;
 namespace Kiosk
 {
     /// <summary>
-    /// PlacePage.xaml에 대한 상호 작용 논리
+    /// TablePage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PlacePage : Page
+    public partial class TablePage : Page
     {
-        public PlacePage()
+        public TablePage()
         {
             InitializeComponent();
+            checkTable();
         }
 
-        private void InMarket_Click(object sender, RoutedEventArgs e)
+        public void checkTable()
         {
-            NavigationService.Navigate(new TablePage());
+
         }
 
-        private void OutMarket_Click(object sender, RoutedEventArgs e)
+        private void Table_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new IntroPage());
-        }
-
-        private void back_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new IntroPage());
+            Button button = (Button)sender;
         }
     }
 }
