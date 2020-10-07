@@ -138,10 +138,10 @@
             Margin="20"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Background="Red"/>
+            Background="Red" Click="back_Click"/>
         <Button
             x:Name="next"
-            Content="이전"
+            Content="다음"
             FontSize="18pt"
             FontWeight="Bold"
             Foreground="White"
@@ -150,6 +150,7 @@
             Margin="20"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Background="Red"/>
+            Background="Red"
+            Click="next_Click"/>
     </Grid>
 </Page>

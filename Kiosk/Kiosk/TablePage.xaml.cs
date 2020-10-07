@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kiosk.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace Kiosk
     /// </summary>
     public partial class TablePage : Page
     {
+        TableData[] TData = new TableData[9];
+
         public TablePage()
         {
             InitializeComponent();
@@ -34,6 +37,16 @@ namespace Kiosk
         private void Table_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new IntroPage());
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PlacePage());
         }
     }
 }

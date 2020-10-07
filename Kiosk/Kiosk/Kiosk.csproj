@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
+    <Compile Include="model\TableData.cs" />
     <Compile Include="TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
