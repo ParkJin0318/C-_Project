@@ -30,7 +30,13 @@ namespace Kiosk
         private List<Food> foodList = new List<Food>()
         {
              new Food(){ category = Category.BURGER, name = "1955", imagePath = @"res/burger/1955.png" },
+             new Food(){ category = Category.BURGER, name = "베이컨 토마토 디럭스", imagePath = @"res/burger/baconTomatoDeluxe.png" },
+             new Food(){ category = Category.BURGER, name = "빅맥", imagePath = @"res/burger/BIgMac.png" },
+             new Food(){ category = Category.BURGER, name = "빅맥 베이컨", imagePath = @"res/burger/bigMacBacon.png" },
+             new Food(){ category = Category.BURGER, name = "불고기", imagePath = @"res/burger/bulgogi.png" },
              new Food(){ category = Category.BURGER, name = "치즈", imagePath = @"res/burger/cheese.png" },
+             new Food(){ category = Category.BURGER, name = "더블 1955", imagePath = @"res/burger/double1955.png" },
+             new Food(){ category = Category.BURGER, name = "더블 불고기", imagePath = @"res/burger/doubleBulgogi.png" },
 
              new Food(){ category = Category.CHICKEN, name = "ham", imagePath = @"res/burger/ham.png" },
              new Food(){ category = Category.CHICKEN, name = "mcChicken", imagePath = @"res/burger/1955.png" },
