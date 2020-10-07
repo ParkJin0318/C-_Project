@@ -25,6 +25,8 @@ namespace Kiosk
         {
             InitializeComponent();
             xCategory.SelectedIndex = 0;
+
+            listView.ItemsSource = foodList;
         }
 
         private List<Food> foodList = new List<Food>()

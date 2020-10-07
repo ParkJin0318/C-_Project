@@ -67,7 +67,7 @@
                     <ListBox x:Name="xMenus"
                      Margin="0,50,0,0"
                      FontSize="16"
-                     HorizontalAlignment="Left"
+                     HorizontalAlignment="Center"
                      BorderBrush="Transparent"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -89,6 +89,24 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </Grid>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <StackPanel
+                Orientation="Vertical"
+                HorizontalAlignment="Center">
+
+                <ListView x:Name="listView">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="이름" Width="100" DisplayMemberBinding="{Binding name}"/>
+                            <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding name}"/>
+                            <GridViewColumn Header="수량" Width="100" DisplayMemberBinding="{Binding name}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                
             </StackPanel>
         </Grid>
 
