@@ -3,7 +3,7 @@
     public enum Category
     {
         BURGER,
-        CHICKEN,
         DRINK,
+        SIDE,
     }
 }

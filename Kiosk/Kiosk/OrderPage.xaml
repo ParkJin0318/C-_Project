@@ -52,14 +52,14 @@
                     <ListBoxItem
                             Margin="10">햄버거</ListBoxItem>
                     <ListBoxItem
-                            Margin="10">치킨</ListBoxItem>
+                            Margin="10">드링크</ListBoxItem>
                     <ListBoxItem
                             Margin="10">사이드 메뉴</ListBoxItem>
                 </ListBox>
             </StackPanel>
 
             <StackPanel
-                 Orientation="Vertical"
+                Orientation="Vertical"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 
@@ -131,7 +131,7 @@
                     Margin="10"
                     Background="Red"
                     Width="100"
-                    Height="40" />
+                    Height="40" Click="Button_Click" />
             </StackPanel>
         </Grid>
 
