@@ -31,6 +31,6 @@
             x:Name="FrameLayout"
             Margin="0 70 0 0"
             NavigationUIVisibility="Hidden"
-            Source="IntroPage.xaml"/>
+            Source="intro/IntroPage.xaml"/>
     </Grid>
 </Window>

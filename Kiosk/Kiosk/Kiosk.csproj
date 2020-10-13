@@ -63,10 +63,10 @@
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TablePage.xaml.cs">
+    <Compile Include="table\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
-    <Page Include="IntroPage.xaml">
+    <Page Include="intro\IntroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,7 +78,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IntroPage.xaml.cs">
+    <Compile Include="intro\IntroPage.xaml.cs">
       <DependentUpon>IntroPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -93,11 +93,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlacePage.xaml">
+    <Page Include="place\PlacePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TablePage.xaml">
+    <Page Include="table\TablePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,7 +106,7 @@
     <Compile Include="order\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlacePage.xaml.cs">
+    <Compile Include="place\PlacePage.xaml.cs">
       <DependentUpon>PlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
