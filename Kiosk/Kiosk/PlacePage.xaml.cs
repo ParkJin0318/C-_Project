@@ -32,7 +32,7 @@ namespace Kiosk
 
         private void OutMarket_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new IntroPage());
+            NavigationService.Navigate(new PayPage());
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
