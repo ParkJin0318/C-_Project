@@ -32,8 +32,6 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csproj.C
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.exe
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.pdb
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csprojAssemblyReference.cache
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\IntroPage.g.cs
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\IntroPage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\res\play.mp4
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Kiosk.exe.config
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Kiosk.exe
@@ -59,10 +57,6 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.pdb
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.g.cs
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.baml
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\PlacePage.g.cs
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.g.cs
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\PlacePage.baml
-C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\TablePage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\order\OrderPage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\order\OrderPage.baml
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\order\OrderPage.g.cs
@@ -77,3 +71,15 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPag
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\PayPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CardPage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CashPage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CardPage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CashPage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.baml

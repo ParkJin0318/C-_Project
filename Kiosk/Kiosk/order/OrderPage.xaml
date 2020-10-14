@@ -27,9 +27,11 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
 
-                <ListBox x:Name="xCategory"
-                         SelectionChanged="xCategory_SelectionChanged"
-                         FontSize="15">
+                <ListBox 
+                    x:Name="xCategory"
+                    SelectionChanged="xCategory_SelectionChanged"
+                    FontSize="15">
+                    
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel 
@@ -40,21 +42,20 @@
 
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="{x:Type ListBoxItem}">
+                            
                             <Setter 
                                 Property="HorizontalAlignment"
                                 Value="Center"/>
+                            
                             <Setter 
                                 Property="Background"
                                 Value="Transparent"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
 
-                    <ListBoxItem
-                            Margin="10">햄버거</ListBoxItem>
-                    <ListBoxItem
-                            Margin="10">드링크</ListBoxItem>
-                    <ListBoxItem
-                            Margin="10">사이드 메뉴</ListBoxItem>
+                    <ListBoxItem Margin="10">햄버거</ListBoxItem>
+                    <ListBoxItem Margin="10">드링크</ListBoxItem>
+                    <ListBoxItem Margin="10">사이드 메뉴</ListBoxItem>
                 </ListBox>
             </StackPanel>
 
@@ -64,14 +65,16 @@
                 HorizontalAlignment="Center">
 
                 <Grid Grid.Row="1">
+                    
                     <ListBox x:Name="xMenus"
-                     Margin="0,50,0,0"
-                     FontSize="16"
-                     SelectionChanged="listBox_SelectionChanged"
-                     HorizontalAlignment="Center"
-                     BorderBrush="Transparent"
-                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                         Margin="0,50,0,0"
+                         FontSize="16"
+                         SelectionChanged="listBox_SelectionChanged"
+                         HorizontalAlignment="Center"
+                         BorderBrush="Transparent"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid 
@@ -79,12 +82,14 @@
                                     Rows="3"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
+                        
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel 
-                            Width="200" 
-                            Height="200"
-                            Margin="10,0,0,0">
+                                    Width="200" 
+                                    Height="200"
+                                    Margin="10,0,0,0">
+                                    
                                     <Image Source="{Binding imagePath}"/>
                                     <TextBlock Text="{Binding name}"/>
                                     <TextBlock Text="{Binding price}"/>
@@ -96,7 +101,9 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="0">
+        <Grid 
+            Grid.Column="1" 
+            Grid.Row="0">
             <StackPanel
                 Orientation="Vertical"
                 HorizontalAlignment="Center">
@@ -114,14 +121,16 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="1">
+        <Grid 
+            Grid.Column="0" 
+            Grid.Row="1">
             <StackPanel
                 Orientation="Horizontal"
                 HorizontalAlignment="Center">
 
                 <Button
                     Content="이전"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="Red"
@@ -130,7 +139,7 @@
 
                 <Button
                     Content="다음"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="Red"
@@ -139,7 +148,9 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid 
+            Grid.Column="1" 
+            Grid.Row="1">
             <StackPanel 
                 Orientation="Horizontal"
                 HorizontalAlignment="Center">
@@ -147,7 +158,7 @@
                 <Button
                     x:Name="Order_Cancel"
                     Content="주문취소"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="#008299"
@@ -158,7 +169,7 @@
                 <Button
                     x:Name="Order_Button"
                     Content="주문하기"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="#008299"

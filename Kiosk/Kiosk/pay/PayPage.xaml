@@ -11,57 +11,112 @@
 
     <Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
+        <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid 
+                Grid.Column="0" 
+                Grid.Row="0">
+                <StackPanel
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center">
+                    
+                    <Label
+                         Content="결재 방식을 선택하세요."
+                         FontSize="24"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Foreground="Black"/>
 
+                    <ListView x:Name="listView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="이름" Width="100" DisplayMemberBinding="{Binding name}"/>
+                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding name}"/>
+                                <GridViewColumn Header="수량" Width="100" DisplayMemberBinding="{Binding name}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        
+            <Grid 
+                Grid.Column="1" 
+                Grid.Row="0">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Grid.Row="0">
-            <StackPanel
-                Orientation="Vertical"
-                HorizontalAlignment="Center">
-
-                <Label
-                     Content="결재 방식을 선택하세요."
-                     FontSize="24"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center"
-                     Margin="10"
-                     Foreground="Black"/>
-
-                <ListView x:Name="listView">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="이름" Width="100" DisplayMemberBinding="{Binding name}"/>
-                            <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding name}"/>
-                            <GridViewColumn Header="수량" Width="100" DisplayMemberBinding="{Binding name}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-
-            </StackPanel>
+                <Grid
+                    Grid.Row="0">
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom">
+                        
+                        <Button
+                            Content="현금"
+                            Background="#008299"
+                            Foreground="White"
+                            FontSize="16"
+                            Width="140"
+                            Height="160"
+                            Margin="20" Click="Button_Click_2"/>
+                        
+                        <Button
+                            Content="카드"
+                            Background="#008299"
+                            Foreground="White"
+                            FontSize="16"
+                            Width="140"
+                            Height="160"
+                            Margin="20" Click="Button_Click_1"/>
+                    </StackPanel>
+                </Grid>
+                <Grid
+                    Grid.Row="1">
+                    
+                    <Label
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Content="총 금액:16000"
+                        FontSize="18"
+                        Margin="10"/>
+                </Grid>
+            </Grid>
         </Grid>
-
+        
+        
         <Grid Grid.Column="0" Grid.Row="1">
             <StackPanel
                 Orientation="Horizontal"
                 HorizontalAlignment="Center">
+                
                 <Button
-                    Content="이전"
-                    VerticalAlignment="Bottom"
+                    Content="주문취소"
+                    VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="#008299"
-                    Width="100"/>
+                    Width="100"
+                    Height="40"
+                    Click="Button_Click"/>
             </StackPanel>
         </Grid>
+
+        
 
 
     </Grid>

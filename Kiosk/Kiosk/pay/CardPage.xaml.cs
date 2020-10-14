@@ -1,5 +1,4 @@
-﻿using Kiosk.pay;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,31 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Kiosk
+namespace Kiosk.pay
 {
     /// <summary>
-    /// PayPage.xaml에 대한 상호 작용 논리
+    /// CardPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PayPage : Page
+    public partial class CardPage : Page
     {
-        public PayPage()
+        public CardPage()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PlacePage());
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new CardPage());
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new CashPage());
+            NavigationService.Navigate(new PayPage());
         }
     }
 }

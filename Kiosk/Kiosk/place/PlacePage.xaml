@@ -9,53 +9,76 @@
       Title="PlacePage">
 
     <Grid>
-        <Label
-             Content="식사 할 장소를 선택해주세요."
-             FontSize="24"
-             VerticalAlignment="Top"
-             HorizontalAlignment="Left"
-             Margin="40"
-             Foreground="Black"/>
-        
-        <Button
-            x:Name="InMarket"
-            Content="매장 식사"
-            FontSize="26"
-            FontWeight="Bold"
-            Width="160"
-            Height="160"
-            Foreground="White"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"
-            Margin="200 10 10 10"
-            Background="Red"
-            Click="InMarket_Click"/>
-        
-        <Button
-            x:Name="OutMarket"
-            Content="포장 주문"
-            FontSize="26"
-            FontWeight="Bold"
-            Width="160"
-            Height="160"
-            Foreground="White"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Right"
-            Margin="10 10 200 10"
-            Background="Red"
-            Click="OutMarket_Click"/>
-        <Button
-            x:Name="back"
-            Content="이전"
-            FontSize="18pt"
-            FontWeight="Bold"
-            Foreground="White"
-            Width="150"
-            Height="50"
-            Margin="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Background="Red"
-            Click="back_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="0">
+            <Label
+                 Content="식사 할 장소를 선택해주세요."
+                 FontSize="24"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 Margin="40"
+                 Foreground="Black"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid
+                Grid.Column="0">
+                <Button
+                    x:Name="InMarket"
+                    Content="매장 식사"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Width="160"
+                    Height="160"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Background="Red"
+                    Click="InMarket_Click"/>
+            </Grid>
+
+            <Grid
+                Grid.Column="1">
+                <Button
+                    x:Name="OutMarket"
+                    Content="포장 주문"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Width="160"
+                    Height="160"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Background="Red"
+                    Click="OutMarket_Click"/>
+            </Grid>
+        </Grid>
+        <Grid
+            Grid.Row="2">
+            <Button
+                x:Name="back"
+                Content="이전"
+                FontSize="18pt"
+                FontWeight="Bold"
+                Foreground="White"
+                Width="150"
+                Height="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="Red"
+                Click="back_Click"/>
+        </Grid>
     </Grid>
 </Page>

@@ -60,6 +60,15 @@
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
     <Compile Include="model\TableData.cs" />
+    <Compile Include="pay\CardPage.xaml.cs">
+      <DependentUpon>CardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pay\CashPage.xaml.cs">
+      <DependentUpon>CashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pay\CompletePage.xaml.cs">
+      <DependentUpon>CompletePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +97,18 @@
     <Page Include="order\OrderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pay\CardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pay\CashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pay\CompletePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pay\PayPage.xaml">
       <SubType>Designer</SubType>
