@@ -83,3 +83,15 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePag
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.baml
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.g.cs
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CardPage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CashPage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CardPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CashPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CompletePage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Prism.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.ValueTuple.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Prism.pdb
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Prism.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.ValueTuple.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csproj.CopyComplete

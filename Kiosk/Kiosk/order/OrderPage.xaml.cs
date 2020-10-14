@@ -27,14 +27,7 @@ namespace Kiosk
         {
             InitializeComponent();
             xCategory.SelectedIndex = 0;
-
             listView.ItemsSource = selectFoodList;
-        }
-
-        private void PlaceholdersListBox_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ListBox listBox = (ListBox)sender;
-            MessageBox.Show(listBox.SelectedItem.ToString());
         }
 
         private int currentPage = 1;
@@ -91,16 +84,9 @@ namespace Kiosk
         };
         private ObservableCollection<Food> selectFoodList = new ObservableCollection<Food>();
 
-        private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Category category = (Category)xCategory.SelectedIndex;
-            this.currentPage = 1;
-            xMenus.ItemsSource = foodList.Where(x => x.category == category && x.page == this.currentPage).ToList();
-        }
-
         private void Order_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new IntroPage());
+            NavigationService.GoBack();
         }
 
         private void Order_Button_Click(object sender, RoutedEventArgs e)
@@ -108,31 +94,96 @@ namespace Kiosk
             NavigationService.Navigate(new PlacePage());
         }
 
+        private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.DirectionControl(0);
+        }
+
         private void Next_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.currentPage > 0 && this.currentPage < 2)
+            if (this.currentPage == 1)
             {
-                Category category = (Category)xCategory.SelectedIndex;
-                this.currentPage++;
-                xMenus.ItemsSource = foodList.Where(x => x.category == category && x.page == this.currentPage).ToList();
+                this.DirectionControl(1);
             }
         }
 
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.currentPage > 1 && this.currentPage < 3)
+            if (this.currentPage == 2)
             {
-                Category category = (Category)xCategory.SelectedIndex;
-                this.currentPage--;
-                xMenus.ItemsSource = foodList.Where(x => x.category == category && x.page == this.currentPage).ToList();
+                this.DirectionControl(2);
             }
+        }
+
+        private void Plus_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.FoodCountControl(sender, false);
+        }
+
+        private void Down_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.FoodCountControl(sender, true);
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var item = (ListBox)sender;
-            var food = (Food)item.SelectedItem;
-            selectFoodList.Add(food);
+            ListBox listBox = (ListBox)sender;
+            Food item = (Food)listBox.SelectedItem;
+
+            if (item != null)
+            {
+                if (!this.selectFoodList.Contains(item))
+                {
+                    selectFoodList.Add(item);
+                }
+                else
+                {
+                    MessageBox.Show("이미 선택된 제품입니다");
+                }
+            }
+        }
+
+        private void FoodCountControl(object sender, bool isDown)
+        {
+            Food selectedFood = (sender as Button).DataContext as Food;
+            int index = this.selectFoodList.IndexOf(selectedFood);
+
+            if (isDown)
+            {
+                if (this.selectFoodList[index].count > 1)
+                {
+                    this.selectFoodList[index].count--;
+                }
+                else
+                {
+                    MessageBox.Show("최소 수량보다 작습니다");
+                }
+            } 
+            else
+            {
+                this.selectFoodList[index].count++;
+            }
+        }
+
+        private void DirectionControl(int control)
+        {
+            Category category = (Category)xCategory.SelectedIndex;
+
+            switch (control)
+            {
+                case 0:
+                    this.currentPage = 1;
+                    break;
+
+                case 1:
+                    this.currentPage++;
+                    break;
+
+                case 2:
+                    this.currentPage--;
+                    break;
+            }
+            xMenus.ItemsSource = foodList.Where(x => x.category == category && x.page == this.currentPage).ToList();
         }
 
     }

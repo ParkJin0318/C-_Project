@@ -113,7 +113,23 @@
                         <GridView>
                             <GridViewColumn Header="이름" Width="100" DisplayMemberBinding="{Binding name}"/>
                             <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding price}"/>
-                            <GridViewColumn Header="수량" Width="100" DisplayMemberBinding="{Binding count}"/>
+                            <GridViewColumn Header="수량" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <StackPanel
+                                                Orientation="Horizontal">
+                                                <Button Content="증가"
+                                                        Click="Plus_Button_Click"/>
+                                                <Button Content="감소"
+                                                        Click="Down_Button_Click"/>
+                                                <TextBlock Text="{Binding count}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
