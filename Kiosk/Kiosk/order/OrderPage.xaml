@@ -64,7 +64,7 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 
-                <Grid Grid.Row="1">
+                <Grid>
                     
                     <ListBox x:Name="xMenus"
                          Margin="0,50,0,0"
@@ -105,35 +105,49 @@
             Grid.Column="1" 
             Grid.Row="0">
             <StackPanel
-                Orientation="Vertical"
+                Orientation="Vertical">
+
+                <StackPanel
                 HorizontalAlignment="Center">
 
-                <ListView x:Name="listView">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="이름" Width="200" DisplayMemberBinding="{Binding name}"/>
-                            <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding currentPrice}"/>
-                            <GridViewColumn Header="수량" Width="200">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <StackPanel
+                    <ListView x:Name="listView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="이름" Width="200" DisplayMemberBinding="{Binding name}"/>
+                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding currentPrice}"/>
+                                <GridViewColumn Header="수량" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <StackPanel
                                                 Orientation="Horizontal">
-                                                <Button Content="증가"
+                                                    <Button Content="증가"
                                                         Click="Plus_Button_Click"/>
-                                                <Button Content="감소"
+
+                                                    <Button Content="감소"
                                                         Click="Down_Button_Click"/>
-                                                <TextBlock Text="{Binding count}"/>
-                                            </StackPanel>
-                                        </Grid>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                                
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-                
+
+                                                    <TextBlock Text="{Binding count}"/>
+
+                                                    <Button Content="삭제"
+                                                        Click="Delete_Button_Click"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom">
+                    <Button Content="모두 삭제"
+                            Click="Order_RemoveAll_Click"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
 

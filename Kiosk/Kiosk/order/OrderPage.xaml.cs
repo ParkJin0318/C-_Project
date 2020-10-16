@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace Kiosk
 {
@@ -94,7 +83,12 @@ namespace Kiosk
             NavigationService.Navigate(new PlacePage());
         }
 
-        private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Order_RemoveAll_Click(object sender, RoutedEventArgs e)
+        {
+            this.selectFoodList.Clear();
+        }
+
+            private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.DirectionControl(0);
         }
@@ -117,12 +111,17 @@ namespace Kiosk
 
         private void Plus_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.FoodCountControl(sender, false);
+            this.FoodCountControl(sender, 0);
         }
 
         private void Down_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.FoodCountControl(sender, true);
+            this.FoodCountControl(sender, 1);
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.FoodCountControl(sender, 2);
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -145,25 +144,31 @@ namespace Kiosk
             }
         }
 
-        private void FoodCountControl(object sender, bool isDown)
+        private void FoodCountControl(object sender, int control)
         {
             Food selectedFood = (sender as Button).DataContext as Food;
             int index = this.selectFoodList.IndexOf(selectedFood);
 
-            if (isDown) // 감소라면
+            switch (control)
             {
-                if (this.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 증가
-                {
-                    this.selectFoodList[index].MinusCount();
-                }
-                else // 메뉴가 1개 이하라면 삭제
-                {
+                case 0: // 증가
+                    this.selectFoodList[index].PlusCount();
+                    break;
+
+                case 1: // 감소
+                    if (this.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 감소
+                    {
+                        this.selectFoodList[index].MinusCount();
+                    }
+                    else // 메뉴가 1개 이하라면 삭제
+                    {
+                        this.selectFoodList.Remove(selectedFood);
+                    }
+                    break;
+
+                case 2: // 삭제
                     this.selectFoodList.Remove(selectedFood);
-                }
-            } 
-            else // 증가라면
-            {
-                this.selectFoodList[index].PlusCount();
+                    break;
             }
         }
 
