@@ -22,16 +22,25 @@ namespace Kiosk
     public partial class TablePage : Page
     {
         TableData[] TData = new TableData[9];
+        int chooseTable = 0;
 
         public TablePage()
         {
             InitializeComponent();
-            checkTable();
+            SetTable();
         }
 
-        public void checkTable()
+        public void SetTable()
         {
-
+            TData[0] = new TableData(Table1, 1);
+            TData[1] = new TableData(Table2, 2);
+            TData[2] = new TableData(Table3, 3);
+            TData[3] = new TableData(Table4, 4);
+            TData[4] = new TableData(Table5, 5);
+            TData[5] = new TableData(Table6, 6);
+            TData[6] = new TableData(Table7, 7);
+            TData[7] = new TableData(Table8, 8);
+            TData[8] = new TableData(Table9, 9);
         }
 
         private void Table_Click(object sender, RoutedEventArgs e)
