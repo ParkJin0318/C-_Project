@@ -129,17 +129,18 @@ namespace Kiosk
         {
             ListBox listBox = (ListBox)sender;
             Food item = (Food)listBox.SelectedItem;
-
+            
             if (item != null)
             {
-                if (!this.selectFoodList.Contains(item))
+                if (!this.selectFoodList.Contains(item)) // 메뉴가 중복이 아니라면
                 {
                     item.currentPrice = item.price;
                     selectFoodList.Add(item);
                 }
-                else
+                else // 메뉴가 중복이라면
                 {
-                    MessageBox.Show("이미 선택된 제품입니다");
+                    int index = this.selectFoodList.IndexOf(item);
+                    this.selectFoodList[index].PlusCount();
                 }
             }
         }
@@ -148,24 +149,21 @@ namespace Kiosk
         {
             Food selectedFood = (sender as Button).DataContext as Food;
             int index = this.selectFoodList.IndexOf(selectedFood);
-            int originalPrice = this.selectFoodList[index].price;
 
-            if (isDown)
+            if (isDown) // 감소라면
             {
-                if (this.selectFoodList[index].count > 1)
+                if (this.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 증가
                 {
-                    this.selectFoodList[index].count--;
-                    this.selectFoodList[index].currentPrice -= originalPrice;
+                    this.selectFoodList[index].MinusCount();
                 }
-                else
+                else // 메뉴가 1개 이하라면 삭제
                 {
-                    MessageBox.Show("최소 수량보다 작습니다");
+                    this.selectFoodList.Remove(selectedFood);
                 }
             } 
-            else
+            else // 증가라면
             {
-                this.selectFoodList[index].count++;
-                this.selectFoodList[index].currentPrice += originalPrice;
+                this.selectFoodList[index].PlusCount();
             }
         }
 
@@ -175,15 +173,15 @@ namespace Kiosk
 
             switch (control)
             {
-                case 0:
+                case 0: // 카테고리 변경시 페이지 초기화
                     this.currentPage = 1;
                     break;
 
-                case 1:
+                case 1: // 다음 페이지
                     this.currentPage++;
                     break;
 
-                case 2:
+                case 2: // 이전 페이지
                     this.currentPage--;
                     break;
             }

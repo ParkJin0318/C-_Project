@@ -23,5 +23,17 @@ namespace Kiosk
             set => SetProperty(ref _count, value);
         }
         public int page { get; set; }
+
+        public void PlusCount()
+        {
+            count++;
+            currentPrice += price;
+        }
+
+        public void MinusCount()
+        {
+            count--;
+            currentPrice -= price;
+        }
     }
 }
