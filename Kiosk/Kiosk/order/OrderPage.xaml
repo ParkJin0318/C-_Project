@@ -145,8 +145,10 @@
                 <StackPanel
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom">
-                    <Button Content="모두 삭제"
-                            Click="Order_RemoveAll_Click"/>
+                    <Button 
+                        x:Name="DeleteAll_Button"
+                        Content="모두 삭제"
+                        Click="Order_RemoveAll_Click"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

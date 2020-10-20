@@ -4,10 +4,16 @@ namespace Kiosk
 {
     public class Food : BindableBase
     {
-        public Category category { get; set; }
-        public string imagePath { get; set; }
-        public string name { get; set; }
+        public int idx { get; set; }
+        private string _name;
+        public string name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
+        }
         public int price { get; set; }
+        public string imagePath { get; set; }
+        public Category category { get; set; }
 
         private int _currentPrice = 0;
         public int currentPrice

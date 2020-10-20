@@ -6,31 +6,41 @@
         xmlns:local="clr-namespace:Kiosk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="WhiteSmoke">
+    <Grid>
 
-        <TextBlock
-            x:Name="Time"
-            Text="2020-09-22 12:01"
-            Margin="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            FontSize="20"
-            Foreground="Black"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
 
-        <Button
-            x:Name="HomeButton"
-            Content="홈 이동"
-             Width="80"
-            Height="30"
-            Margin="20"
-            Background="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right" Click="HomeButton_Click"/>
+        <Grid Grid.Row="0"
+              VerticalAlignment="Center">
+            
+            <TextBlock
+                x:Name="Time"
+                Text="2020-09-22 12:01"
+                Margin="20 0 0 0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="20"
+                Foreground="Black"/>
 
-        <Frame
-            x:Name="FrameLayout"
-            Margin="0 70 0 0"
-            NavigationUIVisibility="Hidden"
-            Source="intro/IntroPage.xaml"/>
+            <Button
+                x:Name="HomeButton"
+                Content="홈 이동"
+                 Width="80"
+                Height="30"
+                Margin="0 0 20 0"
+                Background="White"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right" Click="HomeButton_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Frame
+                x:Name="FrameLayout"
+                NavigationUIVisibility="Hidden"
+                Source="intro/IntroPage.xaml"/>
+        </Grid>
     </Grid>
 </Window>
