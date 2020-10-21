@@ -13,7 +13,7 @@ namespace Kiosk.order
     public class OrderViewModel : BindableBase
     {
         public OrderViewModel() {
-            setFoods();
+            SetFoods();
         }
 
         public int currentPage = 1;
@@ -76,9 +76,9 @@ namespace Kiosk.order
              new Food(){ idx = 43, category = Category.SIDE, name = "웨지 후라이", price = 10000, imagePath = @"/res/side/wedgeFries.png", page = 2 },
         }; */
 
-        private void setFoods()
+        private void SetFoods()
         {
-            MenuCache cache = new MenuCache();
+            FoodRemote cache = new FoodRemote();
             this.foodList = cache.GetAllFood();
         }
 

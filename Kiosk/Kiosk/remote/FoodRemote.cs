@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kiosk.remote;
+using Kiosk.util;
 using MySql.Data.MySqlClient;
 
 namespace Kiosk.database
 {
-    class MenuCache
+    class FoodRemote
     {
-        string server = "Server=10.80.162.216;uid=root;pwd=NFSedge2020;database=Kiosk;";
+        private readonly RemoteConnection connection;
+
+        public FoodRemote()
+        {
+            connection = new RemoteConnection();
+        }
 
         public List<Food> GetAllFood()
         {
             List<Food> foodList = new List<Food>();
-            MySqlConnection con = new MySqlConnection(server);
-            MySqlCommand cmd = con.CreateCommand();
-
-            string sql = "Select * from menu";
-            cmd.CommandText = sql;
-
-            con.Open();
-
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = connection.GetData("Select * from menu");
 
             while (reader.Read())
             {
-                string sale = reader["sale"].ToString();
-                
                 Food food = new Food();
+                food.idx = int.Parse(reader["idxMenu"].ToString());
+                food.name = reader["MenuName"].ToString();
                 switch (int.Parse(reader["category"].ToString()))
                 {
                     case 1:
@@ -41,15 +40,15 @@ namespace Kiosk.database
                         food.category = Category.SIDE;
                         break;
                 }
-                food.idx = int.Parse(reader["idxMenu"].ToString());
-                food.name = reader["MenuName"].ToString();
                 food.price = int.Parse(reader["price"].ToString());
                 food.imagePath = reader["img"].ToString();
                 food.page = int.Parse(reader["page"].ToString());
+                string sale = reader["sale"].ToString();
 
                 foodList.Add(food);
             }
 
+            connection.con.Close();
             return foodList;
         }
     }

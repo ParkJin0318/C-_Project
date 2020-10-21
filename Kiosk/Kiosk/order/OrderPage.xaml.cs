@@ -16,7 +16,7 @@ namespace Kiosk
     /// </summary>
     public partial class OrderPage : Page
     {
-        OrderViewModel viewModel;
+        private readonly OrderViewModel viewModel;
 
         public OrderPage()
         {
@@ -43,7 +43,13 @@ namespace Kiosk
 
         private void Order_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PlacePage());
+            if (viewModel.selectFoodList.Count > 0)
+            {
+                NavigationService.Navigate(new PlacePage());
+            } else
+            {
+                MessageBox.Show("음식을 선택해주세요");
+            }
         }
 
         private void Order_RemoveAll_Click(object sender, RoutedEventArgs e)

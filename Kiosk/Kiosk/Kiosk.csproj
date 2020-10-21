@@ -109,7 +109,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="database\MenuCache.cs" />
+    <Compile Include="remote\FoodRemote.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
     <Compile Include="model\TableData.cs" />
@@ -126,9 +126,11 @@
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="remote\RemoteConnection.cs" />
     <Compile Include="table\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="util\Constants.cs" />
     <Page Include="intro\IntroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
