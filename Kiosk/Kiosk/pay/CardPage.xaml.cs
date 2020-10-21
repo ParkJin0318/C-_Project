@@ -23,11 +23,18 @@ namespace Kiosk.pay
         public CardPage()
         {
             InitializeComponent();
+
+            webcam.CameraIndex = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PayPage());
+        }
+
+        private void webcam_QrDecoded(object sender, string e)
+        {
+            tbRecog.Text = e;
         }
     }
 }
