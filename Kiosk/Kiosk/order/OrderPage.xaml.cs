@@ -8,8 +8,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Kiosk.place;
 
-namespace Kiosk
+namespace Kiosk.order
 {
     /// <summary>
     /// OrderPage.xaml에 대한 상호 작용 논리

@@ -66,11 +66,9 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\PayPage.ba
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\PayPage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.g.cs
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\PayPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.baml
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\table\TablePage.baml
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\intro\IntroPage.g.cs
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CardPage.g.cs
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\CashPage.g.cs
@@ -119,3 +117,5 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.Buffers
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.Memory.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\TablePage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\TablePage.baml

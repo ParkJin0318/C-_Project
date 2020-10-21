@@ -13,8 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kiosk.place;
+using Kiosk.pay;
 
-namespace Kiosk
+
+namespace Kiosk.place
 {
     /// <summary>
     /// TablePage.xaml에 대한 상호 작용 논리

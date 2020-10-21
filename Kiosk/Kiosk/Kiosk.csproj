@@ -127,7 +127,7 @@
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="remote\RemoteConnection.cs" />
-    <Compile Include="table\TablePage.xaml.cs">
+    <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="util\Constants.cs" />
@@ -174,7 +174,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="table\TablePage.xaml">
+    <Page Include="place\TablePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

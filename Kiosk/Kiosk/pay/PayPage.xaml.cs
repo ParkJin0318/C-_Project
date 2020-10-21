@@ -13,8 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kiosk.place;
 
-namespace Kiosk
+namespace Kiosk.pay
 {
     /// <summary>
     /// PayPage.xaml에 대한 상호 작용 논리
