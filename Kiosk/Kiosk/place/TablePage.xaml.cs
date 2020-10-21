@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kiosk.place;
 using Kiosk.pay;
-
+using System.Windows.Threading;
 
 namespace Kiosk.place
 {
@@ -25,7 +25,7 @@ namespace Kiosk.place
     public partial class TablePage : Page
     {
         TableData[] TData = new TableData[9];
-        int chooseTable = 0;
+        DispatcherTimer timer = new DispatcherTimer(); //타이머 객체생성
 
         public TablePage()
         {
@@ -59,6 +59,30 @@ namespace Kiosk.place
         private void back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PlacePage());
+        }
+
+        public void MakeTimer()
+        {
+            //타이머 동작
+            timer.Interval = TimeSpan.FromSeconds(1); //시간간격 설정
+            timer.Tick += new EventHandler(timer_Tick); //이벤트 추가
+            timer.Start(); //타이머 시작
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            for(int i = 0; i < 9; i++)
+            {
+                if(!TData[i].canUse)
+                {
+                    if(TData[i].TimeRemaining == 0)
+                    {
+                        TData[i].canUse = true;
+                        TData[i].button.Content = i.ToString();
+                    }
+                }
+
+            }
         }
     }
 }

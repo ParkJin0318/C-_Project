@@ -130,6 +130,7 @@
     <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="remote\TableDataRemote.cs" />
     <Compile Include="util\Constants.cs" />
     <Page Include="intro\IntroPage.xaml">
       <SubType>Designer</SubType>
