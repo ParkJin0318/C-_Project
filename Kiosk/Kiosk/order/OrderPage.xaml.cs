@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Kiosk.place;
+using System.Collections.Specialized;
 
 namespace Kiosk.order
 {
@@ -26,6 +27,8 @@ namespace Kiosk.order
 
             xCategory.SelectedIndex = 0;
             listView.ItemsSource = viewModel.selectFoodList;
+
+            DataContext = viewModel;
         }
 
         private void Order_Cancel_Click(object sender, RoutedEventArgs e)
@@ -60,11 +63,13 @@ namespace Kiosk.order
                 if (MessageBox.Show("주문 삭제", "주문을 삭제 하실건가요?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     viewModel.selectFoodList.Clear();
+                    viewModel.totalPrice = 0;
                 }
             }
             else
             {
                 viewModel.selectFoodList.Clear();
+                viewModel.totalPrice = 0;
             }
         }
 
@@ -116,13 +121,13 @@ namespace Kiosk.order
         private void FoodCountControl(object sender, int control)
         {
             Food selectedFood = (sender as Button).DataContext as Food;
-            viewModel.FoodControl(selectedFood, control);
+            viewModel.PageControl(selectedFood, control);
         }
 
         private void DirectionControl(int control)
         {
             Category category = (Category)xCategory.SelectedIndex;
-            xMenus.ItemsSource = viewModel.FoodControl(category, control);
+            xMenus.ItemsSource = viewModel.PageControl(category, control);
         }
     }
 }

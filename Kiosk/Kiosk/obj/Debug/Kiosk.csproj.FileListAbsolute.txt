@@ -215,3 +215,17 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\pay\Pa
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\PlacePage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\place\TablePage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\Kiosk.csproj.CopyComplete
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\KQRCode.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Video.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\zxing.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Imaging.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Math.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\KQRCode.pdb
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Video.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\zxing.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Imaging.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Math.xml

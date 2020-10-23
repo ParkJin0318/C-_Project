@@ -73,7 +73,8 @@
                          HorizontalAlignment="Center"
                          BorderBrush="Transparent"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ItemsSource="{Binding selectFoodList}">
                         
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -143,12 +144,22 @@
                 </StackPanel>
 
                 <StackPanel
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom">
+                    HorizontalAlignment="Center">
+
+                    <StackPanel
+                        Orientation="Horizontal">
+
+                        <TextBlock
+                            Text="총 가격: " />
+
+                        <TextBlock
+                            Name="PriceLabel"
+                            Text="{Binding totalPrice}" />
+                    </StackPanel>
                     <Button 
                         x:Name="DeleteAll_Button"
                         Content="모두 삭제"
-                        Click="Order_RemoveAll_Click"/>
+                        Click="Order_RemoveAll_Click" />
                 </StackPanel>
             </StackPanel>
         </Grid>

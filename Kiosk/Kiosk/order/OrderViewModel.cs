@@ -20,6 +20,13 @@ namespace Kiosk.order
 
         public ObservableCollection<Food> selectFoodList = App.selectFoodList;
 
+        private int _totalPrice = 0;
+        public int totalPrice
+        {
+            get => _totalPrice;
+            set => SetProperty(ref _totalPrice, value);
+        }
+
         private List<Food> _foodList;
         public List<Food> foodList
         {
@@ -41,16 +48,18 @@ namespace Kiosk.order
                 {
                     food.currentPrice = food.price;
                     this.selectFoodList.Add(food);
+                    this.totalPrice += food.price;
                 }
                 else // 메뉴가 중복이라면
                 {
                     int index = this.selectFoodList.IndexOf(food);
                     this.selectFoodList[index].PlusCount();
+                    this.totalPrice += food.price;
                 }
             }
         }
 
-        public void FoodControl(Food selectedFood, int control)
+        public void PageControl(Food selectedFood, int control)
         {
             int index = this.selectFoodList.IndexOf(selectedFood);
 
@@ -58,26 +67,30 @@ namespace Kiosk.order
             {
                 case 0: // 증가
                     this.selectFoodList[index].PlusCount();
+                    this.totalPrice += selectedFood.price;
                     break;
 
                 case 1: // 감소
                     if (this.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 감소
                     {
                         this.selectFoodList[index].MinusCount();
+                        this.totalPrice -= selectedFood.price;
                     }
                     else // 메뉴가 1개 이하라면 삭제
                     {
                         this.selectFoodList.Remove(selectedFood);
+                        this.totalPrice -= selectedFood.currentPrice;
                     }
                     break;
 
                 case 2: // 삭제
                     this.selectFoodList.Remove(selectedFood);
+                    this.totalPrice -= selectedFood.currentPrice;
                     break;
             }
         }
 
-        public List<Food> FoodControl(Category category, int control)
+        public List<Food> PageControl(Category category, int control)
         {
             switch (control)
             {
