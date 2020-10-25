@@ -26,11 +26,15 @@ namespace Kiosk.place
     {
         TableData[] TData = new TableData[9];
         DispatcherTimer timer = new DispatcherTimer(); //타이머 객체생성
+        int choose_eat_Table = -1;
+        SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        SolidColorBrush yellow = new SolidColorBrush(Colors.Yellow);
 
         public TablePage()
         {
             InitializeComponent();
             SetTable();
+            MakeTimer();
         }
 
         public void SetTable()
@@ -44,20 +48,41 @@ namespace Kiosk.place
             TData[6] = new TableData(Table7, 7);
             TData[7] = new TableData(Table8, 8);
             TData[8] = new TableData(Table9, 9);
+            for (int i = 0; i < TData.Length; i++)
+            {
+                if (TData[i].canUse)
+                {
+                    TData[i].SetButtonColor(red);
+                }
+                else
+                {
+                    TData[i].SetButtonColor(yellow);
+                }
+            }
         }
 
         private void Table_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
+            char[] buffer = button.Name.ToCharArray();
+            int buttonNumber = Convert.ToInt32(buffer[buffer.Length - 1]) - 49;
+            if (TData[buttonNumber].canUse)
+            {
+                choose_eat_Table = buttonNumber + 1;
+                MessageBox.Show("Choosed Table" + (buttonNumber + 1));
+                Console.WriteLine(DateTime.Now);
+            }
         }
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
             NavigationService.Navigate(new PayPage());
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
             NavigationService.Navigate(new PlacePage());
         }
 
@@ -71,14 +96,21 @@ namespace Kiosk.place
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                if(!TData[i].canUse)
+                if (!TData[i].canUse)
                 {
-                    if(TData[i].TimeRemaining == 0)
+                    if (TData[i].TimeRemaining <= 1)
                     {
                         TData[i].canUse = true;
-                        TData[i].button.Content = i.ToString();
+                        char[] buffer = TData[i].button.Name.ToCharArray();
+                        TData[i].button.Content = buffer[buffer.Length - 1].ToString();
+                        TData[i].SetButtonColor(red);
+                    }
+                    else
+                    {
+                        TData[i].TimeRemaining -= 1;
+                        TData[i].button.Content = TData[i].TimeRemaining.ToString();
                     }
                 }
 

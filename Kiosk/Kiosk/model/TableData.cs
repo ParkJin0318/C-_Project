@@ -16,7 +16,6 @@ namespace Kiosk.model
     class TableData
     {
         public Button button = new Button();
-        public DateTime lastEatStart = DateTime.Now;
         public int myTableNumber = 0;
         public int TimeRemaining = 0;
         public bool canUse = true;
@@ -31,24 +30,30 @@ namespace Kiosk.model
         public void CheckLastEatStart()
         {
             TableDataRemote ReadDBResult = new TableDataRemote(myTableNumber);
-            if (ReadDBResult.Equals("false"))
+            string ReadTime = ReadDBResult.CheckLastEatStart();
+            if ("".Equals(ReadTime))
             {
                 canUse = true;
             }
             else
             {
-                SetRemainingTime();
+                SetRemainingTime(ReadTime);
             }
         }
 
-        public void SetRemainingTime()
+        public void SetRemainingTime(String ReadTime)
         {
+            DateTime lastEatStart = Convert.ToDateTime(ReadTime);
             DateTime now = DateTime.Now;
             TimeSpan dateDiff = now - lastEatStart;
-            int MinuteDiff = (dateDiff.Days * 24 + dateDiff.Hours) * 60 + dateDiff.Minutes;
-            if (MinuteDiff < 2)
+            int diffSec = Convert.ToInt32(dateDiff.TotalSeconds);
+            Console.WriteLine("Min " + dateDiff.Minutes);
+            Console.WriteLine("Sec " + dateDiff.Seconds);
+            Console.WriteLine("TSec " + diffSec);
+            if (diffSec <= 60)
             {
-                TimeRemaining = (MinuteDiff - 1) * 60 + dateDiff.Seconds;
+                Console.WriteLine("Setting TRemming");
+                TimeRemaining = 60 - diffSec;
                 canUse = false;
             }
         }

@@ -12,12 +12,13 @@ namespace Kiosk.remote
     {
         private readonly RemoteConnection connection;
         private int CheckingTable;
+        int ThisMarketIdx = 1;
+
         public TableDataRemote(int CheckingTable)
         {
             connection = new RemoteConnection();
             this.CheckingTable = CheckingTable;
         }
-        int ThisMarketIdx = 1;
 
         public string CheckLastEatStart()
         {
@@ -27,7 +28,7 @@ namespace Kiosk.remote
             {
                 return reader["payTime"].ToString();
             }
-            return "false";
+            return "";
         }
     }
 }
