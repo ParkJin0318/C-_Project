@@ -23,6 +23,7 @@ namespace Kiosk.pay
         public CashPage()
         {
             InitializeComponent();
+            barcode_Text.Focus();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,6 +34,11 @@ namespace Kiosk.pay
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CompletePage());
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            barcode.Content = "인식된 카드번호:"+barcode_Text.Text;
         }
     }
 }
