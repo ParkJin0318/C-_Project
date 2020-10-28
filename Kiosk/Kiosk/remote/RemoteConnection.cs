@@ -22,11 +22,35 @@ namespace Kiosk.remote
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
 
-            con.Open();
+            try
+            {
+                con.Close();
+                con.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             MySqlDataReader reader = cmd.ExecuteReader();
 
             return reader;
+        }
+
+        public void SetData(string sql)
+        {
+            MySqlCommand cmd = con.CreateCommand();
+            cmd.CommandText = sql;
+
+            try
+            {
+                con.Close();
+                con.Open();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            cmd.ExecuteNonQuery();
         }
     }
 }

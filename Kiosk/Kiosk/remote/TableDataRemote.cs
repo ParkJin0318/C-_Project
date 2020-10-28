@@ -11,23 +11,24 @@ namespace Kiosk.remote
     class TableDataRemote
     {
         private readonly RemoteConnection connection;
-        private int CheckingTable;
-        int ThisMarketIdx = 1;
+        private int checkedTable;
+        private int currentMarketIdx = 1;
 
-        public TableDataRemote(int CheckingTable)
+        public TableDataRemote(int checkedTable)
         {
             connection = new RemoteConnection();
-            this.CheckingTable = CheckingTable;
+            this.checkedTable = checkedTable;
         }
 
-        public string CheckLastEatStart()
+        public string GetOrderTime()
         {
-            MySqlDataReader reader = connection.GetData("select * from orders where eatTable = " + this.CheckingTable
-                + " and idxMarket = " + ThisMarketIdx + " order by idxOrders desc");
+            MySqlDataReader reader = connection.GetData("select * from orders where eatTable = " + this.checkedTable
+                + " and idxMarket = " + currentMarketIdx + " order by idxOrders desc");
             if (reader.Read())
             {
                 return reader["payTime"].ToString();
             }
+            connection.con.Close();
             return "";
         }
     }

@@ -43,7 +43,18 @@ namespace Kiosk
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            FrameLayout.NavigationService.Navigate(new IntroPage());
+
+            if (App.selectFoodList.Count > 0)
+            {
+                if (MessageBox.Show("주문 취소", "주문 취소 하실건가요?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    App.selectFoodList.Clear();
+                    FrameLayout.NavigationService.Navigate(new IntroPage());
+                }
+            } else
+            {
+                FrameLayout.NavigationService.Navigate(new IntroPage());
+            }
         }
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="remote\OrderRemote.cs" />
     <Compile Include="remote\RemoteConnection.cs" />
     <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>

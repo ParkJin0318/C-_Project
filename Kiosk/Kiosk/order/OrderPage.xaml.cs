@@ -121,7 +121,7 @@ namespace Kiosk.order
         private void FoodCountControl(object sender, int control)
         {
             Food selectedFood = (sender as Button).DataContext as Food;
-            viewModel.PageControl(selectedFood, control);
+            viewModel.FoodCountControl(selectedFood, control);
         }
 
         private void DirectionControl(int control)

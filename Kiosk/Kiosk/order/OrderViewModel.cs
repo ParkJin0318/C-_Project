@@ -59,7 +59,7 @@ namespace Kiosk.order
             }
         }
 
-        public void PageControl(Food selectedFood, int control)
+        public void FoodCountControl(Food selectedFood, int control)
         {
             int index = this.selectFoodList.IndexOf(selectedFood);
 

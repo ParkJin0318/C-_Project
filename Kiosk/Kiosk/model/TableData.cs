@@ -30,7 +30,7 @@ namespace Kiosk.model
         public void CheckLastEatStart()
         {
             TableDataRemote ReadDBResult = new TableDataRemote(myTableNumber);
-            string ReadTime = ReadDBResult.CheckLastEatStart();
+            string ReadTime = ReadDBResult.GetOrderTime();
             if ("".Equals(ReadTime))
             {
                 canUse = true;

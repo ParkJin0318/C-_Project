@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kiosk.place;
+using Kiosk.remote;
+using System.Collections.ObjectModel;
 
 namespace Kiosk.pay
 {
@@ -25,6 +27,11 @@ namespace Kiosk.pay
         public PayPage()
         {
             InitializeComponent();
+            ObservableCollection<Food> foodList = App.selectFoodList;
+            listView.ItemsSource = foodList;
+
+            OrderRemote remote = new OrderRemote();
+            remote.SetOrderList(foodList, 3);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
