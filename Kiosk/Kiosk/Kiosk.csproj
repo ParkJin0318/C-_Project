@@ -109,6 +109,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="admin\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminViewModel.cs" />
+    <Compile Include="model\User.cs" />
     <Compile Include="remote\FoodRemote.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
@@ -132,7 +137,12 @@
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="remote\TableDataRemote.cs" />
+    <Compile Include="remote\UserRemote.cs" />
     <Compile Include="util\Constants.cs" />
+    <Page Include="admin\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="intro\IntroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

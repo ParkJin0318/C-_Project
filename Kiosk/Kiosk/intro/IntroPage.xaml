@@ -39,11 +39,23 @@
             x:Name="Order_Btn"
             Content="주문하기"
             VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
             Foreground="White"
             Background="Red"
             Margin="30"
             Width="100"
             Height="50"
             Click="Order_Btn_Click"/>
+
+        <Button
+            x:Name="Admin_Btn"
+            Content="관리자 화면"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Margin="30"
+            Width="100"
+            Height="50"
+            Background="AliceBlue"
+            Click="Admin_Btn_Click"/>
     </Grid>
 </Page>

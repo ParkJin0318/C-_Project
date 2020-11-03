@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
-9-1108246068
+10903496829
 11174109075
-231096187405
+27-2002319954
 1401810427286
-intro\IntroPage.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
+admin\AdminPage.xaml;intro\IntroPage.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
 
-True
+False
 

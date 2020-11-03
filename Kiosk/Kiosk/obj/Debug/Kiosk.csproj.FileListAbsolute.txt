@@ -229,3 +229,5 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\zxing.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Imaging.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Math.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.baml

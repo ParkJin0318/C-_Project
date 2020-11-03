@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kiosk.admin;
 using Kiosk.order;
 
 namespace Kiosk.intro
@@ -29,6 +30,11 @@ namespace Kiosk.intro
         private void Order_Btn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new OrderPage());
+        }
+
+        private void Admin_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminPage());
         }
     }
 }
