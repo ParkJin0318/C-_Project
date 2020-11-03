@@ -27,11 +27,9 @@ namespace Kiosk.pay
         public PayPage()
         {
             InitializeComponent();
+
             ObservableCollection<Food> foodList = App.selectFoodList;
             listView.ItemsSource = foodList;
-
-            OrderRemote remote = new OrderRemote();
-            remote.SetOrderList(foodList, 3);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,11 +40,13 @@ namespace Kiosk.pay
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CardPage());
+            App.payType = 0;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CashPage());
+            App.payType = 1;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kiosk.remote;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,11 @@ namespace Kiosk.pay
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
             barcode.Content = "인식된 카드번호:"+barcode_Text.Text;
+
+            OrderRemote remote = new OrderRemote();
+            remote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+
+            NavigationService.Navigate(new CompletePage());
         }
     }
 }

@@ -69,7 +69,9 @@ namespace Kiosk.place
             if (TData[buttonNumber].canUse)
             {
                 choose_eat_Table = buttonNumber + 1;
-                MessageBox.Show("Choosed Table" + (buttonNumber + 1));
+                MessageBox.Show("Choosed Table" + choose_eat_Table);
+                App.tableIdx = choose_eat_Table;
+
                 Console.WriteLine(DateTime.Now);
             }
         }

@@ -32,16 +32,15 @@ namespace Kiosk.remote
             return 0;
         }
 
-        public void SetOrderList(ObservableCollection<Food> foodList, int tableIdx)
+        public void SetOrderList(ObservableCollection<Food> foodList, int tableIdx, int payType)
         {
             DateTime now = DateTime.Now;
-            string date = now.ToString("yyyy-MM-dd HH:mm:ss"); 
-            
-            Console.WriteLine(date);
+            string date = now.ToString("yyyy-MM-dd HH:mm:ss");
 
             foreach (Food item in foodList)
             {
-                int idxOrder = this.GetMaxOrderIdx() + 1; 
+                int idxOrder = this.GetMaxOrderIdx() + 1;
+
                 connection.SetData("insert into orders (idxOrders, idxMenu, idxUser, idxMarket, payTime, payType, howMany, eatTable) "
                     + "values (" + idxOrder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ");");
             }

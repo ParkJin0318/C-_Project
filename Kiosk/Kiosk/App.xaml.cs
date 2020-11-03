@@ -15,5 +15,9 @@ namespace Kiosk
     public partial class App : Application
     {
         public static ObservableCollection<Food> selectFoodList { get; } = new ObservableCollection<Food>();
+
+        public static int tableIdx { set; get; }
+
+        public static int payType { set; get; }
     }
 }

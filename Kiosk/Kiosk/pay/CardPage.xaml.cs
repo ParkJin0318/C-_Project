@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kiosk.remote;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,11 @@ namespace Kiosk.pay
         private void webcam_QrDecoded(object sender, string e)
         {
             tbRecog.Text = e;
+
+            OrderRemote remote = new OrderRemote();
+            remote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+
+            NavigationService.Navigate(new CompletePage());
         }
     }
 }
