@@ -1,6 +1,8 @@
-﻿using Kiosk.remote;
+﻿using Kiosk.model;
+using Kiosk.remote;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace Kiosk.pay
             InitializeComponent();
 
             webcam.CameraIndex = 0;
+
+            orderTotalPrice();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,14 +37,46 @@ namespace Kiosk.pay
             NavigationService.Navigate(new PayPage());
         }
 
+        private void UserQrCodeSearch(String qrcode)
+        {
+            UserRemote UserRemote = new UserRemote();
+            OrderRemote OrderRemote = new OrderRemote();
+            List<User> users = UserRemote.GetAllUser();
+
+            foreach (User item in users)
+            {
+                if (item.qrCode == qrcode)
+                {
+                    OrderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+
+                    NavigationService.Navigate(new CompletePage());
+                }
+                else
+                {
+                    MessageBox.Show("존재하지 않는 유저입니다");
+                }
+            }
+        }
+
         private void webcam_QrDecoded(object sender, string e)
         {
             tbRecog.Text = e;
 
-            OrderRemote remote = new OrderRemote();
-            remote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+            UserQrCodeSearch(tbRecog.Text);
+        }
 
-            NavigationService.Navigate(new CompletePage());
+        private void orderTotalPrice()
+        {
+            ObservableCollection<Food> foodList = App.selectFoodList;
+
+            int totalPrice = 0;
+
+            foreach (Food item in foodList)
+            {
+                totalPrice += item.currentPrice;
+            }
+
+            order_price.Content = "총 주문 금액 : " + totalPrice;
         }
     }
 }

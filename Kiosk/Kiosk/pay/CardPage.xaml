@@ -33,6 +33,7 @@
                     HorizontalAlignment="Center"/>
                 
                 <Label
+                    x:Name="order_price"
                     Content="총 금액: 16,000"
                     FontSize="24"
                     Margin="0 10"

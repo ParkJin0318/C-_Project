@@ -1,6 +1,7 @@
 ﻿using Kiosk.remote;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,30 @@ namespace Kiosk.pay
         public CompletePage()
         {
             InitializeComponent();
+
+            orderNumber();
+            orderTotalPrice();
+        }
+
+        private void orderNumber()
+        {
+            OrderRemote remote = new OrderRemote();
+
+            order_Num.Content = "주문번호 : " + remote.GetMaxOrderIdx().ToString();
+        }
+
+        private void orderTotalPrice()
+        {
+            ObservableCollection<Food> foodList = App.selectFoodList;
+
+            int totalPrice = 0;
+
+            foreach (Food item in foodList)
+            {
+                totalPrice += item.currentPrice;
+            }
+
+            order_price.Content = "총 주문 금액 : " + totalPrice;
         }
     }
 }

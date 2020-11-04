@@ -89,6 +89,7 @@
                     Grid.Row="1">
                     
                     <Label
+                        x:Name="order_price"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Content="총 금액:16000"

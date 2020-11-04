@@ -30,6 +30,8 @@ namespace Kiosk.pay
 
             ObservableCollection<Food> foodList = App.selectFoodList;
             listView.ItemsSource = foodList;
+
+            orderTotalPrice();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +49,20 @@ namespace Kiosk.pay
         {
             NavigationService.Navigate(new CashPage());
             App.payType = 1;
+        }
+
+        private void orderTotalPrice()
+        {
+            ObservableCollection<Food> foodList = App.selectFoodList;
+
+            int totalPrice = 0;
+
+            foreach (Food item in foodList)
+            {
+                totalPrice += item.currentPrice;
+            }
+
+            order_price.Content = "총 주문 금액 : " + totalPrice;
         }
     }
 }

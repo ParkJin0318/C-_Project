@@ -1,6 +1,9 @@
-﻿using Kiosk.remote;
+﻿using Kiosk.model;
+using Kiosk.remote;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +28,8 @@ namespace Kiosk.pay
         {
             InitializeComponent();
             barcode_Text.Focus();
+
+            orderTotalPrice();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,14 +42,49 @@ namespace Kiosk.pay
             NavigationService.Navigate(new CompletePage());
         }
 
+        private void UserBarCodeSearch(String barcode)
+        {
+            UserRemote UserRemote = new UserRemote();
+            OrderRemote OrderRemote = new OrderRemote();
+            List<User> users = UserRemote.GetAllUser();
+
+            foreach (User item in users)
+            {
+                if (item.barCode == barcode)
+                {
+                    OrderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+
+                    NavigationService.Navigate(new CompletePage());
+                }
+                else
+                {
+                    MessageBox.Show("존재하지 않는 유저입니다");
+                }
+            }
+        }
+
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            barcode.Content = "인식된 카드번호:"+barcode_Text.Text;
+            barcode.Content = "인식된 카드번호:" + barcode_Text.Text;
 
-            OrderRemote remote = new OrderRemote();
-            remote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+            if (e.Key == Key.Enter || e.Key == Key.Return)
+            {
+                UserBarCodeSearch(barcode_Text.Text);
+            }
+        }
 
-            NavigationService.Navigate(new CompletePage());
+        private void orderTotalPrice()
+        {
+            ObservableCollection<Food> foodList = App.selectFoodList;
+
+            int totalPrice = 0;
+
+            foreach (Food item in foodList)
+            {
+                totalPrice += item.currentPrice;
+            }
+
+            order_price.Content = "총 주문 금액 : " + totalPrice;
         }
     }
 }

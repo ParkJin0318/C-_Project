@@ -29,6 +29,7 @@
                     HorizontalAlignment="Center"/>
                 
                 <Label
+                    x:Name="order_price"
                     Content="총 금액: 16,000"
                     FontSize="24"
                     Margin="10 0"
@@ -44,6 +45,7 @@
                 VerticalAlignment="Center">
 
                 <Label
+                    x:Name="order_Num"
                     Content="주문번호: 123"
                     FontSize="30"
                     HorizontalAlignment="Center"/>
