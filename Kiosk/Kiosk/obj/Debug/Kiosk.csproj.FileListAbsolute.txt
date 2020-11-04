@@ -231,3 +231,11 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\AForge.Math.xml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.pdb
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.xml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.xml

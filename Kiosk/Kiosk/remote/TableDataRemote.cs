@@ -23,7 +23,7 @@ namespace Kiosk.remote
         public string GetOrderTime()
         {
             MySqlDataReader reader = connection.GetData("select * from orders where eatTable = " + this.checkedTable
-                + " and idxMarket = " + currentMarketIdx + " order by idxOrders desc");
+                + " and idxMarket = " + currentMarketIdx + " order by idxOrder desc");
             if (reader.Read())
             {
                 return reader["payTime"].ToString();

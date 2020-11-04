@@ -1,5 +1,4 @@
-﻿using Kiosk.remote;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +16,13 @@ using System.Windows.Shapes;
 namespace Kiosk.admin
 {
     /// <summary>
-    /// AdminPage.xaml에 대한 상호 작용 논리
+    /// StatsPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class AdminPage : Page
+    public partial class StatsPage : Page
     {
-        private readonly AdminViewModel viewModel;
-
-        public AdminPage()
+        public StatsPage()
         {
             InitializeComponent();
-            viewModel = new AdminViewModel();
-
-            DataContext = viewModel;
-        }
-
-        private void Stats_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new StatsPage());
         }
     }
 }

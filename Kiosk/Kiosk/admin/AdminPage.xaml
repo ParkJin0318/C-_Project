@@ -42,7 +42,8 @@
                     Background="Red"
                     Foreground="Wheat"
                     Height="100"
-                    Margin="10"/>
+                    Margin="10" 
+                    Click="Stats_Button_Click"/>
                 <Button
                     Content="할인 화면"
                     Background="Yellow"

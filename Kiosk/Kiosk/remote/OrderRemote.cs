@@ -18,15 +18,27 @@ namespace Kiosk.remote
             connection = new RemoteConnection();
         }
 
-        private int GetMaxOrderIdx()
+        private int GetMaxIdx()
         {
-            MySqlDataReader reader = connection.GetData("Select idxOrders from orders " 
-                + "order by idxOrders desc");
+            MySqlDataReader reader = connection.GetData("Select idx from orders " 
+                + "order by idx desc");
 
             while (reader.Read())
             {
-                Console.WriteLine(int.Parse(reader["idxOrders"].ToString()));
-                return int.Parse(reader["idxOrders"].ToString());
+                return int.Parse(reader["idx"].ToString());
+            }
+            connection.con.Close();
+            return 0;
+        }
+
+        public int GetMaxOrderIdx()
+        {
+            MySqlDataReader reader = connection.GetData("Select idxOrder from orders "
+                + "order by idxOrder desc");
+
+            while (reader.Read())
+            {
+                return int.Parse(reader["idxOrder"].ToString());
             }
             connection.con.Close();
             return 0;
@@ -37,12 +49,14 @@ namespace Kiosk.remote
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd HH:mm:ss");
 
+            int idxOreder = this.GetMaxOrderIdx() + 1;
+
             foreach (Food item in foodList)
             {
-                int idxOrder = this.GetMaxOrderIdx() + 1;
+                int idx = this.GetMaxIdx() + 1;
 
-                connection.SetData("insert into orders (idxOrders, idxMenu, idxUser, idxMarket, payTime, payType, howMany, eatTable) "
-                    + "values (" + idxOrder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ");");
+                connection.SetData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable) "
+                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ");");
             }
             connection.con.Close();
         }
