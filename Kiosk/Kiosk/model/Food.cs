@@ -12,6 +12,7 @@ namespace Kiosk
             set => SetProperty(ref _name, value);
         }
         public int price { get; set; }
+        public int sale { get; set; }
         public string imagePath { get; set; }
         public Category category { get; set; }
 

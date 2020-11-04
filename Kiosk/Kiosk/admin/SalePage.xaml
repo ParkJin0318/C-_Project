@@ -1,16 +1,14 @@
-﻿<Page x:Class="Kiosk.order.OrderPage"
+﻿<Page x:Class="Kiosk.admin.SalePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:wookoa="clr-namespace:System;assembly=mscorlib"
-      xmlns:local="clr-namespace:Kiosk"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kiosk.admin"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="OrderPage">
+      Title="SalePage">
 
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -31,7 +29,7 @@
                     x:Name="xCategory"
                     SelectionChanged="xCategory_SelectionChanged"
                     FontSize="15">
-                    
+
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel 
@@ -42,11 +40,11 @@
 
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="{x:Type ListBoxItem}">
-                            
+
                             <Setter 
                                 Property="HorizontalAlignment"
                                 Value="Center"/>
-                            
+
                             <Setter 
                                 Property="Background"
                                 Value="Transparent"/>
@@ -65,7 +63,7 @@
                 HorizontalAlignment="Center">
 
                 <Grid>
-                    
+
                     <ListBox x:Name="xMenus"
                          Margin="0,50,0,0"
                          FontSize="16"
@@ -75,7 +73,7 @@
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                              ItemsSource="{Binding foodList}">
-                        
+
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid 
@@ -83,14 +81,14 @@
                                     Rows="3"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        
+
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel 
                                     Width="200" 
                                     Height="200"
                                     Margin="10,0,0,0">
-                                    
+
                                     <Image Source="{Binding imagePath}"/>
                                     <TextBlock Text="{Binding name}"/>
                                     <TextBlock Text="{Binding price}"/>
@@ -132,61 +130,25 @@
         <Grid 
             Grid.Column="1" 
             Grid.Row="0">
+
             <StackPanel
-                Orientation="Vertical">
-
-                <StackPanel
+                Orientation="Vertical"
+                VerticalAlignment="Center"
                 HorizontalAlignment="Center">
+                <StackPanel 
+                    Width="200" 
+                    Height="200"
+                    Margin="10,0,0,0">
 
-                    <ListView x:Name="listView">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="이름" Width="200" DisplayMemberBinding="{Binding name}"/>
-                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding currentPrice}"/>
-                                <GridViewColumn Header="수량" Width="200">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Grid>
-                                                <StackPanel
-                                                Orientation="Horizontal">
-                                                    <Button Content="증가"
-                                                        Click="Plus_Button_Click"/>
-
-                                                    <Button Content="감소"
-                                                        Click="Down_Button_Click"/>
-
-                                                    <TextBlock Text="{Binding count}"/>
-
-                                                    <Button Content="삭제"
-                                                        Click="Delete_Button_Click"/>
-                                                </StackPanel>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <Image Source="{Binding imagePath}"/>
+                    <TextBlock Text="{Binding name}"/>
                 </StackPanel>
 
-                <StackPanel
-                    HorizontalAlignment="Center">
-
-                    <StackPanel
-                        Orientation="Horizontal">
-
-                        <TextBlock
-                            Text="총 가격: " />
-
-                        <TextBlock
-                            Name="PriceLabel"
-                            Text="{Binding totalPrice}" />
-                    </StackPanel>
-                    <Button 
-                        x:Name="DeleteAll_Button"
-                        Content="모두 삭제"
-                        Click="Order_RemoveAll_Click" />
+                <StackPanel>
+                    <TextBlock
+                        Text="할인률 입력"/>
+                    <TextBox
+                        />
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -194,31 +156,28 @@
         <Grid 
             Grid.Column="1" 
             Grid.Row="1">
+
             <StackPanel 
                 Orientation="Horizontal"
                 HorizontalAlignment="Center">
-                
-                <Button
-                    x:Name="Order_Cancel"
-                    Content="주문취소"
-                    VerticalAlignment="Center"
-                    Foreground="White"
-                    Margin="10"
-                    Background="#008299"
-                    Width="100"
-                    Height="40"
-                    Click="Order_Cancel_Click"/>
 
                 <Button
-                    x:Name="Order_Button"
-                    Content="주문하기"
+                    Content="할인 취소"
                     VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="#008299"
                     Width="100"
-                    Height="40"
-                    Click="Order_Button_Click" />
+                    Height="40"/>
+
+                <Button
+                    Content="할인 적용"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Margin="10"
+                    Background="#008299"
+                    Width="100"
+                    Height="40"/>
             </StackPanel>
         </Grid>
         

@@ -119,9 +119,13 @@
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="admin\AdminViewModel.cs" />
+    <Compile Include="admin\SalePage.xaml.cs">
+      <DependentUpon>SalePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="admin\StatsPage.xaml.cs">
       <DependentUpon>StatsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="admin\SaleViewModel.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="remote\FoodRemote.cs" />
     <Compile Include="model\Category.cs" />
@@ -149,6 +153,10 @@
     <Compile Include="remote\UserRemote.cs" />
     <Compile Include="util\Constants.cs" />
     <Page Include="admin\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="admin\SalePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

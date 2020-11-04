@@ -32,7 +32,7 @@ namespace Kiosk.database
                 food.price = int.Parse(reader["price"].ToString());
                 food.imagePath = reader["img"].ToString();
                 food.page = int.Parse(reader["page"].ToString());
-                string sale = reader["sale"].ToString();
+                food.sale = int.Parse(reader["sale"].ToString());
 
                 foodList.Add(food);
             }

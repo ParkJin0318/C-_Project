@@ -48,7 +48,7 @@
                     Content="할인 화면"
                     Background="Yellow"
                     Height="100"
-                    Margin="10"/>
+                    Margin="10" Click="Button_Click"/>
             </StackPanel>
         </Grid>
 

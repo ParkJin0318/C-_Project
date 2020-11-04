@@ -26,7 +26,6 @@ namespace Kiosk.order
             viewModel = new OrderViewModel();
 
             xCategory.SelectedIndex = 0;
-            listView.ItemsSource = viewModel.selectFoodList;
 
             DataContext = viewModel;
         }
