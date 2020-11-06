@@ -12,9 +12,9 @@ namespace Kiosk
             get => _name;
             set => SetProperty(ref _name, value);
         }
+        public string imagePath { get; set; }
+        public Category category { get; set; }
         public int price { get; set; }
-
-        public int sale { get; set; }
 
         private int _originalPrice = 0;
         public int originalPrice
@@ -22,8 +22,8 @@ namespace Kiosk
             get => _originalPrice;
             set => SetProperty(ref _originalPrice, value);
         }
-        public string imagePath { get; set; }
-        public Category category { get; set; }
+        public int sale { get; set; }
+        public int totalSale { get; set; }
 
         private int _totalPrice = 0;
         public int totalPrice
@@ -44,12 +44,14 @@ namespace Kiosk
         {
             count++;
             totalPrice += price;
+            totalSale += sale;
         }
 
         public void MinusCount()
         {
             count--;
             totalPrice -= price;
+            totalSale -= sale;
         }
     }
 }

@@ -55,8 +55,8 @@ namespace Kiosk.remote
             {
                 int idx = this.GetMaxIdx() + 1;
 
-                connection.SetData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable) "
-                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ");");
+                connection.SetData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
+                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }
             connection.con.Close();
         }

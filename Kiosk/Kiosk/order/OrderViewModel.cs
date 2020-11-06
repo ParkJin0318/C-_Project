@@ -47,6 +47,8 @@ namespace Kiosk.order
                 if (!this.selectFoodList.Contains(food)) // 메뉴가 중복이 아니라면
                 {
                     food.totalPrice = food.price;
+                    food.totalSale = food.sale;
+
                     this.selectFoodList.Add(food);
                     this.totalPrice += food.price;
                 }
