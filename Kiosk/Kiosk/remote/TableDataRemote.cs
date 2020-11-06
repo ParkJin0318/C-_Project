@@ -27,7 +27,7 @@ namespace Kiosk.remote
             {
                 TableData Td = new TableData();
                 MySqlDataReader reader = connection.GetData("select * from orders where eatTable = " + i
-                    + " and idxMarket = " + currentMarketIdx + " order by idxOrder desc");
+                    + " and idxMarket = " + currentMarketIdx + " order by idx desc");
 
                 Td.myTableNumber = i;
                 Td.TimeRemaining = 0;
@@ -38,6 +38,7 @@ namespace Kiosk.remote
                 if (reader.Read())
                 {
                     string ReadTime = reader["payTime"].ToString();
+                    Console.WriteLine(ReadTime);
                     DateTime lastEatStart = Convert.ToDateTime(ReadTime);
                     DateTime now = DateTime.Now;
                     TimeSpan dateDiff = now - lastEatStart;

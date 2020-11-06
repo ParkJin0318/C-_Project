@@ -54,7 +54,6 @@ namespace Kiosk.remote
             foreach (Food item in foodList)
             {
                 int idx = this.GetMaxIdx() + 1;
-
                 connection.SetData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
                     + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }

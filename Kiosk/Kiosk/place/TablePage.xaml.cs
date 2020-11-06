@@ -41,6 +41,7 @@ namespace Kiosk.place
             if (item.canUse)
             {
                 chooseTable = item.myTableNumber;
+                App.tableIdx = chooseTable;
                 MessageBox.Show("choose Table : " + chooseTable);
             }
         }
