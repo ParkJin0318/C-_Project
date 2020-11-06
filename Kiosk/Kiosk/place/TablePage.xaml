@@ -4,129 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kiosk"
-      mc:Ignorable="d" 
-      d:DesignHeight="657.934" d:DesignWidth="1385.584"
-      Title="TablePage">
+      mc:Ignorable="d" d:DesignWidth="1385.584"
+      Title="TablePage" Height="800.950">
 
     <Grid Margin="0,0,0,0">
 
-        <Button
-            x:Name="Table1"
-            Content="1"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="100 10 0 10"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table2"
-            Content="2"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Margin="0,10,0,0"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table3"
-            Content="3"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Margin="0,10,100,0"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table4"
-            Content="4"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="100 220 0 10"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table5"
-            Content="5"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Margin="0,220,0,0"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table6"
-            Content="6"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Margin="0,220,100,0"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table7"
-            Content="7"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="100 430 0 10"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table8"
-            Content="8"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Margin="0,430,0,0"
-            Background="Red"
-            Click="Table_Click"/>
-        <Button
-            x:Name="Table9"
-            Content="9"
-            FontSize="60pt"
-            FontWeight="Bold"
-            Width="200"
-            Height="200"
-            Foreground="White"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Margin="0,430,100,0"
-            Background="Red"
-            Click="Table_Click"/>
+        <ListBox x:Name="xTable"
+                 Margin="30,10,30,100"
+                 FontSize="16"
+                 HorizontalAlignment="Center"
+                 BorderBrush="Transparent"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="Table_Click">
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid 
+                        Columns="3"
+                        Rows="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Width="200"
+                        Height="200"
+                        Margin="20, 10, 20, 10"
+                        Background="{Binding TableColor}">
+                        <TextBlock Text="{Binding myTableNumber}"
+                                   FontSize="60pt"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        <TextBlock Text="{Binding useText}"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <Button
             x:Name="back"
             Content="이전"

@@ -251,3 +251,15 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPag
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.dll
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.pdb
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.xml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.baml

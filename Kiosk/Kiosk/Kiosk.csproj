@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="admin\SaleViewModel.cs" />
     <Compile Include="model\User.cs" />
+    <Compile Include="place\TableViewModel.cs" />
     <Compile Include="remote\FoodRemote.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
