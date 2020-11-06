@@ -46,7 +46,7 @@ namespace Kiosk.order
             {
                 if (!this.selectFoodList.Contains(food)) // 메뉴가 중복이 아니라면
                 {
-                    food.currentPrice = food.price;
+                    food.totalPrice = food.price;
                     this.selectFoodList.Add(food);
                     this.totalPrice += food.price;
                 }
@@ -79,13 +79,13 @@ namespace Kiosk.order
                     else // 메뉴가 1개 이하라면 삭제
                     {
                         this.selectFoodList.Remove(selectedFood);
-                        this.totalPrice -= selectedFood.currentPrice;
+                        this.totalPrice -= selectedFood.totalPrice;
                     }
                     break;
 
                 case 2: // 삭제
                     this.selectFoodList.Remove(selectedFood);
-                    this.totalPrice -= selectedFood.currentPrice;
+                    this.totalPrice -= selectedFood.totalPrice;
                     break;
             }
         }

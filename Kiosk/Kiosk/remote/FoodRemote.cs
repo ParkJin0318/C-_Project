@@ -17,7 +17,10 @@ namespace Kiosk.database
         {
             connection = new RemoteConnection();
         }
-
+        public void SetFoodSale(Food food, int sale)
+        {
+            connection.SetData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
+        }
         public List<Food> GetAllFood()
         {
             List<Food> foodList = new List<Food>();
@@ -29,10 +32,11 @@ namespace Kiosk.database
                 food.idx = int.Parse(reader["idxMenu"].ToString());
                 food.name = reader["MenuName"].ToString();
                 food.category = (Category)int.Parse(reader["category"].ToString());
-                food.price = int.Parse(reader["price"].ToString());
                 food.imagePath = reader["img"].ToString();
                 food.page = int.Parse(reader["page"].ToString());
                 food.sale = int.Parse(reader["sale"].ToString());
+                food.originalPrice = int.Parse(reader["price"].ToString());
+                food.price = food.originalPrice - food.sale;
 
                 foodList.Add(food);
             }

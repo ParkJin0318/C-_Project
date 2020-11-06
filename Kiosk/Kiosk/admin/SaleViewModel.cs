@@ -10,8 +10,11 @@ namespace Kiosk.admin
 {
     class SaleViewModel: BindableBase
     {
+        private readonly FoodRemote remote;
+
         public SaleViewModel()
         {
+            remote = new FoodRemote();
             SetFoods();
         }
 
@@ -38,10 +41,14 @@ namespace Kiosk.admin
             set => SetProperty(ref _foodList, value);
         }
 
-        private void SetFoods()
+        public void SetFoods()
         {
-            FoodRemote remote = new FoodRemote();
             this.foodList = remote.GetAllFood();
+        }
+
+        public void SetSale(Food food, int sale)
+        {
+            remote.SetFoodSale(food, sale);
         }
 
         public List<Food> PageControl(Category category, int control)

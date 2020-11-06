@@ -42,7 +42,7 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="이름" Width="200" DisplayMemberBinding="{Binding name}"/>
-                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding currentPrice}"/>
+                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding totalPrice}"/>
                                 <GridViewColumn Header="수량" Width="200" DisplayMemberBinding="{Binding count}"/>
                             </GridView>
                         </ListView.View>

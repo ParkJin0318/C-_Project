@@ -45,7 +45,7 @@ namespace Kiosk.pay
 
             foreach (Food item in foodList)
             {
-                totalPrice += item.currentPrice;
+                totalPrice += item.totalPrice;
             }
 
             order_price.Content = "총 주문 금액 : " + totalPrice;

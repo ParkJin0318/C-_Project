@@ -1,4 +1,5 @@
 ﻿using Prism.Mvvm;
+using System.Windows.Markup;
 
 namespace Kiosk
 {
@@ -12,15 +13,23 @@ namespace Kiosk
             set => SetProperty(ref _name, value);
         }
         public int price { get; set; }
+
         public int sale { get; set; }
+
+        private int _originalPrice = 0;
+        public int originalPrice
+        {
+            get => _originalPrice;
+            set => SetProperty(ref _originalPrice, value);
+        }
         public string imagePath { get; set; }
         public Category category { get; set; }
 
-        private int _currentPrice = 0;
-        public int currentPrice
+        private int _totalPrice = 0;
+        public int totalPrice
         {
-            get => _currentPrice;
-            set => SetProperty(ref _currentPrice, value);
+            get => _totalPrice;
+            set => SetProperty(ref _totalPrice, value);
         }
 
         private int _count = 1;
@@ -34,13 +43,13 @@ namespace Kiosk
         public void PlusCount()
         {
             count++;
-            currentPrice += price;
+            totalPrice += price;
         }
 
         public void MinusCount()
         {
             count--;
-            currentPrice -= price;
+            totalPrice -= price;
         }
     }
 }

@@ -22,6 +22,8 @@ namespace Kiosk.admin
     {
         private readonly SaleViewModel viewModel;
 
+        private Food food;
+
         public SalePage()
         {
             InitializeComponent();
@@ -42,8 +44,10 @@ namespace Kiosk.admin
 
             if (item != null)
             {
-                viewModel.imagePath = item.imagePath;
-                viewModel.name = item.name;
+                this.food = item;
+                viewModel.imagePath = this.food.imagePath;
+                viewModel.name = this.food.name;
+                SaleInput.Text = this.food.sale.ToString();
             }
         }
 
@@ -61,6 +65,16 @@ namespace Kiosk.admin
             {
                 this.DirectionControl(2);
             }
+        }
+
+        private void Sale_Button_Click(object sender, RoutedEventArgs e)
+        {
+            int sale = int.Parse(SaleInput.Text);
+            viewModel.SetSale(this.food, sale);
+
+            SaleInput.Text = "";
+            MessageBox.Show("할인 적용되었습니다");
+            viewModel.SetFoods();
         }
 
         private void DirectionControl(int control)

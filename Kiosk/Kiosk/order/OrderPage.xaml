@@ -74,7 +74,7 @@
                          BorderBrush="Transparent"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                             ItemsSource="{Binding foodList}">
+                         ItemsSource="{Binding foodList}">
                         
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -93,7 +93,14 @@
                                     
                                     <Image Source="{Binding imagePath}"/>
                                     <TextBlock Text="{Binding name}"/>
-                                    <TextBlock Text="{Binding price}"/>
+                                    <TextBlock>
+                                        <Run Text="가격:"/>
+                                        <Run Text="{Binding originalPrice}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="할인된 가격:"/>
+                                        <Run Text="{Binding price}"/>
+                                    </TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -142,7 +149,7 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="이름" Width="200" DisplayMemberBinding="{Binding name}"/>
-                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding currentPrice}"/>
+                                <GridViewColumn Header="가격" Width="100" DisplayMemberBinding="{Binding totalPrice}"/>
                                 <GridViewColumn Header="수량" Width="200">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
