@@ -44,15 +44,16 @@ namespace Kiosk.pay
 
         private void UserBarCodeSearch(String barcode)
         {
-            UserRemote UserRemote = new UserRemote();
-            OrderRemote OrderRemote = new OrderRemote();
-            List<User> users = UserRemote.GetAllUser();
+            UserRemote userRemote = new UserRemote();
+            OrderRemote orderRemote = new OrderRemote();
+            List<User> users = userRemote.GetAllUser();
 
             foreach (User item in users)
             {
                 if (item.barCode == barcode)
                 {
-                    OrderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+                    orderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+                    orderRemote.SetOrderInfo(App.selectFoodList);
 
                     NavigationService.Navigate(new CompletePage());
                 }

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kiosk.admin;
 using Kiosk.order;
+using Kiosk.remote;
 
 namespace Kiosk.intro
 {

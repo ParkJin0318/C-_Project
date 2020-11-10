@@ -1,5 +1,7 @@
 ﻿using Kiosk.model;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +18,25 @@ namespace Kiosk.remote
         {
             connection = new RemoteConnection();
         }
-        
+
+        public void SetLogin()
+        {
+            JObject json = new JObject();
+            json.Add("MSGType", 0);
+            json.Add("id", "2210");
+            json.Add("Content", "");
+            json.Add("ShopName", "");
+            json.Add("OrderNumber", "");
+            json.Add("Menus", "");
+
+            String data = JsonConvert.SerializeObject(json);
+            connection.SetServerData(data);
+        }
+
         public List<User> GetAllUser()
         {
             List<User> userList = new List<User>();
-            MySqlDataReader reader = connection.GetData("Select * from user");
+            MySqlDataReader reader = connection.GetDBData("Select * from user");
 
             while (reader.Read())
             {

@@ -26,7 +26,7 @@ namespace Kiosk.remote
             for (int i = 1; i < 10; i++)
             {
                 TableData Td = new TableData();
-                MySqlDataReader reader = connection.GetData("select * from orders where eatTable = " + i
+                MySqlDataReader reader = connection.GetDBData("select * from orders where eatTable = " + i
                     + " and idxMarket = " + currentMarketIdx + " order by idx desc");
 
                 Td.myTableNumber = i;

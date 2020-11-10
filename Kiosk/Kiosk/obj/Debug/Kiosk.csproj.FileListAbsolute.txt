@@ -263,3 +263,5 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\AdminPage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.dll
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.xml

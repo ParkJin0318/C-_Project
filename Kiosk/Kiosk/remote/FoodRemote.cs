@@ -19,12 +19,12 @@ namespace Kiosk.database
         }
         public void SetFoodSale(Food food, int sale)
         {
-            connection.SetData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
+            connection.SetDBData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
         }
         public List<Food> GetAllFood()
         {
             List<Food> foodList = new List<Food>();
-            MySqlDataReader reader = connection.GetData("Select * from menu");
+            MySqlDataReader reader = connection.GetDBData("Select * from menu");
 
             while (reader.Read())
             {

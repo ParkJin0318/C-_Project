@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Kiosk.intro;
+using Kiosk.remote;
 
 namespace Kiosk
 {
@@ -25,6 +26,9 @@ namespace Kiosk
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
             SetTime();
         }
 
