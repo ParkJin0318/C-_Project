@@ -13,15 +13,10 @@ namespace Kiosk.remote
     class RemoteConnection
     {
         public MySqlConnection con;
-        public TcpClient client;
 
         public RemoteConnection()
         {
-            if (NetworkInterface.GetIsNetworkAvailable() == true)
-            {
-                con = new MySqlConnection(Constants.DEFAULT_HOST);
-                client = new TcpClient(Constants.SERVER_HOST, Constants.SERVER_PORT);
-            }
+            con = new MySqlConnection(Constants.DEFAULT_HOST);
         }
 
         public MySqlDataReader GetDBData(string sql)
@@ -62,14 +57,13 @@ namespace Kiosk.remote
 
         public bool SetServerData(string data)
         {
-            if (client != null)
+            if (App.client != null)
             {
-                NetworkStream networkStream = null;
                 byte[] sendData = Encoding.UTF8.GetBytes(data);
 
                 try
                 {
-                    networkStream = client.GetStream();
+                    NetworkStream networkStream = App.client.GetStream();
                     networkStream.Write(sendData, 0, sendData.Length);
 
                     Int32 bytes = networkStream.Read(sendData, 0, sendData.Length);

@@ -1,7 +1,11 @@
 ﻿using Kiosk.remote;
+using Kiosk.util;
+using MySql.Data.MySqlClient.Memcached;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,8 +29,19 @@ namespace Kiosk.auth
         public LoginWindow()
         {
             InitializeComponent();
+
+            if (NetworkInterface.GetIsNetworkAvailable() == true)
+            {
+                try
+                {
+                    App.client = new TcpClient(Constants.SERVER_HOST, Constants.SERVER_PORT);
+                } catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
             remote = new UserRemote();
-            
             if (remote.IsAutoLogin())
             {
                 if (remote.SetLogin())
