@@ -265,3 +265,9 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\StatsPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.dll
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\LoginPage.g.cs
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage.baml
+C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\LoginPage.baml

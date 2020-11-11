@@ -26,10 +26,11 @@ namespace Kiosk
         public MainWindow()
         {
             InitializeComponent();
-
             
-
             SetTime();
+
+            var loginpage = new LoginPage();
+            loginpage.Show();
         }
 
         private void SetTime()

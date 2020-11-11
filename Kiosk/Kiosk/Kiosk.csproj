@@ -129,6 +129,9 @@
       <DependentUpon>StatsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="admin\SaleViewModel.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="model\User.cs" />
     <Compile Include="place\TableViewModel.cs" />
     <Compile Include="remote\FoodRemote.cs" />
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="intro\IntroPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
