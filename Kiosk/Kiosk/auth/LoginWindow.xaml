@@ -1,9 +1,9 @@
-﻿<Window x:Class="Kiosk.LoginPage"
+﻿<Window x:Class="Kiosk.auth.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Kiosk"
+        xmlns:local="clr-namespace:Kiosk.auth"
         mc:Ignorable="d"
         Title="LoginPage" Height="250" Width="350">
     <Grid>
@@ -26,7 +26,7 @@
                     <StackPanel
                         Orientation="Horizontal">
                         <Label Content="ID:" Width="50" FontSize="20"/>
-                        <TextBox Width="200" FontSize="20"/>
+                        <TextBox x:Name="userId" Width="200" FontSize="20"/>
                     </StackPanel>
                 </Grid>
 
@@ -35,7 +35,7 @@
                     <StackPanel
                         Orientation="Horizontal">
                         <Label Content="PW:" Width="50" FontSize="20"/>
-                        <TextBox Width="200" FontSize="20"/>
+                        <TextBox x:Name="userPw" Width="200" FontSize="20"/>
                     </StackPanel>
                 </Grid>
 
@@ -47,6 +47,7 @@
                             Content="자동 로그인" 
                             FontSize="10"/>
                         <CheckBox 
+                            x:Name="AutoCheck"
                             Width="20"
                             Height="20"
                             VerticalAlignment="Center"/>
@@ -55,13 +56,10 @@
 
                 <Grid Grid.Row="3"
                       Margin="0 5">
-                    <Button FontSize="20">로그인</Button>
+                    <Button FontSize="20" Click="Login_Click">로그인</Button>
                 </Grid>
 
             </Grid>
-            
-
-            
         </Grid>
     </Grid>
 </Window>

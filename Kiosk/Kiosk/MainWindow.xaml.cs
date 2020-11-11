@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Kiosk.auth;
 using Kiosk.intro;
 using Kiosk.remote;
 
@@ -28,9 +29,6 @@ namespace Kiosk
             InitializeComponent();
             
             SetTime();
-
-            var loginpage = new LoginPage();
-            loginpage.Show();
         }
 
         private void SetTime()

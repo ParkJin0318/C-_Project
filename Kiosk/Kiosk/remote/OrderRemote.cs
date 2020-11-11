@@ -60,9 +60,10 @@ namespace Kiosk.remote
                     + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", 1, 1, '" + date + "', 1, " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }
             connection.con.Close();
+            this.SetOrderInfo(foodList, idxOreder);
         }
 
-        public void SetOrderInfo(ObservableCollection<Food> foodList)
+        private bool SetOrderInfo(ObservableCollection<Food> foodList, int orderIdx)
         {
             JObject json = new JObject();
             JArray menuList = new JArray();
@@ -81,11 +82,18 @@ namespace Kiosk.remote
             json.Add("id", "2210");
             json.Add("Content", "");
             json.Add("ShopName", "맥도날드");
-            json.Add("OrderNumber", "001");
+            json.Add("OrderNumber", orderIdx);
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);
-            connection.SetServerData(data);
+            bool isSuccess = connection.SetServerData(data);
+
+            if (isSuccess == true)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -53,8 +53,6 @@ namespace Kiosk.pay
                 if (item.barCode == barcode)
                 {
                     orderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
-                    orderRemote.SetOrderInfo(App.selectFoodList);
-
                     NavigationService.Navigate(new CompletePage());
                 }
                 else
