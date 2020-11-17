@@ -36,9 +36,14 @@ namespace Kiosk.admin
             this.NavigationService.Navigate(new StatsPage());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Sale_Button_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new SalePage());
+        }
+
+        private void Message_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MessagePage());
         }
     }
 }

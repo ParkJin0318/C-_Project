@@ -273,3 +273,5 @@ C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\SalePage
 C:\Users\Domong\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\LoginPage.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWindow.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWindow.baml
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.g.cs
+C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.baml

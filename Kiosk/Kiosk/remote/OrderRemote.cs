@@ -63,7 +63,7 @@ namespace Kiosk.remote
             this.SetOrderInfo(foodList, idxOreder);
         }
 
-        private bool SetOrderInfo(ObservableCollection<Food> foodList, int orderIdx)
+        private void SetOrderInfo(ObservableCollection<Food> foodList, int orderIdx)
         {
             JObject json = new JObject();
             JArray menuList = new JArray();
@@ -86,14 +86,7 @@ namespace Kiosk.remote
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);
-            bool isSuccess = connection.SetServerData(data);
-
-            if (isSuccess == true)
-            {
-                return true;
-            }
-
-            return false;
+            connection.SetServerData(data);
         }
     }
 }

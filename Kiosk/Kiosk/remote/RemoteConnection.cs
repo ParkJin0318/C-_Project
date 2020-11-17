@@ -55,7 +55,7 @@ namespace Kiosk.remote
             cmd.ExecuteNonQuery();
         }
 
-        public bool SetServerData(string data)
+        public void SetServerData(string data)
         {
             if (App.client != null)
             {
@@ -66,22 +66,42 @@ namespace Kiosk.remote
                     NetworkStream networkStream = App.client.GetStream();
                     networkStream.Write(sendData, 0, sendData.Length);
 
-                    Int32 bytes = networkStream.Read(sendData, 0, sendData.Length);
-                    String responseData = Encoding.ASCII.GetString(sendData, 0, bytes);
-
-                    if (responseData == "200")
-                    {
-                        return true;
-                    }
+                    // Int32 bytes = networkStream.Read(sendData, 0, sendData.Length);
+                    // String responseData = Encoding.ASCII.GetString(sendData, 0, bytes);
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
                     Console.WriteLine("실패");
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(e.ToString());
                 }
 
             }
-            return false;
+        }
+
+        public void GetServerMessage()
+        {
+            if (App.client != null)
+            {
+                try
+                {
+                    NetworkStream stream = App.client.GetStream();
+
+                    byte[] bytes = new byte[256];
+                    string data = null;
+
+                    int i;
+                    while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        data = Encoding.UTF8.GetString(bytes, 0, i);
+                        Console.WriteLine(data);
+                    }
+                } 
+                catch(Exception e)
+                {
+                    Console.WriteLine("실패");
+                    Console.WriteLine(e.ToString());
+                }
+            }
         }
     }
 }

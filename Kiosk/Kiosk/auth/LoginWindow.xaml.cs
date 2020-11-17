@@ -40,14 +40,11 @@ namespace Kiosk.auth
                     Console.WriteLine(e.Message);
                 }
             }
-
             remote = new UserRemote();
-            if (remote.IsAutoLogin())
-            {
-                if (remote.SetLogin())
-                {
-                    this.ShowMainWindow();
-                }
+
+            if (remote.IsAutoLogin()) {
+                remote.SetLogin();
+                this.ShowMainWindow();
             }
         }
 
@@ -55,14 +52,13 @@ namespace Kiosk.auth
         {
             if (userId.Text == "2210" && userPw.Text == "123")
             {
-                if (remote.SetLogin())
+                remote.SetLogin();
+                if (AutoCheck.IsChecked == true)
                 {
-                    if (AutoCheck.IsChecked == true)
-                    {
-                        remote.SetAutoLogin();
-                    }
-                    this.ShowMainWindow();
+                    remote.SetAutoLogin();
                 }
+                
+                this.ShowMainWindow();
             }
             else
             {

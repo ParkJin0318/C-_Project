@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,11 +25,17 @@ namespace Kiosk
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly RemoteConnection remoteConnection;
+
         public MainWindow()
         {
             InitializeComponent();
+            remoteConnection = new RemoteConnection();
             
             SetTime();
+
+            Thread thread = new Thread(remoteConnection.GetServerMessage);
+            thread.Start();
         }
 
         private void SetTime()

@@ -19,7 +19,7 @@ namespace Kiosk.remote
             connection = new RemoteConnection();
         }
 
-        public bool SetLogin()
+        public void SetLogin()
         {
             JObject json = new JObject();
             json.Add("MSGType", 0);
@@ -30,14 +30,22 @@ namespace Kiosk.remote
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            bool isSuccess = connection.SetServerData(data);
+            connection.SetServerData(data);
+        }
 
-            if (isSuccess == true)
-            {
-                return true;
-            }
+        public void SetMessage(string message, bool isGroup)
+        {
+            JObject json = new JObject();
+            json.Add("MSGType", 1);
+            json.Add("id", "2210");
+            json.Add("Content", message);
+            json.Add("ShopName", "");
+            json.Add("OrderNumber", "");
+            json.Add("Group", isGroup);
+            json.Add("Menus", "");
 
-            return false;
+            String data = JsonConvert.SerializeObject(json);
+            connection.SetServerData(data);
         }
 
         public bool IsAutoLogin()
