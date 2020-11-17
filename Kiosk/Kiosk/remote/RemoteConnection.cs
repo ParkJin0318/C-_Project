@@ -65,9 +65,6 @@ namespace Kiosk.remote
                 {
                     NetworkStream networkStream = App.client.GetStream();
                     networkStream.Write(sendData, 0, sendData.Length);
-
-                    // Int32 bytes = networkStream.Read(sendData, 0, sendData.Length);
-                    // String responseData = Encoding.ASCII.GetString(sendData, 0, bytes);
                 }
                 catch (Exception e)
                 {
@@ -93,7 +90,9 @@ namespace Kiosk.remote
                     while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                     {
                         data = Encoding.UTF8.GetString(bytes, 0, i);
-                        Console.WriteLine(data);
+
+                        ToastMessage toast = new ToastMessage();
+                        toast.ShowNotification("서버 메세지", data);
                     }
                 } 
                 catch(Exception e)

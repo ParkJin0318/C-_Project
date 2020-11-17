@@ -162,6 +162,7 @@
     <Compile Include="remote\TableDataRemote.cs" />
     <Compile Include="remote\UserRemote.cs" />
     <Compile Include="util\Constants.cs" />
+    <Compile Include="util\ToastMessage.cs" />
     <Page Include="admin\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
