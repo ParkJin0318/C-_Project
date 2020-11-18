@@ -135,6 +135,7 @@
     <Compile Include="auth\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\Market.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="place\TableViewModel.cs" />
     <Compile Include="remote\FoodRemote.cs" />
@@ -161,6 +162,14 @@
     </Compile>
     <Compile Include="remote\TableDataRemote.cs" />
     <Compile Include="remote\UserRemote.cs" />
+    <Compile Include="repositoryImpl\AuthRepositoryImpl.cs" />
+    <Compile Include="repositoryImpl\FoodRepositoryImpl.cs" />
+    <Compile Include="repositoryImpl\OrderRepositoryImpl.cs" />
+    <Compile Include="repositoryImpl\UserRepositoryImpl.cs" />
+    <Compile Include="repository\AuthRepository.cs" />
+    <Compile Include="repository\FoodRepository.cs" />
+    <Compile Include="repository\OrderRepository.cs" />
+    <Compile Include="repository\UserRepository.cs" />
     <Compile Include="util\Constants.cs" />
     <Compile Include="util\ToastMessage.cs" />
     <Page Include="admin\AdminPage.xaml">
@@ -371,5 +380,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
 ﻿using Kiosk.database;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -13,8 +15,12 @@ namespace Kiosk.order
     public class OrderViewModel : BindableBase
     {
         public OrderViewModel() {
+            repository = new FoodRepositoryImpl();
+
             SetFoods();
         }
+
+        private readonly FoodRepositoryImpl repository;
 
         public int currentPage = 1;
 
@@ -36,8 +42,7 @@ namespace Kiosk.order
 
         private void SetFoods()
         {
-            FoodRemote remote = new FoodRemote();
-            this.foodList = remote.GetAllFood();
+            this.foodList = repository.GetAllFood();
         }
 
         public void SelectionChanged(Food food)

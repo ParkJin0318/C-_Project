@@ -1,4 +1,5 @@
 ﻿using Kiosk.database;
+using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace Kiosk.admin
 {
     class SaleViewModel: BindableBase
     {
-        private readonly FoodRemote remote;
+        private readonly FoodRepositoryImpl repository;
 
         public SaleViewModel()
         {
-            remote = new FoodRemote();
+            repository = new FoodRepositoryImpl();
             SetFoods();
         }
 
@@ -43,12 +44,12 @@ namespace Kiosk.admin
 
         public void SetFoods()
         {
-            this.foodList = remote.GetAllFood();
+            this.foodList = repository.GetAllFood();
         }
 
         public void SetSale(Food food, int sale)
         {
-            remote.SetFoodSale(food, sale);
+            repository.SetFoodSale(food, sale);
         }
 
         public List<Food> PageControl(Category category, int control)
