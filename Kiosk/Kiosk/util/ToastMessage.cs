@@ -23,7 +23,7 @@ namespace Kiosk.util
         public void ShowNotification(string title, string message)
         {
             _notifyIcon.Visible = true;
-            _notifyIcon.ShowBalloonTip(1000, title, message, ToolTipIcon.Info);
+            _notifyIcon.ShowBalloonTip(500, title, message, ToolTipIcon.Info);
         }
     }
 }

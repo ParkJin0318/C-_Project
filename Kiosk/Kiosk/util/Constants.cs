@@ -12,6 +12,8 @@ namespace Kiosk.util
 
         public const string SERVER_HOST = "10.80.161.176";
 
+        // 10.80.162.152
+
         public const int SERVER_PORT = 80;
     }
 }
