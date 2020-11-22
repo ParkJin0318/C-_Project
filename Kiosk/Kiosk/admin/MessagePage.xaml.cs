@@ -1,4 +1,6 @@
 ﻿using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,22 +23,22 @@ namespace Kiosk.admin
     /// </summary>
     public partial class MessagePage : Page
     {
-        private UserRemote remote;
+        private readonly UserRepository repository;
         public MessagePage()
         {
             InitializeComponent();
-            remote = new UserRemote();
+            repository = new UserRepositoryImpl();
         }
 
         private void Input_Click(object sender, RoutedEventArgs e)
         {
-            remote.SetMessage(InputBox.Text, false);
+            repository.SetMessage(InputBox.Text, false);
             InputBox.Text = "";
         }
 
         private void Group_Input_Click(object sender, RoutedEventArgs e)
         {
-            remote.SetMessage(InputBox.Text, true);
+            repository.SetMessage(InputBox.Text, true);
             InputBox.Text = "";
         }
     }

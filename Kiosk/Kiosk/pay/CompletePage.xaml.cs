@@ -1,4 +1,6 @@
 ﻿using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,9 +24,12 @@ namespace Kiosk.pay
     /// </summary>
     public partial class CompletePage : Page
     {
+        private readonly OrderRepository repository;
+
         public CompletePage()
         {
             InitializeComponent();
+            repository = new OrderRepositoryImpl();
 
             orderNumber();
             orderTotalPrice();
@@ -32,9 +37,7 @@ namespace Kiosk.pay
 
         private void orderNumber()
         {
-            OrderRemote remote = new OrderRemote();
-
-            order_Num.Content = "주문번호 : " + remote.GetMaxOrderIdx().ToString();
+            order_Num.Content = "주문번호 : " + repository.GetMaxOrderIdx().ToString();
         }
 
         private void orderTotalPrice()

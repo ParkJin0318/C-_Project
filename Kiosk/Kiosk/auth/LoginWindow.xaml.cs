@@ -1,4 +1,6 @@
 ﻿using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using Kiosk.util;
 using MySql.Data.MySqlClient.Memcached;
 using System;
@@ -24,7 +26,7 @@ namespace Kiosk.auth
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private readonly UserRemote remote;
+        private readonly AuthRepository repository;
 
         public LoginWindow()
         {
@@ -40,10 +42,10 @@ namespace Kiosk.auth
                     Console.WriteLine(e.Message);
                 }
             }
-            remote = new UserRemote();
+            repository = new AuthRepositoryImpl();
 
-            if (remote.IsAutoLogin()) {
-                remote.SetLogin();
+            if (repository.IsAutoLogin()) {
+                repository.SetLogin();
                 this.ShowMainWindow();
             }
         }
@@ -52,10 +54,10 @@ namespace Kiosk.auth
         {
             if (userId.Text == "2210" && userPw.Text == "123")
             {
-                remote.SetLogin();
+                repository.SetLogin();
                 if (AutoCheck.IsChecked == true)
                 {
-                    remote.SetAutoLogin();
+                    repository.SetAutoLogin();
                 }
                 
                 this.ShowMainWindow();

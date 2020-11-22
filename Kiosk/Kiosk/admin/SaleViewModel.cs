@@ -1,4 +1,5 @@
-﻿using Kiosk.database;
+﻿
+using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
@@ -11,7 +12,7 @@ namespace Kiosk.admin
 {
     class SaleViewModel: BindableBase
     {
-        private readonly FoodRepositoryImpl repository;
+        private readonly FoodRepository repository;
 
         public SaleViewModel()
         {

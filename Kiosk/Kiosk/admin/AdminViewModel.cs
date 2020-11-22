@@ -1,5 +1,7 @@
 ﻿using Kiosk.model;
 using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -13,8 +15,11 @@ namespace Kiosk.admin
     {
         public AdminViewModel()
         {
+            repository = new UserRepositoryImpl();
             SetUserList();
         }
+
+        private readonly UserRepository repository;
 
         private List<User> _userList;
         public List<User> userList
@@ -25,8 +30,7 @@ namespace Kiosk.admin
 
         private void SetUserList()
         {
-            UserRemote remote = new UserRemote();
-            this.userList = remote.GetAllUser();
+            this.userList = repository.GetAllUser();
         }
     }
 }

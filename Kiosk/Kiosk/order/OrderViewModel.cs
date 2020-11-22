@@ -1,4 +1,4 @@
-﻿using Kiosk.database;
+﻿
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Prism.Mvvm;
@@ -15,12 +15,12 @@ namespace Kiosk.order
     public class OrderViewModel : BindableBase
     {
         public OrderViewModel() {
-            repository = new FoodRepositoryImpl();
 
+            repository = new FoodRepositoryImpl();
             SetFoods();
         }
 
-        private readonly FoodRepositoryImpl repository;
+        private readonly FoodRepository repository;
 
         public int currentPage = 1;
 

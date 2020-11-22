@@ -1,5 +1,7 @@
 ﻿using Kiosk.model;
 using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -27,10 +29,15 @@ namespace Kiosk.pay
         public CashPage()
         {
             InitializeComponent();
+            userRepository = new UserRepositoryImpl();
+            orderRepository = new OrderRepositoryImpl();
             barcode_Text.Focus();
 
             orderTotalPrice();
         }
+
+        private readonly UserRepository userRepository;
+        private readonly OrderRepository orderRepository;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,15 +51,13 @@ namespace Kiosk.pay
 
         private void UserBarCodeSearch(String barcode)
         {
-            UserRemote userRemote = new UserRemote();
-            OrderRemote orderRemote = new OrderRemote();
-            List<User> users = userRemote.GetAllUser();
+            List<User> users = userRepository.GetAllUser();
 
             foreach (User item in users)
             {
                 if (item.barCode == barcode)
                 {
-                    orderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+                    orderRepository.SetOrderList(App.selectFoodList, 1, 1, App.tableIdx, App.payType);
                     NavigationService.Navigate(new CompletePage());
                 }
                 else

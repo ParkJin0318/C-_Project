@@ -1,18 +1,24 @@
 ﻿using Kiosk.model;
 using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Kiosk.place
 {
     class TableViewModel : BindableBase
     {
+        private readonly OrderRepository repository;
+
         public TableViewModel()
         {
+            repository = new OrderRepositoryImpl();
             SetTables();
         }
 
@@ -26,8 +32,7 @@ namespace Kiosk.place
 
         private void SetTables()
         {
-            TableDataRemote remote = new TableDataRemote();
-            this.TableDataList = remote.GetLastOrderTimes();
+            this.TableDataList = repository.GetAllTableInfo();
         }
 
         public void stopAllTimer()

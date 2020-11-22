@@ -23,25 +23,14 @@ namespace Kiosk.repositoryImpl
             connection = new RemoteConnection();
         }
 
-        public string GetLastOrderTime(int tableIdx)
-        {
-            MySqlDataReader reader = connection.GetDBData("select * from orders where eatTable = " + tableIdx
-                   + " and idxMarket = " + 1 + " order by idx desc");
-
-            while (reader.Read())
-            {
-                return reader["payTime"].ToString();
-            }
-            return "";
-        }
-
         public List<TableData> GetAllTableInfo()
         {
             List<TableData> TableDataList = new List<TableData>();
             for (int i = 1; i < 10; i++)
             {
                 TableData Td = new TableData();
-                string ReadTime = this.GetLastOrderTime(i);
+                MySqlDataReader reader = connection.GetDBData("select * from orders where eatTable = " + i
+                    + " and idxMarket = " + 1 + " order by idx desc");
 
                 Td.myTableNumber = i;
                 Td.TimeRemaining = 0;
@@ -49,19 +38,25 @@ namespace Kiosk.repositoryImpl
                 Td.canUse = true;
                 Td.TableColor = new SolidColorBrush(Colors.Red);
 
-                DateTime lastEatStart = Convert.ToDateTime(ReadTime);
-                DateTime now = DateTime.Now;
-                TimeSpan dateDiff = now - lastEatStart;
-                int diffSec = Convert.ToInt32(dateDiff.TotalSeconds);
-                if (diffSec <= 60)
+                if (reader.Read())
                 {
-                    Td.TimeRemaining = 60 - diffSec;
-                    Td.useText = "이용중 : " + Td.TimeRemaining;
-                    Td.canUse = false;
-                    Td.TableColor = new SolidColorBrush(Colors.Yellow);
-                    Td.MakeTimer();
-                }
+                    string ReadTime = reader["payTime"].ToString();
 
+                    DateTime lastEatStart = Convert.ToDateTime(ReadTime);
+                    DateTime now = DateTime.Now;
+                    TimeSpan dateDiff = now - lastEatStart;
+
+                    int diffSec = Convert.ToInt32(dateDiff.TotalSeconds);
+
+                    if (diffSec <= 60)
+                    {
+                        Td.TimeRemaining = 60 - diffSec;
+                        Td.useText = "이용중 : " + Td.TimeRemaining;
+                        Td.canUse = false;
+                        Td.TableColor = new SolidColorBrush(Colors.Yellow);
+                        Td.MakeTimer();
+                    }
+                }
                 TableDataList.Add(Td);
             }
 
@@ -118,7 +113,7 @@ namespace Kiosk.repositoryImpl
             connection.SetServerData(data);
         }
 
-        public void SetOrderList(ObservableCollection<Food> foodList, User user, Market market, int tableIdx, int payType)
+        public void SetOrderList(ObservableCollection<Food> foodList, int userIdx, int marketIdx, int tableIdx, int payType)
         {
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -129,7 +124,7 @@ namespace Kiosk.repositoryImpl
             {
                 int idx = this.GetMaxIdx() + 1;
                 connection.SetDBData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
-                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", "+ user.idx + ", "+ market.idx + ", '" + date + "', " + payType + ", " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
+                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", "+ userIdx + ", "+ marketIdx + ", '" + date + "', " + payType + ", " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }
             this.SendOrderInfo(foodList, idxOreder);
         }

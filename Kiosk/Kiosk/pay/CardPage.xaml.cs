@@ -1,5 +1,7 @@
 ﻿using Kiosk.model;
 using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,10 +25,15 @@ namespace Kiosk.pay
     /// </summary>
     public partial class CardPage : Page
     {
+
+        private readonly UserRepository userRepository;
+        private readonly OrderRepository orderRepository;
+
         public CardPage()
         {
             InitializeComponent();
-
+            userRepository = new UserRepositoryImpl();
+            orderRepository = new OrderRepositoryImpl();
             webcam.CameraIndex = 0;
 
             orderTotalPrice();
@@ -39,15 +46,13 @@ namespace Kiosk.pay
 
         private void UserQrCodeSearch(String qrcode)
         {
-            UserRemote UserRemote = new UserRemote();
-            OrderRemote OrderRemote = new OrderRemote();
-            List<User> users = UserRemote.GetAllUser();
+            List<User> users = userRepository.GetAllUser();
 
             foreach (User item in users)
             {
                 if (item.qrCode == qrcode)
                 {
-                    OrderRemote.SetOrderList(App.selectFoodList, App.tableIdx, App.payType);
+                    orderRepository.SetOrderList(App.selectFoodList, 1, 1, App.tableIdx, App.payType);
 
                     NavigationService.Navigate(new CompletePage());
                 }

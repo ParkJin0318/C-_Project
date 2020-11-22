@@ -138,7 +138,6 @@
     <Compile Include="model\Market.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="place\TableViewModel.cs" />
-    <Compile Include="remote\FoodRemote.cs" />
     <Compile Include="model\Category.cs" />
     <Compile Include="model\Food.cs" />
     <Compile Include="model\TableData.cs" />
@@ -155,13 +154,10 @@
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="remote\OrderRemote.cs" />
     <Compile Include="remote\RemoteConnection.cs" />
     <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="remote\TableDataRemote.cs" />
-    <Compile Include="remote\UserRemote.cs" />
     <Compile Include="repositoryImpl\AuthRepositoryImpl.cs" />
     <Compile Include="repositoryImpl\FoodRepositoryImpl.cs" />
     <Compile Include="repositoryImpl\OrderRepositoryImpl.cs" />
