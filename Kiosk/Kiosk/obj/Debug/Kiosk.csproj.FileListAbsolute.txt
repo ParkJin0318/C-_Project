@@ -275,3 +275,9 @@ C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWind
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWindow.baml
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.g.cs
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.dll
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\bin\Debug\Newtonsoft.Json.xml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWindow.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\admin\MessagePage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\auth\LoginWindow.baml
