@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
-14-1784259681
+23931161929
 11174109075
-38-1177388981
+55-1830553147
 1431575921210
-admin\AdminPage.xaml;admin\MessagePage.xaml;admin\SalePage.xaml;admin\StatsPage.xaml;intro\IntroPage.xaml;auth\LoginWindow.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
+admin\AdminPage.xaml;admin\MessagePage.xaml;admin\SalePage.xaml;admin\StatsPage.xaml;data\AllProfitsDataPage.xaml;data\CategoryDataPage.xaml;data\DayProfitsPage_C.xaml;data\DayProfitsPage_F.xaml;data\DayProfitsPage_M.xaml;data\MenuDataPage.xaml;data\MenuDataPage_F.xaml;data\SeatDataPage.xaml;data\UserDataPage.xaml;intro\IntroPage.xaml;auth\LoginWindow.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
 
 False
 

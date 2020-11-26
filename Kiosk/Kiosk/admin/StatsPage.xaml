@@ -10,28 +10,69 @@
       Title="StatsPage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            <TextBlock
-                Text="카테고리별 통계"/>
-            <lvc:PieChart LegendLocation="Right" Hoverable="False">
-                <lvc:PieChart.Series>
-                    <lvc:PieSeries Title="햄버거" Values="3" DataLabels="True"/>
-                    <lvc:PieSeries Title="음료수" Values="4" DataLabels="True"/>
-                    <lvc:PieSeries Title="사이드" Values="6" DataLabels="True"/>
-                </lvc:PieChart.Series>
-            </lvc:PieChart>
+        <Grid Grid.Row="0">
+            <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center">
+
+                <StackPanel 
+                    Orientation="Horizontal"
+                    Background="White">
+
+                    <Button 
+                        Margin="10"
+                        FontSize="15"
+                        Background="White"
+                        BorderBrush="Transparent"
+                        Click="Button_Click_1">총액</Button>
+                    <Button 
+                        Margin="10"
+                        FontSize="15" 
+                        Background="White"
+                        BorderBrush="Transparent"
+                        Click="Button_Click_2">메뉴</Button>
+                    <Button 
+                        Margin="10" 
+                        FontSize="15" 
+                        Background="White"
+                        BorderBrush="Transparent"
+                        Click="Button_Click_3">카테고리</Button>
+                    <Button
+                        Margin="10" 
+                        FontSize="15"
+                        Background="White" 
+                        BorderBrush="Transparent"
+                        Click="Button_Click_4">테이블</Button>
+                    <Button 
+                        Margin="10" 
+                        FontSize="15"
+                        Background="White"
+                        BorderBrush="Transparent"
+                        Click="Button_Click_5">일별</Button>
+                    <Button 
+                        Margin="10" 
+                        FontSize="15" 
+                        Background="White" 
+                        BorderBrush="Transparent"
+                        Click="Button_Click_6">유저</Button>
+                </StackPanel>
+
+            </StackPanel>
         </Grid>
 
-            
+        <Grid Grid.Row="1">
+            <Frame
+                x:Name="FrameLayout1"
+                NavigationUIVisibility="Hidden"
+                Source="../data/AllProfitsDataPage.xaml"/>
+        </Grid>
+
     </Grid>
 </Page>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\
 Kiosk
 none
 false
 DEBUG;TRACE
-C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
-14-1784259681
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
+23931161929
 11174109075
-39-2019748348
-1431913985917
-admin\AdminPage.xaml;admin\MessagePage.xaml;admin\SalePage.xaml;admin\StatsPage.xaml;intro\IntroPage.xaml;auth\LoginWindow.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
+561622054782
+1431575921210
+admin\AdminPage.xaml;admin\MessagePage.xaml;admin\SalePage.xaml;admin\StatsPage.xaml;data\AllProfitsDataPage.xaml;data\CategoryDataPage.xaml;data\DayProfitsPage_C.xaml;data\DayProfitsPage_F.xaml;data\DayProfitsPage_M.xaml;data\MenuDataPage.xaml;data\MenuDataPage_F.xaml;data\SeatDataPage.xaml;data\UserDataPage.xaml;intro\IntroPage.xaml;auth\LoginWindow.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
 
-False
+True
 

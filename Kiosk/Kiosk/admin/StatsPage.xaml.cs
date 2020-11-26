@@ -24,5 +24,35 @@ namespace Kiosk.admin
         {
             InitializeComponent();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new Kiosk.data.AllProfitsDataPage());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new data.MenuDataPage_F(0));
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new Kiosk.data.CategoryDataPage(0));
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new Kiosk.data.SeatDataPage(1, true));
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new Kiosk.data.DayProfitsPage_M());
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            FrameLayout1.NavigationService.Navigate(new Kiosk.data.UserDataPage());
+        }
     }
 }
