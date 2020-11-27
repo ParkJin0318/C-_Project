@@ -92,15 +92,13 @@ namespace Kiosk.repositoryImpl
 
             while (reader.Read())
             {
-                string readTime = reader["payTime"].ToString();
-                if (Int32.Parse(readTime.Substring(0, 4)) == checkDay.Year
-                    && Int32.Parse(readTime.Substring(5, 2)) == checkDay.Month
-                    && Int32.Parse(readTime.Substring(8, 2)) == checkDay.Month)
+                DateTime readTime = DateTime.Parse(reader["payTime"].ToString());
+                if (readTime.Year == checkDay.Year && readTime.Month == checkDay.Month && readTime.Day == checkDay.Day)
                 {
                     int sumPrice = (Int32.Parse(reader["totalPrice"].ToString())
                         + Int32.Parse(reader["salePrice"].ToString()))
                         * Int32.Parse(reader["count"].ToString());
-                    hourProfit[(Int32.Parse(readTime.Substring(11, 2)))] += sumPrice;
+                    hourProfit[readTime.Hour] += sumPrice;
                     dayProfit.sumProfits += sumPrice;
                 }
             }
