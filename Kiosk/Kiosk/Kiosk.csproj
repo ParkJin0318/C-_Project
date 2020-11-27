@@ -135,41 +135,41 @@
     <Compile Include="auth\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\AllProfitsDataPage.xaml.cs">
-      <DependentUpon>AllProfitsDataPage.xaml</DependentUpon>
+    <Compile Include="stats\AllProfitsPage.xaml.cs">
+      <DependentUpon>AllProfitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\CategoryDataPage.xaml.cs">
-      <DependentUpon>CategoryDataPage.xaml</DependentUpon>
+    <Compile Include="stats\CategoryProfitsPage.xaml.cs">
+      <DependentUpon>CategoryProfitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\DayProfitsPage_C.xaml.cs">
-      <DependentUpon>DayProfitsPage_C.xaml</DependentUpon>
+    <Compile Include="stats\DayProfitsPageChart.xaml.cs">
+      <DependentUpon>DayProfitsPageChart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\DayProfitsPage_F.xaml.cs">
-      <DependentUpon>DayProfitsPage_F.xaml</DependentUpon>
+    <Compile Include="stats\DayProfitsPageFrame.xaml.cs">
+      <DependentUpon>DayProfitsPageFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\DayProfitsPage_M.xaml.cs">
-      <DependentUpon>DayProfitsPage_M.xaml</DependentUpon>
+    <Compile Include="stats\DayProfitsPageMain.xaml.cs">
+      <DependentUpon>DayProfitsPageMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\MCSDataViewModel.cs" />
-    <Compile Include="data\MenuDataPage.xaml.cs">
-      <DependentUpon>MenuDataPage.xaml</DependentUpon>
+    <Compile Include="stats\MCSDataViewModel.cs" />
+    <Compile Include="stats\MenuProfitsPage.xaml.cs">
+      <DependentUpon>MenuProfitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\MenuDataPage_F.xaml.cs">
-      <DependentUpon>MenuDataPage_F.xaml</DependentUpon>
+    <Compile Include="stats\MenuProfitsPageFrame.xaml.cs">
+      <DependentUpon>MenuProfitsPageFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\SeatDataPage.xaml.cs">
-      <DependentUpon>SeatDataPage.xaml</DependentUpon>
+    <Compile Include="stats\TableProfitsPage.xaml.cs">
+      <DependentUpon>TableProfitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\SeatDataViewModel.cs" />
-    <Compile Include="data\UserDataPage.xaml.cs">
-      <DependentUpon>UserDataPage.xaml</DependentUpon>
+    <Compile Include="stats\TableProfitsViewModel.cs" />
+    <Compile Include="stats\UserProfitsPage.xaml.cs">
+      <DependentUpon>UserProfitsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="model\Market.cs" />
     <Compile Include="model\Stats\AllProfitsData.cs" />
-    <Compile Include="model\Stats\DayProfits.cs" />
-    <Compile Include="model\Stats\MenuCategoryData.cs" />
-    <Compile Include="model\Stats\SeatData.cs" />
-    <Compile Include="model\Stats\UserData.cs" />
+    <Compile Include="model\Stats\DayProfitsData.cs" />
+    <Compile Include="model\Stats\MenuProfitsData.cs" />
+    <Compile Include="model\Stats\TableProfitsData.cs" />
+    <Compile Include="model\Stats\UserProfitsData.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="place\TableViewModel.cs" />
     <Compile Include="model\Category.cs" />
@@ -192,14 +192,15 @@
     <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="remote\StatsDataRemote.cs" />
     <Compile Include="repositoryImpl\AuthRepositoryImpl.cs" />
     <Compile Include="repositoryImpl\FoodRepositoryImpl.cs" />
     <Compile Include="repositoryImpl\OrderRepositoryImpl.cs" />
+    <Compile Include="repositoryImpl\StatsRepositoryImpl.cs" />
     <Compile Include="repositoryImpl\UserRepositoryImpl.cs" />
     <Compile Include="repository\AuthRepository.cs" />
     <Compile Include="repository\FoodRepository.cs" />
     <Compile Include="repository\OrderRepository.cs" />
+    <Compile Include="repository\StatsRepository.cs" />
     <Compile Include="repository\UserRepository.cs" />
     <Compile Include="util\Constants.cs" />
     <Compile Include="util\ToastMessage.cs" />
@@ -219,39 +220,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\AllProfitsDataPage.xaml">
+    <Page Include="stats\AllProfitsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\CategoryDataPage.xaml">
+    <Page Include="stats\CategoryProfitsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\DayProfitsPage_C.xaml">
+    <Page Include="stats\DayProfitsPageChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\DayProfitsPage_F.xaml">
+    <Page Include="stats\DayProfitsPageFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\DayProfitsPage_M.xaml">
+    <Page Include="stats\DayProfitsPageMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\MenuDataPage.xaml">
+    <Page Include="stats\MenuProfitsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\MenuDataPage_F.xaml">
+    <Page Include="stats\MenuProfitsPageFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\SeatDataPage.xaml">
+    <Page Include="stats\TableProfitsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="data\UserDataPage.xaml">
+    <Page Include="stats\UserProfitsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

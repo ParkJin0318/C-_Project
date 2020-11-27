@@ -71,7 +71,7 @@
             <Frame
                 x:Name="FrameLayout1"
                 NavigationUIVisibility="Hidden"
-                Source="../data/AllProfitsDataPage.xaml"/>
+                Source="../stats/AllProfitsPage.xaml"/>
         </Grid>
 
     </Grid>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Kiosk.stats;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -27,32 +28,32 @@ namespace Kiosk.admin
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new Kiosk.data.AllProfitsDataPage());
+            FrameLayout1.NavigationService.Navigate(new AllProfitsPage());
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new data.MenuDataPage_F(0));
+            FrameLayout1.NavigationService.Navigate(new MenuProfitsPageFrame(0));
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new Kiosk.data.CategoryDataPage(0));
+            FrameLayout1.NavigationService.Navigate(new CategoryProfitsPage(0));
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new Kiosk.data.SeatDataPage(1, true));
+            FrameLayout1.NavigationService.Navigate(new TableProfitsPage(1, true));
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new Kiosk.data.DayProfitsPage_M());
+            FrameLayout1.NavigationService.Navigate(new DayProfitsPageMain());
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new Kiosk.data.UserDataPage());
+            FrameLayout1.NavigationService.Navigate(new UserProfitsPage());
         }
     }
 }

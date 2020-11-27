@@ -1,0 +1,97 @@
+﻿<Page x:Class="Kiosk.stats.TableProfitsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kiosk.stats"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="TableProfitsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ListBox x:Name="xTable"
+                        Margin="0 20 0 20"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        BorderBrush="Transparent"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        SelectionChanged="Table_Click">
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid 
+                                    Columns="3"
+                                    Rows="3"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel
+                                    Margin="20, 10, 20, 10"
+                                    Width="140px"
+                                    Height="140px"
+                                    Background="{Binding TableColor}">
+                                <TextBlock Text="{Binding myTableNumber}"
+                                        FontSize="42pt"
+                                        FontWeight="Bold"
+                                        Foreground="White"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Button
+                        Content="Menu"
+                        FontSize="26pt"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Background="Red"
+                        Margin="10 20 10 20"
+                        Click="BTN_MenuClicked"
+                        x:Name="xMenu"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button
+                        Content="Category"
+                        FontSize="26pt"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Background="Red"
+                        Margin="10 20 10 20"
+                        Click="BTN_CategoryClicked"
+                        x:Name="xCategory"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Frame
+                x:Name="ChartFrame"
+                NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Page>

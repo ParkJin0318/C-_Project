@@ -36,7 +36,7 @@ namespace Kiosk.auth
             {
                 try
                 {
-                    App.client = new TcpClient(Constants.SERVER_HOST, Constants.SERVER_PORT);
+                   // App.client = new TcpClient(Constants.SERVER_HOST, Constants.SERVER_PORT);
                 } catch(Exception e)
                 {
                     Console.WriteLine(e.Message);
