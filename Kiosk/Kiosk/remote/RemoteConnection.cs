@@ -59,7 +59,7 @@ namespace Kiosk.remote
 
         public void SetServerData(string data)
         {
-            if (App.client != null)
+            if (App.client.Connected)
             {
                 byte[] sendData = Encoding.UTF8.GetBytes(data);
 
@@ -79,7 +79,7 @@ namespace Kiosk.remote
 
         public void GetServerMessage()
         {
-            if (App.client != null)
+            if (App.client.Connected)
             {
                 try
                 {

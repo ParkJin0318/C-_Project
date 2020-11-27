@@ -36,10 +36,19 @@ namespace Kiosk.auth
             {
                 try
                 {
-                   // App.client = new TcpClient(Constants.SERVER_HOST, Constants.SERVER_PORT);
-                } catch(Exception e)
+                    App.client = new TcpClient();
+                    var result = App.client.BeginConnect(Constants.SERVER_HOST, Constants.SERVER_PORT, null, null);
+                    bool success = result.AsyncWaitHandle.WaitOne(1000, false);
+
+                    if (success)
+                        App.client.EndConnect(result);
+                    else
+                        throw new Exception();
+                }
+                catch
                 {
-                    Console.WriteLine(e.Message);
+                    ToastMessage toast = new ToastMessage();
+                    toast.ShowNotification("서버 에러", "서버가 연결되지 않았습니다");
                 }
             }
             repository = new AuthRepositoryImpl();

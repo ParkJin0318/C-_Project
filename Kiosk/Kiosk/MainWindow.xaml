@@ -15,7 +15,7 @@
 
         <Grid Grid.Row="0"
               VerticalAlignment="Center">
-            
+
             <TextBlock
                 x:Name="Time"
                 Text="2020-09-22 12:01"
