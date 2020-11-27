@@ -20,9 +20,20 @@ namespace Kiosk.stats
     /// </summary>
     public partial class DayProfitsPageFrame : Page
     {
-        public DayProfitsPageFrame()
+        private DayProfitsDataViewModel viewModel = new DayProfitsDataViewModel();
+        public DayProfitsPageFrame(DateTime checkingDay)
         {
             InitializeComponent();
+            viewModel.SetData(checkingDay);
+            livChartFrame.NavigationService.Navigate(new Kiosk.stats.DayProfitsPageChart(viewModel.GetHoursProfits(0, 12), viewModel.GetNames(0, 12)));
+        }
+
+        public void UpdateData(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            int nowIndex = (cb.SelectedIndex + 1) * 12;
+            if (livChartFrame != null)
+                livChartFrame.NavigationService.Navigate(new Kiosk.stats.DayProfitsPageChart(viewModel.GetHoursProfits(nowIndex - 12, nowIndex), viewModel.GetNames(nowIndex - 12, nowIndex)));
         }
     }
 }

@@ -141,6 +141,7 @@
     <Compile Include="stats\CategoryProfitsPage.xaml.cs">
       <DependentUpon>CategoryProfitsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="stats\DayProfitsDataViewModel.cs" />
     <Compile Include="stats\DayProfitsPageChart.xaml.cs">
       <DependentUpon>DayProfitsPageChart.xaml</DependentUpon>
     </Compile>

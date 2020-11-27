@@ -16,34 +16,39 @@
 
         <Grid Grid.Row="0">
             <Button
-                Content="하루 전"
-                FontSize="18pt"
+                Content="←"
+                FontSize="20pt"
                 FontWeight="Bold"
                 Foreground="White"
                 Background="Red"
                 Margin="0 0 400 0"
-                Width="100px"
+                Width="40px"
                 Height="40px"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center"
+                Click="yesterdayClick"/>
             <TextBlock
-                Text="2020년 11월 26일"
+                Text=""
                 FontSize="24pt"
                 FontWeight="Bold"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center"
+                x:Name="xCheckDay"/>
             <Button
-                Content="다음 날"
+                Content="→"
                 FontSize="18pt"
                 FontWeight="Bold"
                 Foreground="White"
                 Background="Red"
                 Margin="400 0 0 0"
-                Width="100px"
+                Width="40px"
                 Height="40px"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center"
+                Click="tomorrowClick"/>
         </Grid>
 
         <Grid Grid.Row="1">
-
+            <Frame
+                x:Name="chartFrame"
+                NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Page>
