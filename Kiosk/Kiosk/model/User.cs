@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Kiosk.model
 {
-    class User
+    public class User
     {
         public int idx { get; set; }
 
         public string name { get; set; }
+
+        public string id { get; set; }
+
+        public bool isAuto { get; set; }
 
         public string qrCode { get; set; }
 

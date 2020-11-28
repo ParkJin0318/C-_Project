@@ -17,5 +17,7 @@ namespace Kiosk.util
         // 10.80.163.141
 
         public const int SERVER_PORT = 80;
+
+        public const string TEST_ID = "2210";
     }
 }

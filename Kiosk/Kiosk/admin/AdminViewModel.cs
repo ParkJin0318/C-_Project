@@ -14,11 +14,8 @@ namespace Kiosk.admin
     {
         public AdminViewModel()
         {
-            repository = new UserRepositoryImpl();
             SetUserList();
         }
-
-        private readonly UserRepository repository;
 
         private List<User> _userList;
         public List<User> userList
@@ -29,7 +26,7 @@ namespace Kiosk.admin
 
         private void SetUserList()
         {
-            this.userList = repository.GetAllUser();
+            this.userList = App.userList;
         }
     }
 }

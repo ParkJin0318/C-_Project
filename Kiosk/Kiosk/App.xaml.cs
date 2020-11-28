@@ -10,6 +10,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Kiosk.model;
 
 namespace Kiosk
 {
@@ -19,6 +20,8 @@ namespace Kiosk
     public partial class App : Application
     {
         public static ServerManager serverManager = new ServerManager();
+
+        public static List<User> userList { set; get; } = new List<User>();
 
         public static ObservableCollection<Food> selectFoodList { set; get; } = new ObservableCollection<Food>();
 

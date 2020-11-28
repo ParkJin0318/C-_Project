@@ -1,4 +1,5 @@
 ﻿using Kiosk.mananger;
+using Kiosk.model;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Kiosk.util;
@@ -28,7 +29,8 @@ namespace Kiosk.auth
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private readonly AuthRepository repository;
+        private readonly AuthRepository authRepository;
+        private readonly UserRepository userRepository;
 
         public LoginWindow()
         {
@@ -41,10 +43,23 @@ namespace Kiosk.auth
                 toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
             }
 
-            repository = new AuthRepositoryImpl();
+            authRepository = new AuthRepositoryImpl();
+            userRepository = new UserRepositoryImpl();
 
-            if (repository.IsAutoLogin()) {
-                repository.SetLogin();
+            this.SetUserList();
+        }
+
+        private void SetUserList()
+        {
+            App.userList = userRepository.GetAllUser();
+            this.LoginCheck();
+        }
+
+        private void LoginCheck()
+        {
+            if (authRepository.IsAutoLogin(Constants.TEST_ID))
+            {
+                authRepository.SetLogin(Constants.TEST_ID);
                 this.ShowMainWindow();
             }
         }
@@ -56,19 +71,22 @@ namespace Kiosk.auth
 
         public void SetLogin()
         {
-            if (userId.Text == "2210" && userPw.Text == "123")
+            foreach (User item in App.userList)
             {
-                repository.SetLogin();
-                if (AutoCheck.IsChecked == true)
+                if (userId.Text == item.id && userPw.Text == "123")
                 {
-                    repository.SetAutoLogin();
+                    authRepository.SetLogin(Constants.TEST_ID);
+
+                    if (AutoCheck.IsChecked == true)
+                    {
+                        authRepository.SetAutoLogin(Constants.TEST_ID);
+                    }
+                    this.ShowMainWindow();
                 }
-                
-                this.ShowMainWindow();
-            }
-            else
-            {
-                MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다");
+                else
+                {
+                    MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다");
+                }
             }
         }
 

@@ -53,7 +53,6 @@ namespace Kiosk.order
         {
             if (food != null)
             {
-
                 List<int> idxList = new List<int>();
                 foreach (Food item in App.selectFoodList)
                 {

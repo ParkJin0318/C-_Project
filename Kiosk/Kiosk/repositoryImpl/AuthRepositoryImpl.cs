@@ -20,9 +20,8 @@ namespace Kiosk.repositoryImpl
             dbManager = new DBManager();
         }
 
-        public bool IsAutoLogin()
+        public bool IsAutoLogin(string id)
         {
-            String id = "2210";
             MySqlDataReader reader = dbManager.GetDBData("Select * from user where id = '" + id + "';");
 
             while (reader.Read())
@@ -36,17 +35,16 @@ namespace Kiosk.repositoryImpl
             return false;
         }
 
-        public void SetAutoLogin()
+        public void SetAutoLogin(string id)
         {
-            String id = "2210";
             dbManager.SetDBData("update user set isAuto = 1 where id = '" + id + "';");
         }
 
-        public void SetLogin()
+        public void SetLogin(string id)
         {
             JObject json = new JObject();
             json.Add("MSGType", 0);
-            json.Add("id", "2210");
+            json.Add("id", id);
             json.Add("Content", "");
             json.Add("ShopName", "");
             json.Add("OrderNumber", "");

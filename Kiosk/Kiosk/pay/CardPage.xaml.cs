@@ -25,13 +25,11 @@ namespace Kiosk.pay
     public partial class CardPage : Page
     {
 
-        private readonly UserRepository userRepository;
         private readonly OrderRepository orderRepository;
 
         public CardPage()
         {
             InitializeComponent();
-            userRepository = new UserRepositoryImpl();
             orderRepository = new OrderRepositoryImpl();
             webcam.CameraIndex = 0;
 
@@ -45,9 +43,7 @@ namespace Kiosk.pay
 
         private void UserQrCodeSearch(String qrcode)
         {
-            List<User> users = userRepository.GetAllUser();
-
-            foreach (User item in users)
+            foreach (User item in App.userList)
             {
                 if (item.qrCode == qrcode)
                 {

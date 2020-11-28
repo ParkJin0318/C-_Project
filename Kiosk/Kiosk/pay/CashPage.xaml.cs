@@ -28,14 +28,12 @@ namespace Kiosk.pay
         public CashPage()
         {
             InitializeComponent();
-            userRepository = new UserRepositoryImpl();
             orderRepository = new OrderRepositoryImpl();
             barcode_Text.Focus();
 
             orderTotalPrice();
         }
 
-        private readonly UserRepository userRepository;
         private readonly OrderRepository orderRepository;
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,9 +48,7 @@ namespace Kiosk.pay
 
         private void UserBarCodeSearch(String barcode)
         {
-            List<User> users = userRepository.GetAllUser();
-
-            foreach (User item in users)
+            foreach (User item in App.userList)
             {
                 if (item.barCode == barcode)
                 {
