@@ -1,4 +1,8 @@
-﻿using Kiosk.util;
+﻿using Kiosk.repository;
+using Kiosk.repositoryImpl;
+using Kiosk.util;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +15,18 @@ namespace Kiosk.mananger
     public class ServerManager
     {
         public TcpClient client;
-        
-        static bool isSend = false;
 
+        private readonly StatsRepository statsRepository;
+        private readonly UserRepository userRepository;
+
+        static bool isSend = false;
         public bool isConnected;
+
+        public ServerManager()
+        {
+            statsRepository = new StatsRepositoryImpl();
+            userRepository = new UserRepositoryImpl();
+        }
 
         public void ServerConnect()
         {
@@ -87,6 +99,12 @@ namespace Kiosk.mananger
                         }
                         isSend = false;
                         isConnected = true;
+
+                        if (data.Contains("총 매출액"))
+                        {
+                            int totalPrice = statsRepository.GetAllProfitsData().allProfits;
+                            userRepository.SetMessage(totalPrice + "원", true);
+                        }
                     }
                 }
                 catch (Exception e)

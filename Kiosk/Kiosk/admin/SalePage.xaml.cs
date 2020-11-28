@@ -103,7 +103,7 @@ namespace Kiosk.admin
             {
                 viewModel.SetSoldOut(this.food, false);
                 viewModel.SetFoods();
-                MessageBox.Show("품절 적용 취소습니다");
+                MessageBox.Show("품절 적용 취소 했습니다");
             }
             else
             {
