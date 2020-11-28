@@ -51,6 +51,16 @@ namespace Kiosk
 
         public int page { get; set; }
 
+        public bool isSoldOut { get; set; }
+
+
+        private string _state;
+        public string state
+        {
+            get => _state;
+            set => SetProperty(ref _state, value);
+        }
+
         public void PlusCount()
         {
             count += 1;

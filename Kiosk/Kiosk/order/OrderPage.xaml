@@ -88,10 +88,12 @@
                             <DataTemplate>
                                 <StackPanel 
                                     Width="200" 
-                                    Height="200"
-                                    Margin="10,0,0,0">
+                                    Height="200">
                                     
-                                    <Image Source="{Binding imagePath}"/>
+                                    <Image 
+                                        Width="100"
+                                        Height="100"
+                                        Source="{Binding imagePath}"/>
                                     <TextBlock Text="{Binding name}"/>
                                     <TextBlock>
                                         <Run Text="가격:"/>
@@ -100,6 +102,10 @@
                                     <TextBlock>
                                         <Run Text="할인된 가격:"/>
                                         <Run Text="{Binding price}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="상태:"/>
+                                        <Run Text="{Binding state}"/>
                                     </TextBlock>
                                 </StackPanel>
                             </DataTemplate>

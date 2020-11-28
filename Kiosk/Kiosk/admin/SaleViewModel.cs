@@ -43,6 +43,13 @@ namespace Kiosk.admin
             set => SetProperty(ref _foodList, value);
         }
 
+        private bool _isEnabled;
+        public bool isEnabled
+        {
+            get => _isEnabled;
+            set => SetProperty(ref _isEnabled, value);
+        }
+
         public void SetFoods()
         {
             this.foodList = repository.GetAllFood();
@@ -51,6 +58,18 @@ namespace Kiosk.admin
         public void SetSale(Food food, int sale)
         {
             repository.SetFoodSale(food, sale);
+        }
+
+        public void SetSoldOut(Food food, bool isSoldOut)
+        {
+            if (isSoldOut)
+            {
+                repository.setFoodSoldOut(food, 1);
+            }
+            else
+            {
+                repository.setFoodSoldOut(food, 0);
+            }
         }
 
         public List<Food> PageControl(Category category, int control)

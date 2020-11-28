@@ -31,9 +31,13 @@ namespace Kiosk.repositoryImpl
                 food.category = (Category)int.Parse(reader["category"].ToString());
                 food.imagePath = reader["img"].ToString();
                 food.page = int.Parse(reader["page"].ToString());
+                food.isSoldOut = Convert.ToBoolean(int.Parse(reader["isSoldOut"].ToString()));
                 food.sale = int.Parse(reader["sale"].ToString());
                 food.originalPrice = int.Parse(reader["price"].ToString());
                 food.price = food.originalPrice - food.sale;
+
+                if (food.isSoldOut) food.state = "품절";
+                else food.state = "구매 가능";
 
                 foodList.Add(food);
             }
@@ -43,6 +47,11 @@ namespace Kiosk.repositoryImpl
         public void SetFoodSale(Food food, int sale)
         {
             manager.SetDBData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
+        }
+
+        public void setFoodSoldOut(Food food, int isSoldOut)
+        {
+            manager.SetDBData("update menu set isSoldOut = " + isSoldOut + " where idxMenu = " + food.idx + ";");
         }
     }
 }

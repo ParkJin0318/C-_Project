@@ -11,5 +11,7 @@ namespace Kiosk.repository
         List<Food> GetAllFood(); // 음식 목록 조회 메서드
 
         void SetFoodSale(Food food, int sale); // 음식 가격 할인 메서드
+
+        void setFoodSoldOut(Food food, int isSoldOut);
     }
 }

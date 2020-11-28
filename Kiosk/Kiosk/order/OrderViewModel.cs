@@ -53,29 +53,36 @@ namespace Kiosk.order
         {
             if (food != null)
             {
-                List<int> idxList = new List<int>();
-                foreach (Food item in App.selectFoodList)
+                if (!food.isSoldOut)
                 {
-                    idxList.Add(item.idx);
-                }
+                    List<int> idxList = new List<int>();
+                    foreach (Food item in App.selectFoodList)
+                    {
+                        idxList.Add(item.idx);
+                    }
 
-                if (!idxList.Contains(food.idx)) // 메뉴가 중복이 아니라면
-                {
-                    food.count = 1;
-                    food.totalPrice = food.price;
-                    food.totalSale = food.sale;
+                    if (!idxList.Contains(food.idx)) // 메뉴가 중복이 아니라면
+                    {
+                        food.count = 1;
+                        food.totalPrice = food.price;
+                        food.totalSale = food.sale;
 
-                    App.selectFoodList.Add(food);
-                    this.totalPrice += food.price;
-                    this.isEnabled = true;
-                }
-                else // 메뉴가 중복이라면
+                        App.selectFoodList.Add(food);
+                        this.totalPrice += food.price;
+                        this.isEnabled = true;
+                    }
+                    else // 메뉴가 중복이라면
+                    {
+                        int index = idxList.IndexOf(food.idx);
+                        App.selectFoodList[index].PlusCount();
+                        this.totalPrice += food.price;
+                    }
+                } 
+                else
                 {
-                    int index = idxList.IndexOf(food.idx);
-                    App.selectFoodList[index].PlusCount();
-                    this.totalPrice += food.price;
+                    MessageBox.Show("품절된 항목입니다");
                 }
-            }
+            } 
         }
 
         public void FoodCountControl(Food selectedFood, int control)

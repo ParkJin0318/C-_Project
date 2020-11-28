@@ -107,6 +107,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Content", "");
             json.Add("ShopName", "맥도날드");
             json.Add("OrderNumber", orderIdx);
+            json.Add("Group", true);
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);

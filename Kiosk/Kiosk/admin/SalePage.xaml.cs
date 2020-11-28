@@ -22,7 +22,7 @@ namespace Kiosk.admin
     {
         private readonly SaleViewModel viewModel;
 
-        private Food food;
+        private Food food { get; set; }
 
         public SalePage()
         {
@@ -45,6 +45,7 @@ namespace Kiosk.admin
             if (item != null)
             {
                 this.food = item;
+                viewModel.isEnabled = true;
                 viewModel.imagePath = this.food.imagePath;
                 viewModel.name = this.food.name;
                 SaleInput.Text = this.food.sale.ToString();
@@ -67,14 +68,47 @@ namespace Kiosk.admin
             }
         }
 
+        private void Before_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
+
         private void Sale_Button_Click(object sender, RoutedEventArgs e)
         {
             int sale = int.Parse(SaleInput.Text);
             viewModel.SetSale(this.food, sale);
 
             SaleInput.Text = "";
-            MessageBox.Show("할인 적용되었습니다");
             viewModel.SetFoods();
+            MessageBox.Show("할인 적용 되었습니다");
+        }
+
+        private void SoldOut_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!this.food.isSoldOut)
+            {
+                viewModel.SetSoldOut(this.food, true);
+                viewModel.SetFoods();
+                MessageBox.Show("품절 적용 되었습니다");
+            }
+            else
+            {
+                MessageBox.Show("이미 품절 상태입니다");
+            }
+        }
+
+        private void SoldOut_Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.food.isSoldOut)
+            {
+                viewModel.SetSoldOut(this.food, false);
+                viewModel.SetFoods();
+                MessageBox.Show("품절 적용 취소습니다");
+            }
+            else
+            {
+                MessageBox.Show("이미 구매가능 상태입니다");
+            }
         }
 
         private void DirectionControl(int control)

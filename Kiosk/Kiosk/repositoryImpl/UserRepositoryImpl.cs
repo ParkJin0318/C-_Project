@@ -33,14 +33,9 @@ namespace Kiosk.repositoryImpl
                 user.idx = int.Parse(reader["idxUser"].ToString());
                 user.name = reader["name"].ToString();
                 user.id = reader["id"].ToString();
-
-                if (int.Parse(reader["isAuto"].ToString()) == 0) user.isAuto = false;
-                else user.isAuto = true;
-
+                user.isAuto = Convert.ToBoolean(int.Parse(reader["isAuto"].ToString()));
                 user.qrCode = reader["QRCode"].ToString();
                 user.barCode = reader["BaCode"].ToString();
-
-                Console.WriteLine(user.name);
 
                 userList.Add(user);
             }
