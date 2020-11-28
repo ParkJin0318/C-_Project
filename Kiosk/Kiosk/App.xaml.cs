@@ -1,4 +1,5 @@
 ﻿using Kiosk.util;
+using Kiosk.mananger;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,12 +18,13 @@ namespace Kiosk
     /// </summary>
     public partial class App : Application
     {
-        public static TcpClient client { set; get; }
+        public static ServerManager serverManager = new ServerManager();
 
         public static ObservableCollection<Food> selectFoodList { get; } = new ObservableCollection<Food>();
 
         public static int tableIdx { set; get; }
 
         public static int payType { set; get; }
+
     }
 }

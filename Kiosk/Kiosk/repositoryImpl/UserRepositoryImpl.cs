@@ -15,12 +15,10 @@ namespace Kiosk.repositoryImpl
     class UserRepositoryImpl : UserRepository
     {
         private readonly DBManager dbManager;
-        private readonly ServerManager serverManager;
 
         public UserRepositoryImpl()
         {
             dbManager = new DBManager();
-            serverManager = new ServerManager();
         }
 
         public List<User> GetAllUser()
@@ -56,7 +54,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            serverManager.SetServerData(data);
+            App.serverManager.SetServerData(data);
         }
     }
 }

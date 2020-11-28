@@ -17,12 +17,10 @@ namespace Kiosk.repositoryImpl
     class OrderRepositoryImpl : OrderRepository
     {
         private readonly DBManager dbManager;
-        private readonly ServerManager serverManager;
 
         public OrderRepositoryImpl()
         {
             dbManager = new DBManager();
-            serverManager = new ServerManager();
         }
 
         public List<TableData> GetAllTableInfo()
@@ -112,7 +110,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);
-            serverManager.SetServerData(data);
+            App.serverManager.SetServerData(data);
         }
 
         public void SetOrderList(ObservableCollection<Food> foodList, int userIdx, int marketIdx, int tableIdx, int payType)

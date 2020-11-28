@@ -14,12 +14,10 @@ namespace Kiosk.repositoryImpl
     class AuthRepositoryImpl : AuthRepository
     {
         private readonly DBManager dbManager;
-        private readonly ServerManager serverManager;
 
         public AuthRepositoryImpl()
         {
             dbManager = new DBManager();
-            serverManager = new ServerManager();
         }
 
         public bool IsAutoLogin()
@@ -55,7 +53,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            serverManager.SetServerData(data);
+            App.serverManager.SetServerData(data);
         }
 
     }

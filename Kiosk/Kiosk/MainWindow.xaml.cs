@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ using Kiosk.auth;
 using Kiosk.intro;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
+using Kiosk.util;
 
 namespace Kiosk
 {
@@ -33,22 +35,52 @@ namespace Kiosk
             InitializeComponent();
             repository = new AuthRepositoryImpl();
             SetTime();
-            this.Loaded += MainWindow_Loaded;
+
+            StartState();
+            StartGetServerMessage();
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void StartState()
         {
-            if (App.client.Connected == true)
+            Thread thread = new Thread(ConnectState);
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void StartGetServerMessage()
+        {
+            Thread thread = new Thread(App.serverManager.GetServerMessage);
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void ConnectState()
+        {
+            while (true)
             {
-                    ConnectButton.Content = "연결 중";
-                    ConnectButton.Background = new SolidColorBrush(Colors.LightGreen);
-            }
-            if (App.client.Connected == false)
-            {
-                    ConnectButton.Content = "연결 실패";
-                    ConnectButton.Background = new SolidColorBrush(Colors.Red);
-                
-                repository.SetLogin();
+                if (App.serverManager.isConnected)
+                {
+                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                    {
+                        ConnectButton.Content = "연결 중";
+                        ConnectButton.Background = new SolidColorBrush(Colors.LightGreen);
+                    }));
+                }
+                else
+                {
+                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                    {
+                        ConnectButton.Content = "연결 실패";
+                        ConnectButton.Background = new SolidColorBrush(Colors.Red);
+                    }));
+
+                    App.serverManager.ServerConnect();
+                    if (App.serverManager.isConnected)
+                    {
+                        repository.SetLogin();
+                        StartGetServerMessage();
+                    }
+                }
             }
         }
 

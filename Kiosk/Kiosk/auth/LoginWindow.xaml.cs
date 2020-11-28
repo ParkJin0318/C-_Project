@@ -28,18 +28,20 @@ namespace Kiosk.auth
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private readonly ServerManager manager;
         private readonly AuthRepository repository;
 
         public LoginWindow()
         {
             InitializeComponent();
-            this.SetTCPClient();
+            App.serverManager.ServerConnect();
 
-            manager = new ServerManager();
+            if (!App.serverManager.isConnected)
+            {
+                ToastMessage toast = new ToastMessage();
+                toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
+            }
+
             repository = new AuthRepositoryImpl();
-
-            StartGetServerMessage();
 
             if (repository.IsAutoLogin()) {
                 repository.SetLogin();
@@ -75,36 +77,6 @@ namespace Kiosk.auth
             MainWindow window = new MainWindow();
             window.Show();
             this.Close();
-        }
-
-        private void SetTCPClient()
-        {
-            if (NetworkInterface.GetIsNetworkAvailable() == true)
-            {
-                try
-                {
-                    App.client = new TcpClient();
-                    var result = App.client.BeginConnect(Constants.SERVER_HOST, Constants.SERVER_PORT, null, null);
-                    bool success = result.AsyncWaitHandle.WaitOne(1000, false);
-
-                    if (success)
-                        App.client.EndConnect(result);
-                    else
-                        throw new Exception();
-                }
-                catch
-                {
-                    ToastMessage toast = new ToastMessage();
-                    toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
-                }
-            }
-        }
-
-        private void StartGetServerMessage()
-        {
-            Thread thread = new Thread(manager.GetServerMessage);
-            thread.IsBackground = true;
-            thread.Start();
         }
     }
 }
