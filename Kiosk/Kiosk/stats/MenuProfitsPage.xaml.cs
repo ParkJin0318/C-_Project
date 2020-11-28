@@ -22,34 +22,28 @@ namespace Kiosk.stats
     /// </summary>
     public partial class MenuProfitsPage : Page
     {
-        private MCSDataViewModel viewModel;
 
-        public MenuProfitsPage(int startPoint, int endPoint, int tableNumber)
+        public MenuProfitsPage(double[] counts, double[] profits, string[] names)
         {
             InitializeComponent();
-            viewModel = new MCSDataViewModel();
-            if (tableNumber == 0)
-                viewModel.SetData(1);
-            else
-                viewModel.SetData(tableNumber, true);
 
             SeriesCollection = new SeriesCollection
             {
                 new RowSeries
                 {
                     Title = "판매 총 수량",
-                    Values = new ChartValues<double> (viewModel.GetSumCount(startPoint, endPoint))
+                    Values = new ChartValues<double> (counts)
                 }
             };
 
             SeriesCollection.Add(new RowSeries
             {
                 Title = "판매 총 총액(0.01 = 100원)",
-                Values = new ChartValues<double>(viewModel.GetSumProfits(startPoint, endPoint))
+                Values = new ChartValues<double>(profits)
             });
 
 
-            Labels = viewModel.GetNames(startPoint, endPoint);
+            Labels = names;
             Formatter = value => value.ToString("N");
 
             DataContext = this;

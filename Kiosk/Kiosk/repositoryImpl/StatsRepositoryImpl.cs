@@ -22,7 +22,7 @@ namespace Kiosk.repositoryImpl
         public AllProfitsData GetAllProfitsData()
         {
             AllProfitsData newAllPorfitsData = new AllProfitsData();
-            MySqlDataReader reader = manager.GetDBData("select payType, count, totalPrice, salePrice form orders");
+            MySqlDataReader reader = manager.GetDBData("select payType, count, totalPrice, salePrice from orders");
             while (reader.Read())
             {
                 int count = Int32.Parse(reader["count"].ToString());

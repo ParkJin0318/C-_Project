@@ -22,16 +22,16 @@ namespace Kiosk.stats
     /// </summary>
     public partial class CategoryProfitsPage : Page
     {
-        private MCSDataViewModel viewModel;
+        private CategoryProfitsPageViewModel viewModel;
 
         public CategoryProfitsPage(int tableNumber)
         {
             InitializeComponent();
-            viewModel = new MCSDataViewModel();
+            viewModel = new CategoryProfitsPageViewModel();
             if (tableNumber == 0)
-                viewModel.SetData(2);
+                viewModel.SetData();
             else
-                viewModel.SetData(tableNumber, false);
+                viewModel.SetData(tableNumber);
 
             SeriesCollection = new SeriesCollection
             {

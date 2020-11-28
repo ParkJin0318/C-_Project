@@ -140,9 +140,14 @@
     <Compile Include="stats\AllProfitsPage.xaml.cs">
       <DependentUpon>AllProfitsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="stats\AllProfitsPageFrame.xaml.cs">
+      <DependentUpon>AllProfitsPageFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="stats\AllProfitsPageViewModel.cs" />
     <Compile Include="stats\CategoryProfitsPage.xaml.cs">
       <DependentUpon>CategoryProfitsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="stats\CategoryProfitsPageViewModel.cs" />
     <Compile Include="stats\DayProfitsDataViewModel.cs" />
     <Compile Include="stats\DayProfitsPageChart.xaml.cs">
       <DependentUpon>DayProfitsPageChart.xaml</DependentUpon>
@@ -153,13 +158,13 @@
     <Compile Include="stats\DayProfitsPageMain.xaml.cs">
       <DependentUpon>DayProfitsPageMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="stats\MCSDataViewModel.cs" />
     <Compile Include="stats\MenuProfitsPage.xaml.cs">
       <DependentUpon>MenuProfitsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="stats\MenuProfitsPageFrame.xaml.cs">
       <DependentUpon>MenuProfitsPageFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="stats\MenuProfitsPageViewModel.cs" />
     <Compile Include="stats\TableProfitsPage.xaml.cs">
       <DependentUpon>TableProfitsPage.xaml</DependentUpon>
     </Compile>
@@ -223,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="stats\AllProfitsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="stats\AllProfitsPageFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

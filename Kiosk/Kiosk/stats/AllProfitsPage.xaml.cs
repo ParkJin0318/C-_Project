@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,30 @@ namespace Kiosk.stats
     /// </summary>
     public partial class AllProfitsPage : Page
     {
-        public AllProfitsPage()
+        public AllProfitsPage(int[] profits, string[] names)
         {
             InitializeComponent();
+
+            SeriesCollection = new SeriesCollection { };
+            AddSeries(profits, names);
+
+            DataContext = this;
+        }
+
+        public SeriesCollection SeriesCollection { get; set; }
+
+        private void AddSeries(int[] profits, string[] names)
+        {
+            for (var i = 0; i < profits.Length; i++)
+            {
+                SeriesCollection.Add(new PieSeries
+                {
+                    Title = names[i],
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(profits[i]) },
+                    DataLabels = true
+                });
+            }
+
         }
     }
 }

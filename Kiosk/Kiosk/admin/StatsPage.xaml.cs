@@ -24,11 +24,12 @@ namespace Kiosk.admin
         public StatsPage()
         {
             InitializeComponent();
+            FrameLayout1.NavigationService.Navigate(new AllProfitsPageFrame());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            FrameLayout1.NavigationService.Navigate(new AllProfitsPage());
+            FrameLayout1.NavigationService.Navigate(new AllProfitsPageFrame());
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

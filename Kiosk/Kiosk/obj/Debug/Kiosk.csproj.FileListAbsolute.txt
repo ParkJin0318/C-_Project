@@ -317,3 +317,5 @@ C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\MenuProfitsPageFrame.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\TableProfitsPage.baml
 C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\UserProfitsPage.baml
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\AllProfitsPageFrame.g.cs
+C:\Users\happl\OneDrive\Documents\GitHub\C-_Project\Kiosk\Kiosk\obj\Debug\stats\AllProfitsPageFrame.baml

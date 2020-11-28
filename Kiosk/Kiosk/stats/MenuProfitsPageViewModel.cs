@@ -1,24 +1,21 @@
 ﻿using Kiosk.model.Stats;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
-using LiveCharts;
-using LiveCharts.Wpf;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Kiosk.stats
 {
-    class MCSDataViewModel : BindableBase //(Menu, Category, Seat)DataPage ViewModel
+    class MenuProfitsPageViewModel : BindableBase
     {
         private StatsRepository repository;
         private List<MenuProfitsData> _data = new List<MenuProfitsData>();
 
-        public MCSDataViewModel()
+        public MenuProfitsPageViewModel()
         {
             repository = new StatsRepositoryImpl();
         }
@@ -29,21 +26,14 @@ namespace Kiosk.stats
             set => SetProperty(ref _data, value);
         }
 
-        public void SetData(int modeNumber)
+        public void SetData()
         {
-            if (modeNumber == 1)
-                this.data = repository.GetMenuProfitsData(0, 9);
-            else
-                this.data = repository.GetCategoryProfitsData(0, 9);
+            this.data = repository.GetMenuProfitsData(0, 9);
         }
 
-        public void SetData(int talbeNumber, bool mode) //true : Menu, false : Category
+        public void SetData(int talbeNumber)
         {
-            if (mode)
-                this.data = repository.GetMenuProfitsData(talbeNumber, talbeNumber);
-            else
-                this.data = repository.GetCategoryProfitsData(talbeNumber, talbeNumber);
-
+            this.data = repository.GetMenuProfitsData(talbeNumber, talbeNumber);
         }
 
         public double[] GetSumCount(int startPoint, int endPoint)

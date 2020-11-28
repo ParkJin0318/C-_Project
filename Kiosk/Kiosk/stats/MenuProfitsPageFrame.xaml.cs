@@ -20,12 +20,18 @@ namespace Kiosk.stats
     /// </summary>
     public partial class MenuProfitsPageFrame : Page
     {
-        int seatChecker = 0;
+        private MenuProfitsPageViewModel viewModel;
+
         public MenuProfitsPageFrame(int seatChecker)
         {
             InitializeComponent();
-            this.seatChecker = seatChecker;
-            MenuChartFrame.NavigationService.Navigate(new Kiosk.stats.MenuProfitsPage(0, 11, seatChecker));
+            viewModel = new MenuProfitsPageViewModel();
+            if (seatChecker == 0)
+                viewModel.SetData();
+            else
+                viewModel.SetData(seatChecker);
+            MenuChartFrame.NavigationService.Navigate(new Kiosk.stats.MenuProfitsPage(
+                viewModel.GetSumCount(0, 11), viewModel.GetSumProfits(0, 11), viewModel.GetNames(0, 11)));
         }
 
         public void UpdateData(object sender, SelectionChangedEventArgs e)
@@ -33,7 +39,10 @@ namespace Kiosk.stats
             ComboBox cb = (ComboBox)sender;
             int nowIndex = (cb.SelectedIndex + 1) * 11;
             if (MenuChartFrame != null)
-                MenuChartFrame.NavigationService.Navigate(new Kiosk.stats.MenuProfitsPage(nowIndex - 11, nowIndex, seatChecker));
+                MenuChartFrame.NavigationService.Navigate(new Kiosk.stats.MenuProfitsPage(
+                    viewModel.GetSumCount(nowIndex - 11, nowIndex),
+                    viewModel.GetSumProfits(nowIndex - 11, nowIndex),
+                    viewModel.GetNames(nowIndex - 11, nowIndex)));
         }
     }
 }
