@@ -11,6 +11,8 @@ namespace Kiosk.repository
     {
         List<User> GetAllUser(); // 유저 목록 조회 메서드
 
-        void SetMessage(string message, bool isGroup); //  tcp 통신: 메세지 전송 메서드
+        Market GetMarket(int idx); // 매장 조회 메서드
+
+        void SetMessage(User user, string message, bool isGroup); //  tcp 통신: 메세지 전송 메서드
     }
 }

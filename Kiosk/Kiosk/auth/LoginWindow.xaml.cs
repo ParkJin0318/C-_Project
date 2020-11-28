@@ -52,15 +52,17 @@ namespace Kiosk.auth
         private void SetUserList()
         {
             App.userList = userRepository.GetAllUser();
+            App.market = userRepository.GetMarket(Constants.TEST_MARKET_IDX);
             this.LoginCheck();
         }
 
         private void LoginCheck()
         {
-            if (authRepository.IsAutoLogin(Constants.TEST_ID))
+            if (authRepository.IsAutoLogin(Constants.SAVE_ID))
             {
-                authRepository.SetLogin(Constants.TEST_ID);
-                this.ShowMainWindow();
+                userId.Text = Constants.SAVE_ID;
+                userPw.Text = "123";
+                SetLogin();
             }
         }
 
@@ -75,11 +77,12 @@ namespace Kiosk.auth
             {
                 if (userId.Text == item.id && userPw.Text == "123")
                 {
-                    authRepository.SetLogin(Constants.TEST_ID);
+                    App.loginUser = item;
+                    authRepository.SetLogin(App.loginUser.id);
 
                     if (AutoCheck.IsChecked == true)
                     {
-                        authRepository.SetAutoLogin(Constants.TEST_ID);
+                        authRepository.SetAutoLogin(App.loginUser.id);
                     }
                     this.ShowMainWindow();
                 }

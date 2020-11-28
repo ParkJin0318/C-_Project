@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kiosk.util;
 
 namespace Kiosk.repositoryImpl
 {
@@ -42,11 +43,27 @@ namespace Kiosk.repositoryImpl
             return userList;
         }
 
-        public void SetMessage(string message, bool isGroup)
+        public Market GetMarket(int idx)
+        {
+            Market market = new Market();
+            MySqlDataReader reader = dbManager.GetDBData("Select * from market where idxmarket = " + idx + ";");
+
+            if (reader.Read())
+            {
+                market.idx = int.Parse(reader["idxmarket"].ToString());
+                market.name = reader["name"].ToString();
+                market.totalTime = reader["totalTime"].ToString();
+                Console.WriteLine(market.totalTime);
+            }
+
+            return market;
+        }
+
+        public void SetMessage(User user, string message, bool isGroup)
         {
             JObject json = new JObject();
             json.Add("MSGType", 1);
-            json.Add("id", "2210");
+            json.Add("id", user.id);
             json.Add("Content", message);
             json.Add("ShopName", "");
             json.Add("OrderNumber", "");

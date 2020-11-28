@@ -103,7 +103,7 @@ namespace Kiosk.mananger
                         if (data.Contains("총 매출액"))
                         {
                             int totalPrice = statsRepository.GetAllProfitsData().allProfits;
-                            userRepository.SetMessage(totalPrice + "원", true);
+                            userRepository.SetMessage(App.loginUser, totalPrice + "원", true);
                         }
                     }
                 }

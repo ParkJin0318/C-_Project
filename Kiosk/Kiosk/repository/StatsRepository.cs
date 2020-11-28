@@ -18,7 +18,5 @@ namespace Kiosk.repository
         List<UserProfitsData> GetUserProfitsData();
 
         AllProfitsData GetAllProfitsData();
-
-        DateTime GetKioskRunTimeData();
     }
 }

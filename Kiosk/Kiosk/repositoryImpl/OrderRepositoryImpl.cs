@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Kiosk.util;
 
 namespace Kiosk.repositoryImpl
 {
@@ -23,14 +24,14 @@ namespace Kiosk.repositoryImpl
             dbManager = new DBManager();
         }
 
-        public List<TableData> GetAllTableInfo()
+        public List<TableData> GetAllTableInfo(int marketIdx)
         {
             List<TableData> TableDataList = new List<TableData>();
             for (int i = 1; i < 10; i++)
             {
                 TableData Td = new TableData();
                 MySqlDataReader reader = dbManager.GetDBData("select * from orders where eatTable = " + i
-                    + " and idxMarket = " + 1 + " order by idx desc");
+                    + " and idxMarket = " + marketIdx + " order by idx desc");
 
                 Td.myTableNumber = i;
                 Td.TimeRemaining = 0;
@@ -87,7 +88,7 @@ namespace Kiosk.repositoryImpl
             return 0;
         }
 
-        public void SendOrderInfo(ObservableCollection<Food> foodList, int orderIdx)
+        public void SendOrderInfo(ObservableCollection<Food> foodList, User user, string marketName, int orderIdx)
         {
             JObject json = new JObject();
             JArray menuList = new JArray();
@@ -103,10 +104,10 @@ namespace Kiosk.repositoryImpl
             }
 
             json.Add("MSGType", 2);
-            json.Add("id", "2210");
+            json.Add("id", user.id);
             json.Add("Content", "");
-            json.Add("ShopName", "맥도날드");
-            json.Add("OrderNumber", orderIdx);
+            json.Add("ShopName", marketName);
+            json.Add("OrderNumber", string.Format("{0:D3}", orderIdx));
             json.Add("Group", true);
             json.Add("Menus", menuList);
 
@@ -114,7 +115,7 @@ namespace Kiosk.repositoryImpl
             App.serverManager.SetServerData(data);
         }
 
-        public void SetOrderList(ObservableCollection<Food> foodList, int userIdx, int marketIdx, int tableIdx, int payType)
+        public void SetOrderList(ObservableCollection<Food> foodList, User user, Market market, int tableIdx, int payType)
         {
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -125,9 +126,9 @@ namespace Kiosk.repositoryImpl
             {
                 int idx = this.GetMaxIdx() + 1;
                 dbManager.SetDBData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
-                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", "+ userIdx + ", "+ marketIdx + ", '" + date + "', " + payType + ", " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
+                    + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", "+ user.idx + ", "+ market.idx + ", '" + date + "', " + payType + ", " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }
-            this.SendOrderInfo(foodList, idxOreder);
+            this.SendOrderInfo(foodList, user, market.name, idxOreder);
         }
     }
 }

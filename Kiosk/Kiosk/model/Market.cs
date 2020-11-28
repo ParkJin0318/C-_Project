@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kiosk.model
 {
-    class Market
+    public class Market
     {
         public int idx { get; set; }
 

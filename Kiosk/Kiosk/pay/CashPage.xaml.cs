@@ -52,7 +52,7 @@ namespace Kiosk.pay
             {
                 if (item.barCode == barcode)
                 {
-                    orderRepository.SetOrderList(App.selectFoodList, 1, 1, App.tableIdx, App.payType);
+                    orderRepository.SetOrderList(App.selectFoodList, App.loginUser, App.market, App.tableIdx, App.payType);
                     NavigationService.Navigate(new CompletePage());
                 }
                 else

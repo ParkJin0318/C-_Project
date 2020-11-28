@@ -77,7 +77,7 @@ namespace Kiosk
                     App.serverManager.ServerConnect();
                     if (App.serverManager.isConnected)
                     {
-                        repository.SetLogin(Constants.TEST_ID);
+                        repository.SetLogin(App.loginUser.id);
                         StartGetServerMessage();
                     }
                 }
@@ -115,7 +115,7 @@ namespace Kiosk
 
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            repository.SetLogin(Constants.TEST_ID);
+            repository.SetLogin(App.loginUser.id);
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)

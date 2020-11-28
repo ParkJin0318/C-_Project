@@ -1,5 +1,6 @@
 ﻿using Kiosk.repository;
 using Kiosk.repositoryImpl;
+using Kiosk.util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,13 @@ namespace Kiosk.admin
 
         private void Input_Click(object sender, RoutedEventArgs e)
         {
-            repository.SetMessage(InputBox.Text, false);
+            repository.SetMessage(App.loginUser, InputBox.Text, false);
             InputBox.Text = "";
         }
 
         private void Group_Input_Click(object sender, RoutedEventArgs e)
         {
-            repository.SetMessage(InputBox.Text, true);
+            repository.SetMessage(App.loginUser, InputBox.Text, true);
             InputBox.Text = "";
         }
     }

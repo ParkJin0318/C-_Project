@@ -23,6 +23,10 @@ namespace Kiosk
 
         public static List<User> userList { set; get; } = new List<User>();
 
+        public static User loginUser { set; get; } = new User();
+
+        public static Market market { get; set; } = new Market();
+
         public static ObservableCollection<Food> selectFoodList { set; get; } = new ObservableCollection<Food>();
 
         public static int totalPrice { set; get; }
@@ -30,6 +34,5 @@ namespace Kiosk
         public static int tableIdx { set; get; }
 
         public static int payType { set; get; }
-
     }
 }

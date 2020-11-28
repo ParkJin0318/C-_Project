@@ -106,15 +106,6 @@ namespace Kiosk.repositoryImpl
             return dayProfit;
         }
 
-        public DateTime GetKioskRunTimeData()
-        {
-            DateTime runTime = new DateTime();
-            MySqlDataReader reader = manager.GetDBData("select idxMarket, totalTime from market where idxMarket = " + 1);
-            if (reader.Read())
-                runTime = DateTime.Parse(reader["totalTime"].ToString());
-            return runTime;
-        }
-
         public List<MenuProfitsData> GetMenuProfitsData(int startTableIdx, int endTableIdx)
         {
             List<MenuProfitsData> menuData = new List<MenuProfitsData>();
