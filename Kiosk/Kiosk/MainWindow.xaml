@@ -26,6 +26,12 @@
                 Foreground="Black"/>
 
             <Button
+                x:Name="ConnectButton"
+                Width="100"
+                Height="30"
+                Background="White" Click="ConnectButton_Click"/>
+
+            <Button
                 x:Name="HomeButton"
                 Content="홈 이동"
                  Width="80"

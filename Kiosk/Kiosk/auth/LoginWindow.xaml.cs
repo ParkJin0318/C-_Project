@@ -1,4 +1,4 @@
-﻿using Kiosk.remote;
+﻿using Kiosk.mananger;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Kiosk.util;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Kiosk.auth
 {
@@ -26,37 +28,28 @@ namespace Kiosk.auth
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly ServerManager manager;
         private readonly AuthRepository repository;
 
         public LoginWindow()
         {
             InitializeComponent();
+            this.SetTCPClient();
 
-            if (NetworkInterface.GetIsNetworkAvailable() == true)
-            {
-                try
-                {
-                    App.client = new TcpClient();
-                    var result = App.client.BeginConnect(Constants.SERVER_HOST, Constants.SERVER_PORT, null, null);
-                    bool success = result.AsyncWaitHandle.WaitOne(1000, false);
-
-                    if (success)
-                        App.client.EndConnect(result);
-                    else
-                        throw new Exception();
-                }
-                catch
-                {
-                    ToastMessage toast = new ToastMessage();
-                    toast.ShowNotification("서버 에러", "서버가 연결되지 않았습니다");
-                }
-            }
+            manager = new ServerManager();
             repository = new AuthRepositoryImpl();
+
+            StartGetServerMessage();
 
             if (repository.IsAutoLogin()) {
                 repository.SetLogin();
                 this.ShowMainWindow();
             }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            this.SetLogin();
         }
 
         public void SetLogin()
@@ -77,16 +70,41 @@ namespace Kiosk.auth
             }
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            this.SetLogin();
-        }
-
         private void ShowMainWindow()
         {
             MainWindow window = new MainWindow();
             window.Show();
             this.Close();
+        }
+
+        private void SetTCPClient()
+        {
+            if (NetworkInterface.GetIsNetworkAvailable() == true)
+            {
+                try
+                {
+                    App.client = new TcpClient();
+                    var result = App.client.BeginConnect(Constants.SERVER_HOST, Constants.SERVER_PORT, null, null);
+                    bool success = result.AsyncWaitHandle.WaitOne(1000, false);
+
+                    if (success)
+                        App.client.EndConnect(result);
+                    else
+                        throw new Exception();
+                }
+                catch
+                {
+                    ToastMessage toast = new ToastMessage();
+                    toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
+                }
+            }
+        }
+
+        private void StartGetServerMessage()
+        {
+            Thread thread = new Thread(manager.GetServerMessage);
+            thread.IsBackground = true;
+            thread.Start();
         }
     }
 }

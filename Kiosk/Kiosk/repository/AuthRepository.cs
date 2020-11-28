@@ -8,7 +8,7 @@ namespace Kiosk.repository
 {
     interface AuthRepository
     {
-        void SetLogin(); // 로그인 메서드
+        void SetLogin(); // tcp 통신: 로그인 메서드
 
         void SetAutoLogin(); // 자동 로그인 설정 메서드
 

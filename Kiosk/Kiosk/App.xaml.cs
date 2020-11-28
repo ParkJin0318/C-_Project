@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -17,6 +18,7 @@ namespace Kiosk
     public partial class App : Application
     {
         public static TcpClient client { set; get; }
+
         public static ObservableCollection<Food> selectFoodList { get; } = new ObservableCollection<Food>();
 
         public static int tableIdx { set; get; }

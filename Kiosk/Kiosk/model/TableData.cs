@@ -1,5 +1,4 @@
-﻿using Kiosk.remote;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

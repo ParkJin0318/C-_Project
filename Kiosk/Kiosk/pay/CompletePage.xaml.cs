@@ -1,5 +1,4 @@
-﻿using Kiosk.remote;
-using Kiosk.repository;
+﻿using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using System;
 using System.Collections.Generic;

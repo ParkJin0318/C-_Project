@@ -1,5 +1,4 @@
 ﻿using Kiosk.model.Stats;
-using Kiosk.remote;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using LiveCharts;

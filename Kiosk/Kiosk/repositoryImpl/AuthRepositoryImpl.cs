@@ -1,4 +1,4 @@
-﻿using Kiosk.remote;
+﻿using Kiosk.mananger;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -13,17 +13,19 @@ namespace Kiosk.repositoryImpl
 {
     class AuthRepositoryImpl : AuthRepository
     {
-        private readonly RemoteConnection connection;
+        private readonly DBManager dbManager;
+        private readonly ServerManager serverManager;
 
         public AuthRepositoryImpl()
         {
-            connection = new RemoteConnection();
+            dbManager = new DBManager();
+            serverManager = new ServerManager();
         }
 
         public bool IsAutoLogin()
         {
             String id = "2210";
-            MySqlDataReader reader = connection.GetDBData("Select * from user where id = '" + id + "';");
+            MySqlDataReader reader = dbManager.GetDBData("Select * from user where id = '" + id + "';");
 
             while (reader.Read())
             {
@@ -39,7 +41,7 @@ namespace Kiosk.repositoryImpl
         public void SetAutoLogin()
         {
             String id = "2210";
-            connection.SetDBData("update user set isAuto = 1 where id = '" + id + "';");
+            dbManager.SetDBData("update user set isAuto = 1 where id = '" + id + "';");
         }
 
         public void SetLogin()
@@ -53,7 +55,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            connection.SetServerData(data);
+            serverManager.SetServerData(data);
         }
 
     }

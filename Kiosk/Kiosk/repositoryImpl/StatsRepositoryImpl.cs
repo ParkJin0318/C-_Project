@@ -1,5 +1,5 @@
 ﻿using Kiosk.model.Stats;
-using Kiosk.remote;
+using Kiosk.mananger;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using System;
@@ -12,17 +12,17 @@ namespace Kiosk.repositoryImpl
 {
     class StatsRepositoryImpl : StatsRepository
     {
-        private readonly RemoteConnection connection;
+        private readonly DBManager manager;
 
         public StatsRepositoryImpl()
         {
-            connection = new RemoteConnection();
+            manager = new DBManager();
         }
 
         public AllProfitsData GetAllProfitsData()
         {
             AllProfitsData newAllPorfitsData = new AllProfitsData();
-            MySqlDataReader reader = connection.GetDBData("select payType, count, totalPrice, salePrice form orders");
+            MySqlDataReader reader = manager.GetDBData("select payType, count, totalPrice, salePrice form orders");
             while (reader.Read())
             {
                 int count = Int32.Parse(reader["count"].ToString());
@@ -55,14 +55,14 @@ namespace Kiosk.repositoryImpl
                 int menuIdx = 0;
                 MenuProfitsData menuProfits = new MenuProfitsData();
 
-                MySqlDataReader reader = connection.GetDBData("select category, idxMenu from menu where category = "
+                MySqlDataReader reader = manager.GetDBData("select category, idxMenu from menu where category = "
                     + i + " order by idxMenu desc");
                 if (reader.Read())
                 {
                     menuIdx = Int32.Parse(reader["idxMenu"].ToString());
                 }
 
-                reader = connection.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders "
+                reader = manager.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders "
                     + " where idxMenu >= " + check + " and idxMenu  <= " + menuIdx
                     + " and eatTable >= " + startTableIdx + " and eatTable <= " + endTableIdx + ";");
                 check = ++menuIdx;
@@ -88,7 +88,7 @@ namespace Kiosk.repositoryImpl
             DayProfitsData dayProfit = new DayProfitsData();
             int[] hourProfit = new int[24];
 
-            MySqlDataReader reader = connection.GetDBData("select payTime, count, totalPrice, salePrice from orders");
+            MySqlDataReader reader = manager.GetDBData("select payTime, count, totalPrice, salePrice from orders");
 
             while (reader.Read())
             {
@@ -109,7 +109,7 @@ namespace Kiosk.repositoryImpl
         public DateTime GetKioskRunTimeData()
         {
             DateTime runTime = new DateTime();
-            MySqlDataReader reader = connection.GetDBData("select idxMarket, totalTime from market where idxMarket = " + 1);
+            MySqlDataReader reader = manager.GetDBData("select idxMarket, totalTime from market where idxMarket = " + 1);
             if (reader.Read())
                 runTime = DateTime.Parse(reader["totalTime"].ToString());
             return runTime;
@@ -124,7 +124,7 @@ namespace Kiosk.repositoryImpl
                 int totalPrice = 0;
                 int totalCount = 0;
                 MenuProfitsData buffer = new MenuProfitsData();
-                MySqlDataReader reader = connection.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders"
+                MySqlDataReader reader = manager.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders"
                     + " where idxMenu = " + i + " and eatTable >= " + startTableIdx + " and eatTable <= " + endTableIdx + ";");
                 while (reader.Read())
                 {
@@ -136,7 +136,7 @@ namespace Kiosk.repositoryImpl
                 buffer.count = totalCount;
                 buffer.sumProfits = totalPrice;
 
-                reader = connection.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + i);
+                reader = manager.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + i);
                 if (reader.Read())
                 {
                     buffer.name = reader["menuName"].ToString();
@@ -151,7 +151,7 @@ namespace Kiosk.repositoryImpl
         {
             List<UserProfitsData> usersData = new List<UserProfitsData>();
 
-            MySqlDataReader reader = connection.GetDBData("select max(idxUser) as MaxIdx from user");
+            MySqlDataReader reader = manager.GetDBData("select max(idxUser) as MaxIdx from user");
             if (reader.Read())
             {
                 int userNumbers = Int32.Parse(reader["MaxIdx"].ToString()) + 1;
@@ -163,13 +163,13 @@ namespace Kiosk.repositoryImpl
                     for (int j = 1; j < 45; j++)
                     {
                         MenuProfitsData buffer = new MenuProfitsData();
-                        reader = connection.GetDBData("select idxMenu, count, totalPrice from orders where idxMenu = " + j);
+                        reader = manager.GetDBData("select idxMenu, count, totalPrice from orders where idxMenu = " + j);
                         while (reader.Read())
                         {
                             buffer.count += Int32.Parse(reader["count"].ToString());
                             profits += (Int32.Parse(reader["count"].ToString()) * Int32.Parse(reader["totalPrice"].ToString()));
                         }
-                        reader = connection.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + j);
+                        reader = manager.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + j);
                         if (reader.Read())
                         {
                             buffer.name = reader["MenuName"].ToString();

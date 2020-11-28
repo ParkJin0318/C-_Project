@@ -1,5 +1,4 @@
 ﻿using Kiosk.model;
-using Kiosk.remote;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Prism.Mvvm;

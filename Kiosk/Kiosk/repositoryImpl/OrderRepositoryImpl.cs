@@ -1,5 +1,5 @@
 ﻿using Kiosk.model;
-using Kiosk.remote;
+using Kiosk.mananger;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -16,11 +16,13 @@ namespace Kiosk.repositoryImpl
 {
     class OrderRepositoryImpl : OrderRepository
     {
-        private readonly RemoteConnection connection;
+        private readonly DBManager dbManager;
+        private readonly ServerManager serverManager;
 
         public OrderRepositoryImpl()
         {
-            connection = new RemoteConnection();
+            dbManager = new DBManager();
+            serverManager = new ServerManager();
         }
 
         public List<TableData> GetAllTableInfo()
@@ -29,7 +31,7 @@ namespace Kiosk.repositoryImpl
             for (int i = 1; i < 10; i++)
             {
                 TableData Td = new TableData();
-                MySqlDataReader reader = connection.GetDBData("select * from orders where eatTable = " + i
+                MySqlDataReader reader = dbManager.GetDBData("select * from orders where eatTable = " + i
                     + " and idxMarket = " + 1 + " order by idx desc");
 
                 Td.myTableNumber = i;
@@ -65,7 +67,7 @@ namespace Kiosk.repositoryImpl
 
         public int GetMaxIdx()
         {
-            MySqlDataReader reader = connection.GetDBData("Select idx from orders "
+            MySqlDataReader reader = dbManager.GetDBData("Select idx from orders "
                 + "order by idx desc");
 
             while (reader.Read())
@@ -77,7 +79,7 @@ namespace Kiosk.repositoryImpl
 
         public int GetMaxOrderIdx()
         {
-            MySqlDataReader reader = connection.GetDBData("Select idxOrder from orders "
+            MySqlDataReader reader = dbManager.GetDBData("Select idxOrder from orders "
                + "order by idxOrder desc");
 
             while (reader.Read())
@@ -110,7 +112,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);
-            connection.SetServerData(data);
+            serverManager.SetServerData(data);
         }
 
         public void SetOrderList(ObservableCollection<Food> foodList, int userIdx, int marketIdx, int tableIdx, int payType)
@@ -123,7 +125,7 @@ namespace Kiosk.repositoryImpl
             foreach (Food item in foodList)
             {
                 int idx = this.GetMaxIdx() + 1;
-                connection.SetDBData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
+                dbManager.SetDBData("insert into orders (idx, idxOrder, idxMenu, idxUser, idxMarket, payTime, payType, count, eatTable, totalPrice, salePrice) "
                     + "values (" + idx + ", " + idxOreder + ", " + item.idx + ", "+ userIdx + ", "+ marketIdx + ", '" + date + "', " + payType + ", " + item.count + ", " + tableIdx + ", " + item.totalPrice + ", " + item.totalSale + ");");
             }
             this.SendOrderInfo(foodList, idxOreder);

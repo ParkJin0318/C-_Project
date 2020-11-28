@@ -8,10 +8,11 @@ namespace Kiosk.util
 {
     class Constants
     {
-        public const string DEFAULT_HOST = "Server=10.80.162.216;uid=root;pwd=NFSedge2020;database=Kiosk;";
+        public const string DEFAULT_HOST = "Server=localhost;uid=root;pwd=12345678;database=Kiosk;";
 
-        public const string SERVER_HOST = "10.80.162.152";
+        public const string SERVER_HOST = "192.168.219.148";
 
+        // 192.168.219.148
         // 10.80.162.152
         // 10.80.163.141
 

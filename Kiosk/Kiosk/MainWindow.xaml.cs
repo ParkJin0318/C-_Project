@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Kiosk.auth;
 using Kiosk.intro;
-using Kiosk.remote;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 
 namespace Kiosk
 {
@@ -25,17 +26,30 @@ namespace Kiosk
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly RemoteConnection remoteConnection;
+        private readonly AuthRepository repository;
 
         public MainWindow()
         {
             InitializeComponent();
-            remoteConnection = new RemoteConnection();
-            
+            repository = new AuthRepositoryImpl();
             SetTime();
+            this.Loaded += MainWindow_Loaded;
+        }
 
-            Thread thread = new Thread(remoteConnection.GetServerMessage);
-            thread.Start();
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (App.client.Connected == true)
+            {
+                    ConnectButton.Content = "연결 중";
+                    ConnectButton.Background = new SolidColorBrush(Colors.LightGreen);
+            }
+            if (App.client.Connected == false)
+            {
+                    ConnectButton.Content = "연결 실패";
+                    ConnectButton.Background = new SolidColorBrush(Colors.Red);
+                
+                repository.SetLogin();
+            }
         }
 
         private void SetTime()
@@ -65,6 +79,11 @@ namespace Kiosk
             {
                 FrameLayout.NavigationService.Navigate(new IntroPage());
             }
+        }
+
+        private void ConnectButton_Click(object sender, RoutedEventArgs e)
+        {
+            repository.SetLogin();
         }
     }
 }

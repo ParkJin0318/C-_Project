@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kiosk.place;
-using Kiosk.remote;
 using System.Collections.ObjectModel;
 
 namespace Kiosk.pay

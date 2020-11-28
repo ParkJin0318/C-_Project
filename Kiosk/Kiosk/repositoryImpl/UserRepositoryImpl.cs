@@ -1,5 +1,5 @@
 ﻿using Kiosk.model;
-using Kiosk.remote;
+using Kiosk.mananger;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -14,17 +14,19 @@ namespace Kiosk.repositoryImpl
 {
     class UserRepositoryImpl : UserRepository
     {
-        private readonly RemoteConnection connection;
+        private readonly DBManager dbManager;
+        private readonly ServerManager serverManager;
 
         public UserRepositoryImpl()
         {
-            connection = new RemoteConnection();
+            dbManager = new DBManager();
+            serverManager = new ServerManager();
         }
 
         public List<User> GetAllUser()
         {
             List<User> userList = new List<User>();
-            MySqlDataReader reader = connection.GetDBData("Select * from user");
+            MySqlDataReader reader = dbManager.GetDBData("Select * from user");
 
             while (reader.Read())
             {
@@ -54,7 +56,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            connection.SetServerData(data);
+            serverManager.SetServerData(data);
         }
     }
 }

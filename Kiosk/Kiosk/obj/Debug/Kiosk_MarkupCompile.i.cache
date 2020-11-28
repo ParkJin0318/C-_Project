@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\박진\Documents\GitHub\C-_Project\Kiosk\Kiosk\App.xaml
 23-869050039
 11174109075
-581876612086
+5969676748
 1431913985917
 admin\AdminPage.xaml;admin\MessagePage.xaml;admin\SalePage.xaml;admin\StatsPage.xaml;stats\AllProfitsPage.xaml;stats\CategoryProfitsPage.xaml;stats\DayProfitsPageChart.xaml;stats\DayProfitsPageFrame.xaml;stats\DayProfitsPageMain.xaml;stats\MenuProfitsPage.xaml;stats\MenuProfitsPageFrame.xaml;stats\TableProfitsPage.xaml;stats\UserProfitsPage.xaml;intro\IntroPage.xaml;auth\LoginWindow.xaml;MainWindow.xaml;order\OrderPage.xaml;pay\CardPage.xaml;pay\CashPage.xaml;pay\CompletePage.xaml;pay\PayPage.xaml;place\PlacePage.xaml;place\TablePage.xaml;
 
-True
+False
 

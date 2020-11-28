@@ -135,6 +135,8 @@
     <Compile Include="auth\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mananger\DBManager.cs" />
+    <Compile Include="mananger\ServerManager.cs" />
     <Compile Include="stats\AllProfitsPage.xaml.cs">
       <DependentUpon>AllProfitsPage.xaml</DependentUpon>
     </Compile>
@@ -189,7 +191,6 @@
     <Compile Include="pay\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="remote\RemoteConnection.cs" />
     <Compile Include="place\TablePage.xaml.cs">
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,4 @@
-﻿using Kiosk.remote;
+﻿using Kiosk.mananger;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using System;
@@ -11,17 +11,17 @@ namespace Kiosk.repositoryImpl
 {
     class FoodRepositoryImpl : FoodRepository
     {
-        private readonly RemoteConnection connection;
+        private readonly DBManager manager;
 
         public FoodRepositoryImpl()
         {
-            connection = new RemoteConnection();
+            manager = new DBManager();
         }
 
         public List<Food> GetAllFood()
         {
             List<Food> foodList = new List<Food>();
-            MySqlDataReader reader = connection.GetDBData("Select * from menu");
+            MySqlDataReader reader = manager.GetDBData("Select * from menu");
 
             while (reader.Read())
             {
@@ -42,7 +42,7 @@ namespace Kiosk.repositoryImpl
 
         public void SetFoodSale(Food food, int sale)
         {
-            connection.SetDBData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
+            manager.SetDBData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
         }
     }
 }
