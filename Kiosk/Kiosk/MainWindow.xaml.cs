@@ -117,5 +117,13 @@ namespace Kiosk
         {
             repository.SetLogin();
         }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F2)
+            {
+                FrameLayout.Source = new Uri("admin/AdminPage.xaml", UriKind.Relative);
+            }
+        }
     }
 }

@@ -41,16 +41,7 @@ namespace Kiosk.pay
 
         private void orderTotalPrice()
         {
-            ObservableCollection<Food> foodList = App.selectFoodList;
-
-            int totalPrice = 0;
-
-            foreach (Food item in foodList)
-            {
-                totalPrice += item.totalPrice;
-            }
-
-            order_price.Content = "총 주문 금액 : " + totalPrice;
+            order_price.Content = "총 주문 금액 : " + App.totalPrice;
         }
     }
 }

@@ -15,7 +15,6 @@ namespace Kiosk.order
     public class OrderViewModel : BindableBase
     {
         public OrderViewModel() {
-
             repository = new FoodRepositoryImpl();
             SetFoods();
         }
@@ -23,8 +22,6 @@ namespace Kiosk.order
         private readonly FoodRepository repository;
 
         public int currentPage = 1;
-
-        public ObservableCollection<Food> selectFoodList = App.selectFoodList;
 
         private int _totalPrice = 0;
         public int totalPrice
@@ -40,6 +37,13 @@ namespace Kiosk.order
             set => SetProperty(ref _foodList, value);
         }
 
+        private bool _isEnabled;
+        public bool isEnabled
+        {
+            get => _isEnabled;
+            set => SetProperty(ref _isEnabled, value);
+        }
+
         private void SetFoods()
         {
             this.foodList = repository.GetAllFood();
@@ -49,18 +53,27 @@ namespace Kiosk.order
         {
             if (food != null)
             {
-                if (!this.selectFoodList.Contains(food)) // 메뉴가 중복이 아니라면
+
+                List<int> idxList = new List<int>();
+                foreach (Food item in App.selectFoodList)
                 {
+                    idxList.Add(item.idx);
+                }
+
+                if (!idxList.Contains(food.idx)) // 메뉴가 중복이 아니라면
+                {
+                    food.count = 1;
                     food.totalPrice = food.price;
                     food.totalSale = food.sale;
 
-                    this.selectFoodList.Add(food);
+                    App.selectFoodList.Add(food);
                     this.totalPrice += food.price;
+                    this.isEnabled = true;
                 }
                 else // 메뉴가 중복이라면
                 {
-                    int index = this.selectFoodList.IndexOf(food);
-                    this.selectFoodList[index].PlusCount();
+                    int index = idxList.IndexOf(food.idx);
+                    App.selectFoodList[index].PlusCount();
                     this.totalPrice += food.price;
                 }
             }
@@ -68,33 +81,35 @@ namespace Kiosk.order
 
         public void FoodCountControl(Food selectedFood, int control)
         {
-            int index = this.selectFoodList.IndexOf(selectedFood);
+            int index = App.selectFoodList.IndexOf(selectedFood);
 
             switch (control)
             {
                 case 0: // 증가
-                    this.selectFoodList[index].PlusCount();
+                    App.selectFoodList[index].PlusCount();
                     this.totalPrice += selectedFood.price;
                     break;
 
                 case 1: // 감소
-                    if (this.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 감소
+                    if (App.selectFoodList[index].count > 1)  // 메뉴가 1개 초과라면 감소
                     {
-                        this.selectFoodList[index].MinusCount();
+                        App.selectFoodList[index].MinusCount();
                         this.totalPrice -= selectedFood.price;
                     }
                     else // 메뉴가 1개 이하라면 삭제
                     {
-                        this.selectFoodList.Remove(selectedFood);
+                        App.selectFoodList.Remove(selectedFood);
                         this.totalPrice -= selectedFood.totalPrice;
                     }
                     break;
 
                 case 2: // 삭제
-                    this.selectFoodList.Remove(selectedFood);
+                    App.selectFoodList.Remove(selectedFood);
                     this.totalPrice -= selectedFood.totalPrice;
                     break;
             }
+
+            if (App.selectFoodList.Count == 0) isEnabled = false;
         }
 
         public List<Food> PageControl(Category category, int control)

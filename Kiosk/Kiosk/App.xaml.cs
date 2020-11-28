@@ -20,7 +20,9 @@ namespace Kiosk
     {
         public static ServerManager serverManager = new ServerManager();
 
-        public static ObservableCollection<Food> selectFoodList { get; } = new ObservableCollection<Food>();
+        public static ObservableCollection<Food> selectFoodList { set; get; } = new ObservableCollection<Food>();
+
+        public static int totalPrice { set; get; }
 
         public static int tableIdx { set; get; }
 

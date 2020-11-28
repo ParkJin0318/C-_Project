@@ -62,8 +62,8 @@
                 Orientation="Horizontal"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                
-                
+
+
                 <Button
                     Content="이전"
                     VerticalAlignment="Center"
@@ -73,15 +73,6 @@
                     Width="100"
                     Height="40" 
                     Click="Button_Click"/>
-                
-                <Button
-                    Content="확인"
-                    VerticalAlignment="Center"
-                    Foreground="White"
-                    Margin="10"
-                    Background="#008299"
-                    Width="100"
-                    Height="40" Click="Button_Click_1"/>
             </StackPanel>
         </Grid>
     </Grid>

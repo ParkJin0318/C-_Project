@@ -25,15 +25,27 @@ namespace Kiosk.order
             InitializeComponent();
             viewModel = new OrderViewModel();
 
-            listView.ItemsSource = viewModel.selectFoodList;
+            listView.ItemsSource = App.selectFoodList;
             xCategory.SelectedIndex = 0;
 
             DataContext = viewModel;
+
+            PreviousButton.IsEnabled = false;
+
+            if (App.selectFoodList.Count > 0)
+            {
+                viewModel.isEnabled = true;
+                viewModel.totalPrice = App.totalPrice;
+            }
+            else
+            {
+                viewModel.isEnabled = false;
+            }
         }
 
         private void Order_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            if (viewModel.selectFoodList.Count > 0)
+            if (App.selectFoodList.Count > 0)
             {
                 if (MessageBox.Show("주문 취소", "주문 취소 하실건가요?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -47,9 +59,10 @@ namespace Kiosk.order
 
         private void Order_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (viewModel.selectFoodList.Count > 0)
+            if (App.selectFoodList.Count > 0)
             {
                 NavigationService.Navigate(new PlacePage());
+                App.totalPrice = viewModel.totalPrice;
             } else
             {
                 MessageBox.Show("음식을 선택해주세요");
@@ -58,18 +71,14 @@ namespace Kiosk.order
 
         private void Order_RemoveAll_Click(object sender, RoutedEventArgs e)
         {
-            if (viewModel.selectFoodList.Count > 0)
+            if (App.selectFoodList.Count > 0)
             {
                 if (MessageBox.Show("주문 삭제", "주문을 삭제 하실건가요?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    viewModel.selectFoodList.Clear();
+                    App.selectFoodList.Clear();
                     viewModel.totalPrice = 0;
+                    viewModel.isEnabled = false;
                 }
-            }
-            else
-            {
-                viewModel.selectFoodList.Clear();
-                viewModel.totalPrice = 0;
             }
         }
 
@@ -83,14 +92,18 @@ namespace Kiosk.order
             if (viewModel.currentPage == 1)
             {
                 this.DirectionControl(1);
+                NextButton.IsEnabled = false;
+                PreviousButton.IsEnabled = true;
             }
         }
 
-        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        private void Previous_Button_Click(object sender, RoutedEventArgs e)
         {
             if (viewModel.currentPage == 2)
             {
                 this.DirectionControl(2);
+                NextButton.IsEnabled = true;
+                PreviousButton.IsEnabled = false;
             }
         }
 

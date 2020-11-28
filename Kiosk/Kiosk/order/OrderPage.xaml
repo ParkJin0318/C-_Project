@@ -117,15 +117,17 @@
                 HorizontalAlignment="Center">
 
                 <Button
+                    x:Name="PreviousButton"
                     Content="이전"
                     VerticalAlignment="Center"
                     Foreground="White"
                     Margin="10"
                     Background="Red"
                     Width="100"
-                    Height="40" Click="Cancel_Button_Click"/>
+                    Height="40" Click="Previous_Button_Click"/>
 
                 <Button
+                    x:Name="NextButton"
                     Content="다음"
                     VerticalAlignment="Center"
                     Foreground="White"
@@ -193,6 +195,7 @@
                     <Button 
                         x:Name="DeleteAll_Button"
                         Content="모두 삭제"
+                        IsEnabled="{Binding isEnabled}"
                         Click="Order_RemoveAll_Click" />
                 </StackPanel>
             </StackPanel>
@@ -218,6 +221,7 @@
 
                 <Button
                     x:Name="Order_Button"
+                    IsEnabled="{Binding isEnabled}"
                     Content="주문하기"
                     VerticalAlignment="Center"
                     Foreground="White"
