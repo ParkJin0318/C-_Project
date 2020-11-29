@@ -12,6 +12,6 @@ namespace Kiosk.repository
 
         void SetFoodSale(Food food, int sale); // 음식 가격 할인 메서드
 
-        void setFoodSoldOut(Food food, int isSoldOut);
+        void SetFoodSoldOut(Food food, int isSoldOut); // 음식 품절 적용 메서드
     }
 }

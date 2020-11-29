@@ -42,14 +42,10 @@ namespace Kiosk.place
             {
                 chooseTable = item.myTableNumber;
                 App.tableIdx = chooseTable;
-                MessageBox.Show("choose Table : " + chooseTable);
-            }
-        }
 
-        private void next_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.stopAllTimer();
-            NavigationService.Navigate(new PayPage());
+                viewModel.stopAllTimer();
+                NavigationService.Navigate(new PayPage());
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

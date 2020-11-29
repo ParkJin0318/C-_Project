@@ -64,11 +64,11 @@ namespace Kiosk.admin
         {
             if (isSoldOut)
             {
-                repository.setFoodSoldOut(food, 1);
+                repository.SetFoodSoldOut(food, 1);
             }
             else
             {
-                repository.setFoodSoldOut(food, 0);
+                repository.SetFoodSoldOut(food, 0);
             }
         }
 

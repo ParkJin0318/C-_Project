@@ -26,11 +26,23 @@
                 FontSize="20"
                 Foreground="Black"/>
 
-            <Button
-                x:Name="ConnectButton"
-                Width="100"
-                Height="30"
-                Background="White" Click="ConnectButton_Click"/>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+
+                <Button
+                    x:Name="ConnectButton"
+                    Width="100"
+                    Height="30"
+                    Background="White" Click="ConnectButton_Click"/>
+
+                <TextBox
+                    x:Name="CurrentTime"
+                    FontSize="12"
+                    VerticalAlignment="Center"
+                    Text="최근 접속 시간: 2020-09-22 12:01"/>
+            </StackPanel>
 
             <Button
                 x:Name="HomeButton"

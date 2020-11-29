@@ -37,6 +37,7 @@ namespace Kiosk.repositoryImpl
                 Td.TimeRemaining = 0;
                 Td.useText = "이용가능";
                 Td.canUse = true;
+                Td.payTime = "";
                 Td.TableColor = new SolidColorBrush(Colors.Red);
 
                 if (reader.Read())
@@ -54,6 +55,7 @@ namespace Kiosk.repositoryImpl
                         Td.TimeRemaining = 60 - diffSec;
                         Td.useText = "이용중 : " + Td.TimeRemaining;
                         Td.canUse = false;
+                        Td.payTime = "결제된 시간: " + lastEatStart.ToString();
                         Td.TableColor = new SolidColorBrush(Colors.Yellow);
                         Td.MakeTimer();
                     }

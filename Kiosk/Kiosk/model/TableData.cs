@@ -57,6 +57,20 @@ namespace Kiosk.model
             }
         }
 
+        private string _payTime;
+
+        public string payTime
+        {
+            get
+            {
+                return _payTime;
+            }
+            set
+            {
+                SetProperty(ref _payTime, value);
+            }
+        }
+
         private SolidColorBrush _TableColor = new SolidColorBrush(Colors.Red);
 
         public SolidColorBrush TableColor

@@ -59,7 +59,6 @@ namespace Kiosk.mananger
             if (isConnected)
             {
                 byte[] sendData = Encoding.UTF8.GetBytes(data);
-
                 try
                 {
                     NetworkStream networkStream = client.GetStream();
@@ -91,6 +90,7 @@ namespace Kiosk.mananger
                     while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                     {
                         data = Encoding.UTF8.GetString(bytes, 0, i);
+                        isConnected = true;
 
                         if (isSend == false)
                         {
@@ -98,7 +98,6 @@ namespace Kiosk.mananger
                             toast.ShowNotification("서버 메세지", data);
                         }
                         isSend = false;
-                        isConnected = true;
 
                         if (data.Contains("총 매출액"))
                         {
@@ -106,6 +105,7 @@ namespace Kiosk.mananger
                             userRepository.SetMessage(App.loginUser, totalPrice + "원", true);
                         }
                     }
+                    isConnected = false;
                 }
                 catch (Exception e)
                 {

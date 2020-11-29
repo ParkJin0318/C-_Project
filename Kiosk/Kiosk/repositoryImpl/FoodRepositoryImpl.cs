@@ -49,7 +49,7 @@ namespace Kiosk.repositoryImpl
             manager.SetDBData("update menu set sale = " + sale + " where idxMenu = " + food.idx + ";");
         }
 
-        public void setFoodSoldOut(Food food, int isSoldOut)
+        public void SetFoodSoldOut(Food food, int isSoldOut)
         {
             manager.SetDBData("update menu set isSoldOut = " + isSoldOut + " where idxMenu = " + food.idx + ";");
         }

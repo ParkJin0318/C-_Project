@@ -34,8 +34,8 @@ namespace Kiosk
         {
             InitializeComponent();
             repository = new AuthRepositoryImpl();
-            SetTime();
 
+            SetTime();
             StartState();
             StartGetServerMessage();
         }
@@ -79,6 +79,10 @@ namespace Kiosk
                     {
                         repository.SetLogin(App.loginUser.id);
                         StartGetServerMessage();
+                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                        {
+                            CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
+                        }));
                     }
                 }
             }
@@ -90,6 +94,15 @@ namespace Kiosk
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            if (App.serverManager.isConnected)
+            {
+                CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
+            }
+            else
+            {
+                CurrentTime.Text = "접속 실패 했습니다";
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
