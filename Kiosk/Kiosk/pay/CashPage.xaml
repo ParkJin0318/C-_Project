@@ -49,6 +49,7 @@
                     HorizontalAlignment="Center"/>
 
                 <Label
+                    x:Name="userName"
                     Content="회원명:홍길동"
                     FontSize="24"
                     Margin="0 10"

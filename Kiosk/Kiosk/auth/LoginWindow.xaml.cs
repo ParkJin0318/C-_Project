@@ -71,25 +71,36 @@ namespace Kiosk.auth
             this.SetLogin();
         }
 
-        public void SetLogin()
+        private bool isLogin()
         {
             foreach (User item in App.userList)
             {
                 if (userId.Text == item.id && userPw.Text == "123")
                 {
                     App.loginUser = item;
-                    authRepository.SetLogin(App.loginUser.id);
+                    return true;
+                }
+            }
 
-                    if (AutoCheck.IsChecked == true)
-                    {
-                        authRepository.SetAutoLogin(App.loginUser.id);
-                    }
-                    this.ShowMainWindow();
-                }
-                else
+            return false;
+        }
+
+        public void SetLogin()
+        {
+
+            if (isLogin())
+            {
+                authRepository.SetLogin(App.loginUser.id);
+
+                if (AutoCheck.IsChecked == true)
                 {
-                    MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다");
+                    authRepository.SetAutoLogin(App.loginUser.id);
                 }
+                this.ShowMainWindow();
+            }
+            else
+            {
+                MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다");
             }
         }
 

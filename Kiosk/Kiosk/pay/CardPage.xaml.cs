@@ -30,6 +30,7 @@ namespace Kiosk.pay
         public CardPage()
         {
             InitializeComponent();
+            userName.Content = "회원명: " + App.loginUser.name;
             orderRepository = new OrderRepositoryImpl();
             webcam.CameraIndex = 0;
 

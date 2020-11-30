@@ -28,6 +28,7 @@ namespace Kiosk.pay
         public CashPage()
         {
             InitializeComponent();
+            userName.Content = "회원명: " + App.loginUser.name;
             orderRepository = new OrderRepositoryImpl();
             barcode_Text.Focus();
 
