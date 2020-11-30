@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kiosk.model.Stats
 {
-    class MenuProfitsData : BindableBase
+    class MenuProfitsData : BindableBase, IComparable
     {
         private int _count = 0;
         private int _sumProfits = 0;
@@ -29,6 +29,11 @@ namespace Kiosk.model.Stats
         {
             get { return _name; }
             set { SetProperty(ref _name, value); }
+        }
+
+        public int CompareTo(object obj)
+        {
+            return this.count.CompareTo((obj as MenuProfitsData).count);
         }
     }
 }

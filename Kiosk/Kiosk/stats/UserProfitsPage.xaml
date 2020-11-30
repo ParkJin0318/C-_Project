@@ -9,6 +9,86 @@
       Title="UserProfitsPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel
+                Orientation="Vertical"
+                HorizontalAlignment="Center">
+
+                <ListView x:Name="userListView"
+                          SelectedIndex="0"
+                          SelectionChanged="UpdateData"
+                          ItemsSource="{Binding userList}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="이름" Width="100" DisplayMemberBinding="{Binding name}"/>
+                            <GridViewColumn Header="바코드" Width="100" DisplayMemberBinding="{Binding qrCode}"/>
+                            <GridViewColumn Header="QR코드" Width="100" DisplayMemberBinding="{Binding barCode}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock
+                        Text=""
+                        FontSize="20pt"
+                        FontWeight="Bold"
+                        x:Name="Profits"
+                        HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+                        <ComboBox
+                        SelectionChanged="ReverseData"
+                        x:Name="xComboBox">
+                            <ComboBoxItem IsSelected="True">오름차순</ComboBoxItem>
+                            <ComboBoxItem>내림차순</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center">
+                    <ListView x:Name="dataListView"
+                            ItemsSource="{Binding userData}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="주문한 메뉴명" Width="100" DisplayMemberBinding="{Binding name}"/>
+                                <GridViewColumn Header="주문한 수량" Width="100" DisplayMemberBinding="{Binding count}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

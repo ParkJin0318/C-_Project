@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Kiosk.admin;
+using Kiosk.model;
+using Kiosk.model.Stats;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,46 @@ namespace Kiosk.stats
     /// </summary>
     public partial class UserProfitsPage : Page
     {
+        private readonly AdminViewModel userViewModel;
+        private UserProfitsPageViewModel dataViewModel;
+        private List<MenuProfitsData> bindingData;
+
         public UserProfitsPage()
         {
             InitializeComponent();
+            userViewModel = new AdminViewModel();
+            dataViewModel = new UserProfitsPageViewModel();
+
+            userListView.DataContext = userViewModel;
+            dataListView.ItemsSource = bindingData;
+            UpdateData(0);
+        }
+
+        public void UpdateData(int index)
+        {
+            if (dataViewModel != null)
+            {
+                dataListView.ItemsSource = bindingData;
+                dataListView.ItemsSource = dataViewModel.GetMenueProfitsData(index);
+            }
+        }
+
+        public void UpdateData(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender;
+            UpdateData(lv.SelectedIndex);
+            dataListView.ItemsSource = dataViewModel.GetMenueProfitsData(lv.SelectedIndex);
+            Profits.Text = "총 매출액 : " + dataViewModel.data.ElementAt(lv.SelectedIndex).sumProfits + "원";
+        }
+
+        public void ReverseData(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (dataViewModel != null)
+            {
+                dataViewModel.ReverseData(userListView.SelectedIndex);
+                UpdateData(userListView.SelectedIndex);
+            }
         }
     }
 }

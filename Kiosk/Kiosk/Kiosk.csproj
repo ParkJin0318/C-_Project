@@ -209,6 +209,7 @@
     <Compile Include="repository\OrderRepository.cs" />
     <Compile Include="repository\StatsRepository.cs" />
     <Compile Include="repository\UserRepository.cs" />
+    <Compile Include="stats\UserProfitsPageViewModel.cs" />
     <Compile Include="util\Constants.cs" />
     <Compile Include="util\ToastMessage.cs" />
     <Page Include="admin\AdminPage.xaml">

@@ -154,11 +154,13 @@ namespace Kiosk.repositoryImpl
                     for (int j = 1; j < 45; j++)
                     {
                         MenuProfitsData buffer = new MenuProfitsData();
-                        reader = manager.GetDBData("select idxMenu, count, totalPrice from orders where idxMenu = " + j);
+                        reader = manager.GetDBData("select idxMenu, count, totalPrice, salePrice, idxUser from orders where idxMenu = " + j + " and idxUser = " + i);
                         while (reader.Read())
                         {
                             buffer.count += Int32.Parse(reader["count"].ToString());
-                            profits += (Int32.Parse(reader["count"].ToString()) * Int32.Parse(reader["totalPrice"].ToString()));
+                            profits += (Int32.Parse(reader["count"].ToString())
+                                * (Int32.Parse(reader["totalPrice"].ToString())
+                                + Int32.Parse(reader["salePrice"].ToString())));
                         }
                         reader = manager.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + j);
                         if (reader.Read())
@@ -167,12 +169,17 @@ namespace Kiosk.repositoryImpl
                         }
                         bufferMenuData.Add(buffer);
                     }
+                    bufferMenuData.Sort();
+                    for (int j = 0; j < 44; j++)
+                    {
+                        if (bufferMenuData.ElementAt(0).count == 0)
+                            bufferMenuData.RemoveAt(0);
+                    }
                     bufferUserData.menuData = bufferMenuData;
                     bufferUserData.sumProfits = profits;
                     usersData.Add(bufferUserData);
                 }
             }
-
             return usersData;
         }
     }
