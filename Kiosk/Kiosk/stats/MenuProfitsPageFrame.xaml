@@ -36,7 +36,8 @@
                 FontWeight="Bold"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                x:Name="xLoading"/>
+                x:Name="xLoading"
+                Visibility="Visible"/>
             <Frame
                 x:Name="MenuChartFrame"
                 NavigationUIVisibility="Hidden"/>

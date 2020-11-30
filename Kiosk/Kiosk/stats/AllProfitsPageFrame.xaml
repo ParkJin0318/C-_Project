@@ -47,7 +47,8 @@
                 FontWeight="Bold"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                x:Name="xLoadingCash"/>
+                x:Name="xLoadingCash"
+                Visibility="Visible"/>
                 <Frame
                     x:Name="cashProfits"
                     NavigationUIVisibility="Hidden"/>

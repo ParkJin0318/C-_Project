@@ -88,7 +88,8 @@
                 FontWeight="Bold"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                x:Name="xLoadingMenu"/>
+                x:Name="xLoadingMenu"
+                Visibility="Visible"/>
                 <StackPanel
                     Orientation="Vertical"
                     HorizontalAlignment="Center">
