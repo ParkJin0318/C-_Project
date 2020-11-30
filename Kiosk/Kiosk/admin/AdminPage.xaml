@@ -51,7 +51,8 @@
                     Margin="10" Click="Sale_Button_Click"/>
                 <Button
                     Content="메세지 화면"
-                    Background="Aquamarine"
+                    Background="Black"
+                    Foreground="White"
                     Height="100"
                     Margin="10" Click="Message_Button_Click"/>
             </StackPanel>

@@ -43,14 +43,14 @@ namespace Kiosk.place
                 chooseTable = item.myTableNumber;
                 App.tableIdx = chooseTable;
 
-                viewModel.stopAllTimer();
+                viewModel.StopAllTimer();
                 NavigationService.Navigate(new PayPage());
             }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.stopAllTimer();
+            viewModel.StopAllTimer();
             NavigationService.Navigate(new PlacePage());
         }
     }

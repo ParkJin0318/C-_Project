@@ -46,7 +46,6 @@ namespace Kiosk.stats
                     DataLabels = true
                 });
             }
-
         }
     }
 }

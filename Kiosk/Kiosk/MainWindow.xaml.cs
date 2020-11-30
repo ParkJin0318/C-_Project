@@ -46,11 +46,11 @@ namespace Kiosk
         {
             if (App.serverManager.isConnected)
             {
-                CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
+                CurrentTime.Content = "최근 접속 시간: " + DateTime.Now.ToString();
             }
             else
             {
-                CurrentTime.Text = "접속 실패 했습니다";
+                CurrentTime.Content = "접속 실패 했습니다";
             }
         }
 
@@ -68,51 +68,17 @@ namespace Kiosk
             thread.Start();
         }
 
-        private void SetServerConnectState()
-        {
-            while (true)
-            {
-                if (App.serverManager.isConnected)
-                {
-                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
-                    {
-                        ConnectButton.Content = "연결 중";
-                        ConnectButton.Background = new SolidColorBrush(Colors.LightGreen);
-                    }));
-                }
-                else
-                {
-                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
-                    {
-                        ConnectButton.Content = "연결 실패";
-                        ConnectButton.Background = new SolidColorBrush(Colors.Red);
-                    }));
-
-                    App.serverManager.ServerConnect();
-                    if (App.serverManager.isConnected)
-                    {
-                        authRepository.SetLogin(App.loginUser.id);
-                        StartGetServerMessageThread();
-                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
-                        {
-                            CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
-                        }));
-                    }
-                }
-            }
-        }
-
         private void SetTime()
         {
             App.totalRunTime = App.market.time;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += Timer_Tick;
+            timer.Tick += TimerTick;
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
         {
             App.totalRunTime++;
             Time.Text = DateTime.Now.ToString();
@@ -144,6 +110,40 @@ namespace Kiosk
             if (e.Key == Key.F2)
             {
                 FrameLayout.Source = new Uri("admin/AdminPage.xaml", UriKind.Relative);
+            }
+        }
+
+        private void SetServerConnectState()
+        {
+            while (true)
+            {
+                if (App.serverManager.isConnected)
+                {
+                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                    {
+                        ConnectButton.Content = "연결 중";
+                        ConnectButton.Background = new SolidColorBrush(Colors.LightGreen);
+                    }));
+                }
+                else
+                {
+                    Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                    {
+                        ConnectButton.Content = "연결 실패";
+                        ConnectButton.Background = new SolidColorBrush(Colors.Red);
+                    }));
+
+                    App.serverManager.ServerConnect();
+                    if (App.serverManager.isConnected)
+                    {
+                        authRepository.SetLogin(App.loginUser.id);
+                        StartGetServerMessageThread();
+                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                        {
+                            CurrentTime.Content = "최근 접속 시간: " + DateTime.Now.ToString();
+                        }));
+                    }
+                }
             }
         }
     }

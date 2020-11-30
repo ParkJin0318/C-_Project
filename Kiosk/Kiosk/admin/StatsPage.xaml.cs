@@ -37,11 +37,11 @@ namespace Kiosk.admin
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += Timer_Tick;
+            timer.Tick += TimerTick;
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
         {
             int temp = App.totalRunTime;
             int hour = temp / 3600;
@@ -52,32 +52,32 @@ namespace Kiosk.admin
             RunTime.Content = "총 구동시간: " + hour + ":" + min + ":" + temp;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AllProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new AllProfitsPageFrame());
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void MenuProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new MenuProfitsPageFrame(0));
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void CategoryProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new CategoryProfitsPage(0));
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void TableProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new TableProfitsPage(1, true));
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void DayProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new DayProfitsPageMain());
         }
 
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        private void UserProfits_Click(object sender, RoutedEventArgs e)
         {
             FrameLayout1.NavigationService.Navigate(new UserProfitsPage());
         }

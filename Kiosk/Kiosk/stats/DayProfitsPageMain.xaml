@@ -25,7 +25,7 @@
                 Width="40px"
                 Height="40px"
                 HorizontalAlignment="Center"
-                Click="yesterdayClick"/>
+                Click="Yesterday_Click"/>
             <TextBlock
                 Text=""
                 FontSize="24pt"
@@ -42,7 +42,7 @@
                 Width="40px"
                 Height="40px"
                 HorizontalAlignment="Center"
-                Click="tomorrowClick"/>
+                Click="Tomorrow_Click"/>
         </Grid>
 
         <Grid Grid.Row="1">

@@ -35,13 +35,13 @@ namespace Kiosk.stats
             chartFrame.NavigationService.Navigate(new Kiosk.stats.DayProfitsPageFrame(chekingDay));
         }
 
-        private void tomorrowClick(object sender, RoutedEventArgs e)
+        private void Tomorrow_Click(object sender, RoutedEventArgs e)
         {
             chekingDay = chekingDay.AddDays(1);
             UpdateTimeText();
         }
 
-        private void yesterdayClick(object sender, RoutedEventArgs e)
+        private void Yesterday_Click(object sender, RoutedEventArgs e)
         {
             chekingDay = chekingDay.AddDays(-1);
             UpdateTimeText();

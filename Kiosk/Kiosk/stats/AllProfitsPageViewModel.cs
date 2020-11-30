@@ -13,25 +13,25 @@ namespace Kiosk.stats
     class AllProfitsPageViewModel : BindableBase
     {
         private StatsRepository repository;
-        private AllProfitsData _data;
+        private AllProfitsData _allProfits;
 
         public AllProfitsPageViewModel()
         {
             repository = new StatsRepositoryImpl();
-            data = repository.GetAllProfitsData();
+            allProfits = repository.GetAllProfitsData();
         }
 
-        public AllProfitsData data
+        public AllProfitsData allProfits
         {
-            get => _data;
-            set => SetProperty(ref _data, value);
+            get => _allProfits;
+            set => SetProperty(ref _allProfits, value);
         }
 
         public int[] GetRealProfitsValues()
         {
             List<int> values = new List<int>();
-            values.Add(data.realProfits);
-            values.Add(data.saledProfits);
+            values.Add(allProfits.realProfits);
+            values.Add(allProfits.saledProfits);
             return values.ToArray();
         }
 
@@ -44,8 +44,8 @@ namespace Kiosk.stats
         public int[] GetCashProfitsValues()
         {
             List<int> values = new List<int>();
-            values.Add(data.cashProfits);
-            values.Add(data.cardProfits);
+            values.Add(allProfits.cashProfits);
+            values.Add(allProfits.cardProfits);
             return values.ToArray();
         }
 

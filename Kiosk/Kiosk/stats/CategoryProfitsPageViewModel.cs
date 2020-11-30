@@ -17,7 +17,7 @@ namespace Kiosk.stats
         private StatsRepository statsRepository;
         private FileRepository fileRepository;
 
-        private List<MenuProfitsData> _data = new List<MenuProfitsData>();
+        private List<MenuProfitsData> _menuProfitsList = new List<MenuProfitsData>();
         private bool _isEnabled;
 
         public SeriesCollection SeriesCollection { get; set; }
@@ -30,10 +30,10 @@ namespace Kiosk.stats
             fileRepository = new FileRepositoryImpl();
         }
 
-        public List<MenuProfitsData> data
+        public List<MenuProfitsData> menuProfitsList
         {
-            get => _data;
-            set => SetProperty(ref _data, value);
+            get => _menuProfitsList;
+            set => SetProperty(ref _menuProfitsList, value);
         }
 
         public bool isEnabled
@@ -45,9 +45,13 @@ namespace Kiosk.stats
         public void SetData(int tableNumber)
         {
             if (tableNumber == 0)
-                this.data = statsRepository.GetCategoryProfitsData(0, 9);
+            {
+                this.menuProfitsList = statsRepository.GetCategoryProfitsData(0, 9);
+            }
             else
-                this.data = statsRepository.GetCategoryProfitsData(tableNumber, tableNumber);
+            {
+                this.menuProfitsList = statsRepository.GetCategoryProfitsData(tableNumber, tableNumber);
+            }
 
             SeriesCollection = new SeriesCollection
             {
@@ -75,7 +79,7 @@ namespace Kiosk.stats
             List<double> buffer = new List<double>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(Convert.ToDouble(data.ElementAt(i).count));
+                buffer.Add(Convert.ToDouble(menuProfitsList.ElementAt(i).count));
             }
             return buffer.ToArray();
         }
@@ -85,7 +89,7 @@ namespace Kiosk.stats
             List<double> buffer = new List<double>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(Convert.ToDouble(data.ElementAt(i).sumProfits) / 10000.0);
+                buffer.Add(Convert.ToDouble(menuProfitsList.ElementAt(i).sumProfits) / 10000.0);
             }
             return buffer.ToArray();
         }
@@ -95,7 +99,7 @@ namespace Kiosk.stats
             List<string> buffer = new List<string>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(data.ElementAt(i).name);
+                buffer.Add(menuProfitsList.ElementAt(i).name);
             }
             return buffer.ToArray();
         }
@@ -106,7 +110,7 @@ namespace Kiosk.stats
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = dialog.SelectedPath;
-                fileRepository.CreateFileStats(path, this.data);
+                fileRepository.CreateFileStats(path, this.menuProfitsList);
             }
         }
     }

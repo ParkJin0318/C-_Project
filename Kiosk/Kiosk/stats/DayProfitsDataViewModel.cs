@@ -13,19 +13,19 @@ namespace Kiosk.stats
     class DayProfitsDataViewModel : BindableBase
     {
         private StatsRepository repository;
-        private DayProfitsData _data;
+        private DayProfitsData _dayProfits;
 
         public void SetData(DateTime checkDay) //true : Menu, false : Category
         {
             repository = new StatsRepositoryImpl();
-            data = repository.GetDayProfitsData(checkDay);
+            dayProfits = repository.GetDayProfitsData(checkDay);
 
         }
 
-        public DayProfitsData data
+        public DayProfitsData dayProfits
         {
-            get => _data;
-            set => SetProperty(ref _data, value);
+            get => _dayProfits;
+            set => SetProperty(ref _dayProfits, value);
         }
 
         public double[] GetHoursProfits(int startPoint, int endPoint)
@@ -33,7 +33,7 @@ namespace Kiosk.stats
             List<double> buffer = new List<double>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(Convert.ToDouble(data.hoursProfits.ElementAt(i)) / 10000.0);
+                buffer.Add(Convert.ToDouble(dayProfits.hoursProfits.ElementAt(i)) / 10000.0);
             }
             return buffer.ToArray();
         }

@@ -23,6 +23,7 @@ namespace Kiosk.stats
     {
         private int beforeTableNum = 1;
         private bool ViewMode = true;
+
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
         private SolidColorBrush yellow = new SolidColorBrush(Colors.Yellow);
         private TableProfitsViewModel viewModel;
@@ -50,12 +51,16 @@ namespace Kiosk.stats
                 viewModel.tableDatas.ElementAt(beforeTableNum - 1).TableColor = red;
                 beforeTableNum = item.myTableNumber;
                 viewModel.tableDatas.ElementAt(beforeTableNum - 1).TableColor = yellow;
-                if (this.ViewMode)
-                    ChartFrame.NavigationService.Navigate(new MenuProfitsPageFrame(this.beforeTableNum));
-                else
-                    ChartFrame.NavigationService.Navigate(new CategoryProfitsPage(this.beforeTableNum));
-            }
 
+                if (this.ViewMode)
+                {
+                    ChartFrame.NavigationService.Navigate(new MenuProfitsPageFrame(this.beforeTableNum));
+                }
+                else
+                {
+                    ChartFrame.NavigationService.Navigate(new CategoryProfitsPage(this.beforeTableNum));
+                }
+            }
         }
 
         private void BTN_MenuClicked(object sender, RoutedEventArgs e)

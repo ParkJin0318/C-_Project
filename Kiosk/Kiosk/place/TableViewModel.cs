@@ -34,7 +34,7 @@ namespace Kiosk.place
             this.TableDataList = repository.GetAllTableInfo(App.market.idx);
         }
 
-        public void stopAllTimer()
+        public void StopAllTimer()
         {
             for (int i = 0; i < 9; i++)
             {

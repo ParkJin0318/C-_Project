@@ -37,11 +37,11 @@
                     Height="30"
                     Background="White" Click="ConnectButton_Click"/>
 
-                <TextBox
+                <Label
                     x:Name="CurrentTime"
                     FontSize="12"
                     VerticalAlignment="Center"
-                    Text="최근 접속 시간: 2020-09-22 12:01"/>
+                    Content="최근 접속 시간은?"/>
             </StackPanel>
 
             <Button

@@ -13,33 +13,33 @@ namespace Kiosk.stats
     class UserProfitsPageViewModel : BindableBase
     {
         private StatsRepository repository;
-        private List<UserProfitsData> _data;
+        private List<UserProfitsData> _userProfitsList;
 
         public UserProfitsPageViewModel()
         {
             repository = new StatsRepositoryImpl();
-            data = repository.GetUserProfitsData();
+            userProfitsList = repository.GetUserProfitsData();
         }
 
-        public List<UserProfitsData> data
+        public List<UserProfitsData> userProfitsList
         {
-            get => _data;
-            set => SetProperty(ref _data, value);
+            get => _userProfitsList;
+            set => SetProperty(ref _userProfitsList, value);
         }
 
         public void ReverseData(int index)
         {
-            data.ElementAt(index).menuData.Reverse();
+            userProfitsList.ElementAt(index).menuData.Reverse();
         }
 
         public void SortData(int index)
         {
-            data.ElementAt(index).menuData.Sort();
+            userProfitsList.ElementAt(index).menuData.Sort();
         }
 
         public List<MenuProfitsData> GetMenueProfitsData(int index)
         {
-            return data.ElementAt(index).menuData;
+            return userProfitsList.ElementAt(index).menuData;
         }
     }
 }

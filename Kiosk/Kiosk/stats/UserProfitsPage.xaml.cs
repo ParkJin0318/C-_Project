@@ -57,12 +57,12 @@ namespace Kiosk.stats
                 dataViewModel.ReverseData(lv.SelectedIndex);
             }
             dataListView.ItemsSource = dataViewModel.GetMenueProfitsData(lv.SelectedIndex);
-            Profits.Text = "총 매출액 : " + dataViewModel.data.ElementAt(lv.SelectedIndex).sumProfits + "원";
+            Profits.Text = "총 매출액 : " + dataViewModel.userProfitsList.ElementAt(lv.SelectedIndex).sumProfits + "원";
         }
 
         public void ReverseData(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;
+            ComboBox comboBox = (ComboBox)sender;
             if (dataViewModel != null)
             {
                 dataViewModel.ReverseData(userListView.SelectedIndex);

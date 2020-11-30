@@ -31,37 +31,37 @@
                         FontSize="15"
                         Background="White"
                         BorderBrush="Transparent"
-                        Click="Button_Click_1">총액</Button>
+                        Click="AllProfits_Click">총액</Button>
                     <Button 
                         Margin="10"
                         FontSize="15" 
                         Background="White"
                         BorderBrush="Transparent"
-                        Click="Button_Click_2">메뉴</Button>
+                        Click="MenuProfits_Click">메뉴</Button>
                     <Button 
                         Margin="10" 
                         FontSize="15" 
                         Background="White"
                         BorderBrush="Transparent"
-                        Click="Button_Click_3">카테고리</Button>
+                        Click="CategoryProfits_Click">카테고리</Button>
                     <Button
                         Margin="10" 
                         FontSize="15"
                         Background="White" 
                         BorderBrush="Transparent"
-                        Click="Button_Click_4">테이블</Button>
+                        Click="TableProfits_Click">테이블</Button>
                     <Button 
                         Margin="10" 
                         FontSize="15"
                         Background="White"
                         BorderBrush="Transparent"
-                        Click="Button_Click_5">일별</Button>
+                        Click="DayProfits_Click">일별</Button>
                     <Button 
                         Margin="10" 
                         FontSize="15" 
                         Background="White" 
                         BorderBrush="Transparent"
-                        Click="Button_Click_6">유저</Button>
+                        Click="UserProfits_Click">유저</Button>
                 </StackPanel>
 
             </StackPanel>

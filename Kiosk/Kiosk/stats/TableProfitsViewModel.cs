@@ -10,6 +10,11 @@ namespace Kiosk.stats
 {
     class TableProfitsViewModel : BindableBase
     {
+        public TableProfitsViewModel()
+        {
+            SetTable();
+        }
+
         private List<model.TableData> _tableDatas = new List<model.TableData>();
 
         public List<model.TableData> tableDatas
@@ -35,11 +40,6 @@ namespace Kiosk.stats
                 bufferTD2.TableColor = red;
                 tableDatas.Add(bufferTD2);
             }
-        }
-
-        public TableProfitsViewModel()
-        {
-            SetTable();
         }
     }
 }

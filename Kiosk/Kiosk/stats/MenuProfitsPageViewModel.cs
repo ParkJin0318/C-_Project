@@ -13,27 +13,27 @@ namespace Kiosk.stats
     class MenuProfitsPageViewModel : BindableBase
     {
         private StatsRepository repository;
-        private List<MenuProfitsData> _data = new List<MenuProfitsData>();
+        private List<MenuProfitsData> _menuProfitsList = new List<MenuProfitsData>();
 
         public MenuProfitsPageViewModel()
         {
             repository = new StatsRepositoryImpl();
         }
 
-        public List<MenuProfitsData> data
+        public List<MenuProfitsData> menuProfitsList
         {
-            get => _data;
-            set => SetProperty(ref _data, value);
+            get => _menuProfitsList;
+            set => SetProperty(ref _menuProfitsList, value);
         }
 
         public void SetData()
         {
-            this.data = repository.GetMenuProfitsData(0, 9);
+            this.menuProfitsList = repository.GetMenuProfitsData(0, 9);
         }
 
         public void SetData(int talbeNumber)
         {
-            this.data = repository.GetMenuProfitsData(talbeNumber, talbeNumber);
+            this.menuProfitsList = repository.GetMenuProfitsData(talbeNumber, talbeNumber);
         }
 
         public double[] GetSumCount(int startPoint, int endPoint)
@@ -41,7 +41,7 @@ namespace Kiosk.stats
             List<double> buffer = new List<double>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(Convert.ToDouble(data.ElementAt(i).count));
+                buffer.Add(Convert.ToDouble(menuProfitsList.ElementAt(i).count));
             }
             return buffer.ToArray();
         }
@@ -51,7 +51,7 @@ namespace Kiosk.stats
             List<double> buffer = new List<double>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(Convert.ToDouble(data.ElementAt(i).sumProfits) / 10000.0);
+                buffer.Add(Convert.ToDouble(menuProfitsList.ElementAt(i).sumProfits) / 10000.0);
             }
             return buffer.ToArray();
         }
@@ -61,7 +61,7 @@ namespace Kiosk.stats
             List<string> buffer = new List<string>();
             for (int i = startPoint; i < endPoint; i++)
             {
-                buffer.Add(data.ElementAt(i).name);
+                buffer.Add(menuProfitsList.ElementAt(i).name);
             }
             return buffer.ToArray();
         }

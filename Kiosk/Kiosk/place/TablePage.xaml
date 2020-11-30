@@ -36,15 +36,15 @@
                         <TextBlock Text="{Binding myTableNumber}"
                                    FontSize="60"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="Black"/>
                         <TextBlock Text="{Binding useText}"
                                    FontSize="20"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="Black"/>
                         <TextBlock Text="{Binding payTime}"
                                    FontSize="10"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="Black"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

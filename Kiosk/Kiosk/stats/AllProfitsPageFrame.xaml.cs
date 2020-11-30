@@ -27,7 +27,7 @@ namespace Kiosk.stats
             InitializeComponent();
             viewModel = new AllProfitsPageViewModel();
 
-            allProfits.Text = "총 수익 : " + viewModel.data.allProfits.ToString() + "원";
+            allProfits.Text = "총 수익 : " + viewModel.allProfits.allProfits.ToString() + "원";
 
             realProfits.NavigationService.Navigate(new Kiosk.stats.AllProfitsPage(viewModel.GetRealProfitsValues(), viewModel.GetRealProfitsNames()));
             cashProfits.NavigationService.Navigate(new Kiosk.stats.AllProfitsPage(viewModel.GetCashProfitsValues(), viewModel.GetCashProfitsNames()));

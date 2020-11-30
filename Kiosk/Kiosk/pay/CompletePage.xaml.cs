@@ -41,7 +41,7 @@ namespace Kiosk.pay
 
         private void orderTotalPrice()
         {
-            order_price.Content = "총 주문 금액 : " + App.totalPrice;
+            order_price.Content = "총 주문 금액 : " + App.totalPrice + "원";
         }
     }
 }
