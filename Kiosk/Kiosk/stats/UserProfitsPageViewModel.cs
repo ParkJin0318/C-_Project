@@ -32,6 +32,11 @@ namespace Kiosk.stats
             data.ElementAt(index).menuData.Reverse();
         }
 
+        public void SortData(int index)
+        {
+            data.ElementAt(index).menuData.Sort();
+        }
+
         public List<MenuProfitsData> GetMenueProfitsData(int index)
         {
             return data.ElementAt(index).menuData;

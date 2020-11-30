@@ -30,7 +30,7 @@ namespace Kiosk.stats
             {
                 new RowSeries
                 {
-                    Title = "판매 총 수량",
+                    Title = "판매 총액(0.01 = 100원)",
                     Values = new ChartValues<double> (hoursProfits)
                 }
             };

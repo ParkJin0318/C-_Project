@@ -26,6 +26,7 @@ namespace Kiosk.stats
             InitializeComponent();
             viewModel.SetData(checkingDay);
             livChartFrame.NavigationService.Navigate(new Kiosk.stats.DayProfitsPageChart(viewModel.GetHoursProfits(0, 12), viewModel.GetNames(0, 12)));
+            Profits.Text = "총 매출액 : " + viewModel.data.sumProfits + "원";
         }
 
         public void UpdateData(object sender, SelectionChangedEventArgs e)

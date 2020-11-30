@@ -51,6 +51,11 @@ namespace Kiosk.stats
         {
             ListView lv = (ListView)sender;
             UpdateData(lv.SelectedIndex);
+            dataViewModel.SortData(lv.SelectedIndex);
+            if(xComboBox.SelectedIndex == 1)
+            {
+                dataViewModel.ReverseData(lv.SelectedIndex);
+            }
             dataListView.ItemsSource = dataViewModel.GetMenueProfitsData(lv.SelectedIndex);
             Profits.Text = "총 매출액 : " + dataViewModel.data.ElementAt(lv.SelectedIndex).sumProfits + "원";
         }
