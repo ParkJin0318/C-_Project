@@ -12,12 +12,15 @@ namespace Kiosk.stats
 {
     class CategoryProfitsPageViewModel : BindableBase
     {
-        private StatsRepository repository;
+        private StatsRepository statsRepository;
+        private FileRepository fileRepository;
+
         private List<MenuProfitsData> _data = new List<MenuProfitsData>();
 
         public CategoryProfitsPageViewModel()
         {
-            repository = new StatsRepositoryImpl();
+            statsRepository = new StatsRepositoryImpl();
+            fileRepository = new FileRepositoryImpl();
         }
 
         public List<MenuProfitsData> data
@@ -28,12 +31,12 @@ namespace Kiosk.stats
 
         public void SetData()
         {
-            this.data = repository.GetCategoryProfitsData(0, 9);
+            this.data = statsRepository.GetCategoryProfitsData(0, 9);
         }
 
         public void SetData(int talbeNumber)
         {
-            this.data = repository.GetCategoryProfitsData(talbeNumber, talbeNumber);
+            this.data = statsRepository.GetCategoryProfitsData(talbeNumber, talbeNumber);
         }
 
         public double[] GetSumCount(int startPoint, int endPoint)
@@ -64,6 +67,15 @@ namespace Kiosk.stats
                 buffer.Add(data.ElementAt(i).name);
             }
             return buffer.ToArray();
+        }
+
+        public void CreateFile()
+        {
+            string[] names = this.GetNames(0, 3);
+            double[] counts = this.GetSumCount(0, 3);
+            double[] profits = this.GetSumProfits(0, 3);
+
+            fileRepository.CreateFileStats(names, counts, profits);
         }
     }
 }

@@ -137,6 +137,8 @@
     </Compile>
     <Compile Include="mananger\DBManager.cs" />
     <Compile Include="mananger\ServerManager.cs" />
+    <Compile Include="repositoryImpl\FileRepositoryImpl.cs" />
+    <Compile Include="repository\FileRepository.cs" />
     <Compile Include="stats\AllProfitsPage.xaml.cs">
       <DependentUpon>AllProfitsPage.xaml</DependentUpon>
     </Compile>
