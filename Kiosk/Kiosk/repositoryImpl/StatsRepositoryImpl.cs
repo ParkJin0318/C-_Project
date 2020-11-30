@@ -110,30 +110,23 @@ namespace Kiosk.repositoryImpl
         {
             List<MenuProfitsData> menuData = new List<MenuProfitsData>();
 
-            for (int i = 1; i < 45; i++)
-            {
-                int totalPrice = 0;
-                int totalCount = 0;
-                MenuProfitsData buffer = new MenuProfitsData();
-                MySqlDataReader reader = manager.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders"
-                    + " where idxMenu = " + i + " and eatTable >= " + startTableIdx + " and eatTable <= " + endTableIdx + ";");
-                while (reader.Read())
-                {
-                    int count = Int32.Parse(reader["count"].ToString());
-                    totalCount += count;
-                    totalPrice += (Int32.Parse(reader["totalPrice"].ToString()) * count
-                        + Int32.Parse(reader["salePrice"].ToString()) * count);
-                }
-                buffer.count = totalCount;
-                buffer.sumProfits = totalPrice;
+            for(int i = 0; i < 44; i++)
+                menuData.Add(new MenuProfitsData());
 
-                reader = manager.GetDBData("select idxMenu, MenuName from menu where idxMenu = " + i);
-                if (reader.Read())
-                {
-                    buffer.name = reader["menuName"].ToString();
-                }
-                menuData.Add(buffer);
+            MySqlDataReader reader = manager.GetDBData("select idxMenu, count, totalPrice, salePrice, eatTable from orders"
+                + " where eatTable >= " + startTableIdx + " and eatTable <= " + endTableIdx + ";");
+            while (reader.Read())
+            {
+                int index = Int32.Parse(reader["idxMenu"].ToString()) - 1;
+                int count = Int32.Parse(reader["count"].ToString());
+                menuData.ElementAt(index).count += count;
+                menuData.ElementAt(index).sumProfits += (Int32.Parse(reader["totalPrice"].ToString()) * count
+                    + Int32.Parse(reader["salePrice"].ToString()) * count);
             }
+
+            reader = manager.GetDBData("select idxMenu, MenuName from menu");
+            while (reader.Read())
+                menuData.ElementAt((Int32.Parse(reader["idxMenu"].ToString()) - 1)).name = reader["MenuName"].ToString();
 
             return menuData;
         }

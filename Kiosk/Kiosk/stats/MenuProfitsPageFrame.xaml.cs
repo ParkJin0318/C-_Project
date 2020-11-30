@@ -30,7 +30,6 @@ namespace Kiosk.stats
                 viewModel.SetData();
             else
                 viewModel.SetData(seatChecker);
-            xLoading.Visibility = Visibility.Hidden;
             MenuChartFrame.NavigationService.Navigate(new Kiosk.stats.MenuProfitsPage(
                 viewModel.GetSumCount(0, 11), viewModel.GetSumProfits(0, 11), viewModel.GetNames(0, 11)));
         }

@@ -52,7 +52,7 @@ namespace Kiosk.repositoryImpl
             {
                 market.idx = int.Parse(reader["idxmarket"].ToString());
                 market.name = reader["name"].ToString();
-                market.totalTime = reader["totalTime"].ToString();
+                market.totalTime = reader["time"].ToString();
                 Console.WriteLine(market.totalTime);
             }
 

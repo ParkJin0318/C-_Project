@@ -30,14 +30,6 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock
-                Text="Loading"
-                FontSize="40pt"
-                FontWeight="Bold"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                x:Name="xLoading"
-                Visibility="Visible"/>
             <Frame
                 x:Name="MenuChartFrame"
                 NavigationUIVisibility="Hidden"/>

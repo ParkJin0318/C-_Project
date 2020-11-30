@@ -33,10 +33,8 @@ namespace Kiosk.stats
             userViewModel = new AdminViewModel();
             dataViewModel = new UserProfitsPageViewModel();
 
-            xLoadingUser.Visibility = Visibility.Hidden;
             userListView.DataContext = userViewModel;
             dataListView.ItemsSource = bindingData;
-            xLoadingMenu.Visibility = Visibility.Hidden;
             UpdateData(0);
         }
 

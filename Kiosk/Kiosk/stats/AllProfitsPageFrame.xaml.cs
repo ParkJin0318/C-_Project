@@ -29,9 +29,7 @@ namespace Kiosk.stats
 
             allProfits.Text = "총 수익 : " + viewModel.data.allProfits.ToString() + "원";
 
-            xLoadingReal.Visibility = Visibility.Hidden;
             realProfits.NavigationService.Navigate(new Kiosk.stats.AllProfitsPage(viewModel.GetRealProfitsValues(), viewModel.GetRealProfitsNames()));
-            xLoadingCash.Visibility = Visibility.Hidden;
             cashProfits.NavigationService.Navigate(new Kiosk.stats.AllProfitsPage(viewModel.GetCashProfitsValues(), viewModel.GetCashProfitsNames()));
         }
     }

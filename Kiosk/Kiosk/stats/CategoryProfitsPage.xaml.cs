@@ -32,8 +32,6 @@ namespace Kiosk.stats
             viewModel = new CategoryProfitsPageViewModel();
             viewModel.SetData(tableNumber);
 
-            xLoading.Visibility = Visibility.Hidden;
-
             DataContext = viewModel;
         }
 
