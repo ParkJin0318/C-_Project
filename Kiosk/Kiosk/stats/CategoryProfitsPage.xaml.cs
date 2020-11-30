@@ -33,6 +33,8 @@ namespace Kiosk.stats
             else
                 viewModel.SetData(tableNumber);
 
+            xLoading.Visibility = Visibility.Hidden;
+
             SeriesCollection = new SeriesCollection
             {
                 new RowSeries

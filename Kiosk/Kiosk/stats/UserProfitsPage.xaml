@@ -15,6 +15,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
+            <TextBlock
+                Text="Loading"
+                FontSize="40pt"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Name="xLoadingUser"/>
             <StackPanel
                 Orientation="Vertical"
                 HorizontalAlignment="Center">
@@ -75,6 +82,13 @@
             </Grid>
 
             <Grid Grid.Row="1">
+                <TextBlock
+                Text="Loading"
+                FontSize="40pt"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Name="xLoadingMenu"/>
                 <StackPanel
                     Orientation="Vertical"
                     HorizontalAlignment="Center">

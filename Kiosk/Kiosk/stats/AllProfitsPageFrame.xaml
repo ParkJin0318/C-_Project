@@ -28,12 +28,26 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
+                <TextBlock
+                Text="Loading"
+                FontSize="40pt"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Name="xLoadingReal"/>
                 <Frame
                     x:Name="realProfits"
                     NavigationUIVisibility="Hidden"/>
             </Grid>
 
             <Grid Grid.Column="1">
+                <TextBlock
+                Text="Loading"
+                FontSize="40pt"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Name="xLoadingCash"/>
                 <Frame
                     x:Name="cashProfits"
                     NavigationUIVisibility="Hidden"/>
