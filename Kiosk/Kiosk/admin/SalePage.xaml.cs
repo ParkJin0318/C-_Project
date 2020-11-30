@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kiosk.model;
+using Kiosk.model.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,13 +30,14 @@ namespace Kiosk.admin
         {
             InitializeComponent();
             viewModel = new SaleViewModel();
-
             DataContext = viewModel;
+
+            xCategory.SelectedIndex = 0;
         }
 
         private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.DirectionControl(0);
+            this.PageControl(model.Enum.Control.RESET);
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -56,19 +59,19 @@ namespace Kiosk.admin
         {
             if (viewModel.currentPage == 1)
             {
-                this.DirectionControl(1);
+                this.PageControl(model.Enum.Control.PAGE_NEXT);
             }
         }
 
-        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        private void Preb_Button_Click(object sender, RoutedEventArgs e)
         {
             if (viewModel.currentPage == 2)
             {
-                this.DirectionControl(2);
+                this.PageControl(model.Enum.Control.PAGE_PREB);
             }
         }
 
-        private void Before_Button_Click(object sender, RoutedEventArgs e)
+        private void OrderCancel_Button_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
@@ -111,7 +114,7 @@ namespace Kiosk.admin
             }
         }
 
-        private void DirectionControl(int control)
+        private void PageControl(model.Enum.Control control)
         {
             Category category = (Category)xCategory.SelectedIndex;
             xMenus.ItemsSource = viewModel.PageControl(category, control);

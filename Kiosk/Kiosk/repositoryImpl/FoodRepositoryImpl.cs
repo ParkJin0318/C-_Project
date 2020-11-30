@@ -1,4 +1,6 @@
 ﻿using Kiosk.mananger;
+using Kiosk.model;
+using Kiosk.model.Enum;
 using Kiosk.repository;
 using MySql.Data.MySqlClient;
 using System;

@@ -54,7 +54,7 @@ namespace Kiosk.mananger
             }
         }
 
-        public void SetServerData(string data)
+        public void SendServerMessage(string data)
         {
             if (isConnected)
             {
@@ -75,7 +75,7 @@ namespace Kiosk.mananger
             }
         }
 
-        public void GetServerMessage()
+        public void ReciveServerMessage()
         {
             if (isConnected)
             {

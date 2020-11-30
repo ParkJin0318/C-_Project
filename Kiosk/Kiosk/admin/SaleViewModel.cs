@@ -1,4 +1,5 @@
-﻿
+﻿using Kiosk.model;
+using Kiosk.model.Enum;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Prism.Mvvm;
@@ -72,23 +73,22 @@ namespace Kiosk.admin
             }
         }
 
-        public List<Food> PageControl(Category category, int control)
+        public List<Food> PageControl(Category category, Control control)
         {
             switch (control)
             {
-                case 0: // 카테고리 변경시 페이지 초기화
+                case Control.RESET: // 카테고리 변경시 페이지 초기화
                     this.currentPage = 1;
                     break;
 
-                case 1: // 다음 페이지
+                case Control.PAGE_NEXT: // 다음 페이지
                     this.currentPage++;
                     break;
 
-                case 2: // 이전 페이지
+                case Control.PAGE_PREB: // 이전 페이지
                     this.currentPage--;
                     break;
             }
-
             return this.foodList.Where(x => x.category == category && x.page == this.currentPage).ToList();
         }
     }

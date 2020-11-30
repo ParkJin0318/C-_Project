@@ -35,28 +35,33 @@ namespace Kiosk.auth
         public LoginWindow()
         {
             InitializeComponent();
-            App.serverManager.ServerConnect();
 
-            if (!App.serverManager.isConnected)
-            {
-                ToastMessage toast = new ToastMessage();
-                toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
-            }
+            App.serverManager.ServerConnect();
+            this.OnErrorNotifiy();
 
             authRepository = new AuthRepositoryImpl();
             userRepository = new UserRepositoryImpl();
 
             this.SetUserList();
+            this.AutoLoginCheck();
+        }
+
+        private void OnErrorNotifiy()
+        {
+            if (!App.serverManager.isConnected)
+            {
+                ToastMessage toast = new ToastMessage();
+                toast.ShowNotification("서버 에러", "서버가 연결되어 있지 않습니다");
+            }
         }
 
         private void SetUserList()
         {
             App.userList = userRepository.GetAllUser();
             App.market = userRepository.GetMarket(Constants.TEST_MARKET_IDX);
-            this.LoginCheck();
         }
 
-        private void LoginCheck()
+        private void AutoLoginCheck()
         {
             if (authRepository.IsAutoLogin(Constants.SAVE_ID))
             {
@@ -66,12 +71,7 @@ namespace Kiosk.auth
             }
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            this.SetLogin();
-        }
-
-        private bool isLogin()
+        private bool IsUser()
         {
             foreach (User item in App.userList)
             {
@@ -87,8 +87,7 @@ namespace Kiosk.auth
 
         public void SetLogin()
         {
-
-            if (isLogin())
+            if (IsUser())
             {
                 authRepository.SetLogin(App.loginUser.id);
 
@@ -102,6 +101,11 @@ namespace Kiosk.auth
             {
                 MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다");
             }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            this.SetLogin();
         }
 
         private void ShowMainWindow()

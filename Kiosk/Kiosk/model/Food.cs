@@ -1,7 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Kiosk.model.Enum;
+using Prism.Mvvm;
 using System.Windows.Markup;
 
-namespace Kiosk
+namespace Kiosk.model
 {
     public class Food : BindableBase
     {

@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="mananger\DBManager.cs" />
     <Compile Include="mananger\ServerManager.cs" />
+    <Compile Include="model\Enum\Control.cs" />
     <Compile Include="repositoryImpl\FileRepositoryImpl.cs" />
     <Compile Include="repository\FileRepository.cs" />
     <Compile Include="stats\AllProfitsPage.xaml.cs">
@@ -182,7 +183,7 @@
     <Compile Include="model\Stats\UserProfitsData.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="place\TableViewModel.cs" />
-    <Compile Include="model\Category.cs" />
+    <Compile Include="model\Enum\Category.cs" />
     <Compile Include="model\Food.cs" />
     <Compile Include="model\TableData.cs" />
     <Compile Include="order\OrderViewModel.cs" />

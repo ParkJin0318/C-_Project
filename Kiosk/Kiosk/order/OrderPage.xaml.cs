@@ -10,6 +10,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Kiosk.place;
 using System.Collections.Specialized;
+using Kiosk.model;
+using Kiosk.model.Enum;
 
 namespace Kiosk.order
 {
@@ -24,11 +26,10 @@ namespace Kiosk.order
         {
             InitializeComponent();
             viewModel = new OrderViewModel();
+            DataContext = viewModel;
 
             listView.ItemsSource = App.selectFoodList;
             xCategory.SelectedIndex = 0;
-
-            DataContext = viewModel;
 
             PreviousButton.IsEnabled = false;
 
@@ -84,14 +85,14 @@ namespace Kiosk.order
 
         private void xCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.DirectionControl(0);
+            this.PageControl(model.Enum.Control.RESET);
         }
 
         private void Next_Button_Click(object sender, RoutedEventArgs e)
         {
             if (viewModel.currentPage == 1)
             {
-                this.DirectionControl(1);
+                this.PageControl(model.Enum.Control.PAGE_NEXT);
                 NextButton.IsEnabled = false;
                 PreviousButton.IsEnabled = true;
             }
@@ -101,7 +102,7 @@ namespace Kiosk.order
         {
             if (viewModel.currentPage == 2)
             {
-                this.DirectionControl(2);
+                this.PageControl(model.Enum.Control.PAGE_PREB);
                 NextButton.IsEnabled = true;
                 PreviousButton.IsEnabled = false;
             }
@@ -109,17 +110,17 @@ namespace Kiosk.order
 
         private void Plus_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.FoodCountControl(sender, 0);
+            this.FoodCountControl(sender, model.Enum.Control.PAGE_NEXT);
         }
 
         private void Down_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.FoodCountControl(sender, 1);
+            this.FoodCountControl(sender, model.Enum.Control.PAGE_PREB);
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.FoodCountControl(sender, 2);
+            this.FoodCountControl(sender, model.Enum.Control.RESET);
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -131,13 +132,13 @@ namespace Kiosk.order
             xMenus.UnselectAll();
         }
 
-        private void FoodCountControl(object sender, int control)
+        private void FoodCountControl(object sender, model.Enum.Control control)
         {
             Food selectedFood = (sender as Button).DataContext as Food;
             viewModel.FoodCountControl(selectedFood, control);
         }
 
-        private void DirectionControl(int control)
+        private void PageControl(model.Enum.Control control)
         {
             Category category = (Category)xCategory.SelectedIndex;
             xMenus.ItemsSource = viewModel.PageControl(category, control);

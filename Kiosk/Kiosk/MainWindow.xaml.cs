@@ -28,35 +28,47 @@ namespace Kiosk
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly AuthRepository repository;
-        UserRepository userRepository = new UserRepositoryImpl();
+        private readonly AuthRepository authRepository;
 
         public MainWindow()
         {
             InitializeComponent();
-            repository = new AuthRepositoryImpl();
+            authRepository = new AuthRepositoryImpl();
 
-            SetTime();
-            StartState();
-            StartGetServerMessage();
+            this.SetConnectTime();
+            this.SetTime();
+
+            this.StartServerConnectThread();
+            this.StartGetServerMessageThread();
         }
 
-        private void StartState()
+        private void SetConnectTime()
         {
-            Thread thread = new Thread(ConnectState);
+            if (App.serverManager.isConnected)
+            {
+                CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
+            }
+            else
+            {
+                CurrentTime.Text = "접속 실패 했습니다";
+            }
+        }
+
+        private void StartServerConnectThread()
+        {
+            Thread thread = new Thread(SetServerConnectState);
             thread.IsBackground = true;
             thread.Start();
         }
 
-        private void StartGetServerMessage()
+        private void StartGetServerMessageThread()
         {
-            Thread thread = new Thread(App.serverManager.GetServerMessage);
+            Thread thread = new Thread(App.serverManager.ReciveServerMessage);
             thread.IsBackground = true;
             thread.Start();
         }
 
-
-        private void ConnectState()
+        private void SetServerConnectState()
         {
             while (true)
             {
@@ -79,8 +91,8 @@ namespace Kiosk
                     App.serverManager.ServerConnect();
                     if (App.serverManager.isConnected)
                     {
-                        repository.SetLogin(App.loginUser.id);
-                        StartGetServerMessage();
+                        authRepository.SetLogin(App.loginUser.id);
+                        StartGetServerMessageThread();
                         Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
                         {
                             CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
@@ -92,21 +104,12 @@ namespace Kiosk
 
         private void SetTime()
         {
-            App.totalRunTime = userRepository.GetMarket(Constants.TEST_MARKET_IDX).time;
+            App.totalRunTime = App.market.time;
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Tick += Timer_Tick;
             timer.Start();
-
-            if (App.serverManager.isConnected)
-            {
-                CurrentTime.Text = "최근 접속 시간: " + DateTime.Now.ToString();
-            }
-            else
-            {
-                CurrentTime.Text = "접속 실패 했습니다";
-            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -133,7 +136,7 @@ namespace Kiosk
 
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            repository.SetLogin(App.loginUser.id);
+            authRepository.SetLogin(App.loginUser.id);
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)

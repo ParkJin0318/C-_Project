@@ -1,4 +1,4 @@
-﻿namespace Kiosk
+﻿namespace Kiosk.model.Enum
 {
     public enum Category
     {

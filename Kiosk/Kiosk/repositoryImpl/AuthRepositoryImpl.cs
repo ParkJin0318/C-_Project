@@ -51,7 +51,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", "");
 
             String data = JsonConvert.SerializeObject(json);
-            App.serverManager.SetServerData(data);
+            App.serverManager.SendServerMessage(data);
         }
 
     }

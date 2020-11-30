@@ -14,7 +14,7 @@ namespace Kiosk.admin
     {
         public AdminViewModel()
         {
-            SetUserList();
+            this.userList = App.userList;
         }
 
         private List<User> _userList;
@@ -22,11 +22,6 @@ namespace Kiosk.admin
         {
             get => _userList;
             set => SetProperty(ref _userList, value);
-        }
-
-        private void SetUserList()
-        {
-            this.userList = App.userList;
         }
     }
 }

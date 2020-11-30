@@ -114,7 +114,7 @@ namespace Kiosk.repositoryImpl
             json.Add("Menus", menuList);
 
             String data = JsonConvert.SerializeObject(json);
-            App.serverManager.SetServerData(data);
+            App.serverManager.SendServerMessage(data);
         }
 
         public void SetOrderList(ObservableCollection<Food> foodList, User user, Market market, int tableIdx, int payType)
