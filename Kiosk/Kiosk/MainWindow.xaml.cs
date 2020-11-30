@@ -29,6 +29,7 @@ namespace Kiosk
     public partial class MainWindow : Window
     {
         private readonly AuthRepository repository;
+        UserRepository userRepository = new UserRepositoryImpl();
 
         public MainWindow()
         {
@@ -53,6 +54,7 @@ namespace Kiosk
             thread.IsBackground = true;
             thread.Start();
         }
+
 
         private void ConnectState()
         {
@@ -90,6 +92,8 @@ namespace Kiosk
 
         private void SetTime()
         {
+            App.totalRunTime = userRepository.GetMarket(Constants.TEST_MARKET_IDX).time;
+
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Tick += Timer_Tick;
@@ -107,6 +111,7 @@ namespace Kiosk
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            App.totalRunTime++;
             Time.Text = DateTime.Now.ToString();
         }
 

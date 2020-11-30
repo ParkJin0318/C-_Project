@@ -12,6 +12,6 @@ namespace Kiosk.model
 
         public string name { get; set; }
 
-        public string totalTime { get; set; }
+        public int time { get; set; }
     }
 }

@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
+using Kiosk.util;
+using System.Windows.Threading;
 
 namespace Kiosk.admin
 {
@@ -25,6 +29,26 @@ namespace Kiosk.admin
         {
             InitializeComponent();
             FrameLayout1.NavigationService.Navigate(new AllProfitsPageFrame());
+            SetTime();
+        }
+
+        private void SetTime()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            int temp = App.totalRunTime;
+            int hour = temp / 3600;
+            temp = temp % 3600;
+            int min = temp / 60;
+            temp = temp % 60;
+
+            RunTime.Content = "현재 구동시간: " + hour + ":" + min + ":" + temp;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

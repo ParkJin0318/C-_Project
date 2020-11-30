@@ -65,6 +65,13 @@
                 </StackPanel>
 
             </StackPanel>
+            
+            <Label
+                x:Name="RunTime"
+                Content="현재 구동시간: 0시 0분 0초"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="30"/>
         </Grid>
 
         <Grid Grid.Row="1">

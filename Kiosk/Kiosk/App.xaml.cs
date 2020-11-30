@@ -11,6 +11,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Kiosk.model;
+using Kiosk.repository;
+using Kiosk.repositoryImpl;
 
 namespace Kiosk
 {
@@ -34,5 +36,13 @@ namespace Kiosk
         public static int tableIdx { set; get; }
 
         public static int payType { set; get; }
+
+        public static int totalRunTime { set; get; }
+
+        void App_Exit(object sender, ExitEventArgs e)
+        {
+            UserRepository userRepository = new UserRepositoryImpl();
+            userRepository.SetMarketRunTime(App.totalRunTime);
+        }
     }
 }

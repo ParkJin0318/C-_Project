@@ -13,6 +13,8 @@ namespace Kiosk.repository
 
         Market GetMarket(int idx); // 매장 조회 메서드
 
+        void SetMarketRunTime(int time); // 매장 구동시간 저장 메서드
+
         void SetMessage(User user, string message, bool isGroup); //  tcp 통신: 메세지 전송 메서드
     }
 }
