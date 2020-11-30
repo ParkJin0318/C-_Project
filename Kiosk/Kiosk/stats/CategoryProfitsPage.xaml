@@ -38,6 +38,7 @@
         <Grid Grid.Row="1">
             <Button
                 Content="내보내기"
+                IsEnabled="{Binding isEnabled}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Click="File_Click"/>

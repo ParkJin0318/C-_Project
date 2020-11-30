@@ -1,6 +1,8 @@
 ﻿using Kiosk.model.Stats;
 using Kiosk.repository;
 using Kiosk.repositoryImpl;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,11 @@ namespace Kiosk.stats
         private FileRepository fileRepository;
 
         private List<MenuProfitsData> _data = new List<MenuProfitsData>();
+        private bool _isEnabled;
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
 
         public CategoryProfitsPageViewModel()
         {
@@ -29,14 +36,38 @@ namespace Kiosk.stats
             set => SetProperty(ref _data, value);
         }
 
-        public void SetData()
+        public bool isEnabled
         {
-            this.data = statsRepository.GetCategoryProfitsData(0, 9);
+            set => SetProperty(ref _isEnabled, value);
+            get => _isEnabled;
         }
 
-        public void SetData(int talbeNumber)
+        public void SetData(int tableNumber)
         {
-            this.data = statsRepository.GetCategoryProfitsData(talbeNumber, talbeNumber);
+            if (tableNumber == 0)
+                this.data = statsRepository.GetCategoryProfitsData(0, 9);
+            else
+                this.data = statsRepository.GetCategoryProfitsData(tableNumber, tableNumber);
+
+            SeriesCollection = new SeriesCollection
+            {
+                new RowSeries
+                {
+                    Title = "판매 총 수량",
+                    Values = new ChartValues<double> (this.GetSumCount(0, 3))
+                }
+            };
+
+            SeriesCollection.Add(new RowSeries
+            {
+                Title = "판매 총 총액(0.01 = 100원)",
+                Values = new ChartValues<double>(this.GetSumProfits(0, 3))
+            });
+
+
+            Labels = this.GetNames(0, 3);
+            Formatter = value => value.ToString("N");
+            isEnabled = true;
         }
 
         public double[] GetSumCount(int startPoint, int endPoint)
@@ -71,11 +102,12 @@ namespace Kiosk.stats
 
         public void CreateFile()
         {
-            string[] names = this.GetNames(0, 3);
-            double[] counts = this.GetSumCount(0, 3);
-            double[] profits = this.GetSumProfits(0, 3);
-
-            fileRepository.CreateFileStats(names, counts, profits);
+            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = dialog.SelectedPath;
+                fileRepository.CreateFileStats(path, this.data);
+            }
         }
     }
 }
