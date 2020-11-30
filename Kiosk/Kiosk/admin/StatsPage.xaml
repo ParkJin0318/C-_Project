@@ -68,10 +68,11 @@
             
             <Label
                 x:Name="RunTime"
-                Content="현재 구동시간: 0시 0분 0초"
+                Content="구동 시간을 불러오는 중 입니다!"
                 HorizontalAlignment="Right"
+                Margin="0 0 20 0"
                 VerticalAlignment="Center"
-                FontSize="30"/>
+                FontSize="20"/>
         </Grid>
 
         <Grid Grid.Row="1">

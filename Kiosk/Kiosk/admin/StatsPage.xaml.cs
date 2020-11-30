@@ -17,6 +17,7 @@ using Kiosk.repository;
 using Kiosk.repositoryImpl;
 using Kiosk.util;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace Kiosk.admin
 {
@@ -48,7 +49,7 @@ namespace Kiosk.admin
             int min = temp / 60;
             temp = temp % 60;
 
-            RunTime.Content = "현재 구동시간: " + hour + ":" + min + ":" + temp;
+            RunTime.Content = "총 구동시간: " + hour + ":" + min + ":" + temp;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

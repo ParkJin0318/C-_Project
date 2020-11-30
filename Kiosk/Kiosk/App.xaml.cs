@@ -42,7 +42,7 @@ namespace Kiosk
         void App_Exit(object sender, ExitEventArgs e)
         {
             UserRepository userRepository = new UserRepositoryImpl();
-            userRepository.SetMarketRunTime(App.totalRunTime);
+            userRepository.SetMarketRunTime(App.totalRunTime, App.market.idx);
         }
     }
 }

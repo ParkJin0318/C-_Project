@@ -52,11 +52,14 @@ namespace Kiosk.repositoryImpl
             {
                 market.idx = int.Parse(reader["idxmarket"].ToString());
                 market.name = reader["name"].ToString();
-                market.totalTime = reader["time"].ToString();
-                Console.WriteLine(market.totalTime);
+                market.time = int.Parse(reader["time"].ToString());
             }
-
             return market;
+        }
+
+        public void SetMarketRunTime(int time, int marketIdx)
+        {
+            dbManager.SetDBData("Update market set time = " + time + " Where idxmarket = " + marketIdx + ";");
         }
 
         public void SetMessage(User user, string message, bool isGroup)
